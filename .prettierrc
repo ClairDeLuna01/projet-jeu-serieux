@@ -19,7 +19,5 @@
   "useTabs": false,
   "embeddedLanguageFormatting": "auto",
   "vueIndentScriptAndStyle": false,
-  "experimentalTernaries": false,
-  "filepath": "d:\\dev\\Projet-Jeu-Serieux\\src\\game.ts",
-  "parser": "typescript"
+  "experimentalTernaries": false
 }

@@ -1,0 +1,8 @@
+{
+    "events": [
+        {
+            "name": "Event 1",
+            "root": {}
+        }
+    ]
+}
