@@ -1,15 +1,17 @@
 {
-  "compilerOptions": {
-    "module": "es6",
-    "moduleResolution": "node",
-    "target": "es5",
-    "jsx": "react",
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true
-  },
-  "exclude": ["node_modules", "**/node_modules/*"]
+    "compilerOptions": {
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es5",
+        "jsx": "react",
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "noImplicitReturns": true,
+        "resolveJsonModule": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": ["node_modules", "**/node_modules/*"]
 }

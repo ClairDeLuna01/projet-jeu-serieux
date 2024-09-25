@@ -2,9 +2,14 @@ import { rotate_around_axis } from "./utils";
 import { clamp, Vector2 } from "@math.gl/core";
 import { abs, sign } from "mathjs";
 
+import "./card";
+
+import { Card, events, Event, CardEffect } from "./card";
+
 export class Game {
     private score: number;
     private score_element: HTMLElement;
+    private score_element_pip: HTMLElement;
 
     private employees: number;
     private employees_element: HTMLElement;
@@ -21,15 +26,18 @@ export class Game {
     private dialogueElement: HTMLElement;
 
     private cardElement: HTMLElement;
-    private cardImageElement: HTMLElement;
+    private cardImageElement: HTMLImageElement;
     private cardActionElement: HTMLElement;
 
     private cardClickXpos = -1;
     private cardDragFactor = 0;
 
+    private currentEvent?: Event = undefined;
+
     constructor() {
         this.score = 0;
         this.score_element = document.getElementById("score-value")!;
+        this.score_element_pip = document.getElementById("score-pip")!;
 
         this.employees = 0.5;
         this.employees_element = document.getElementById("employees-fill")!;
@@ -46,7 +54,7 @@ export class Game {
         this.dialogueElement = document.getElementById("dialogue")!;
 
         this.cardElement = document.getElementById("card")!;
-        this.cardImageElement = document.getElementById("card-image")!;
+        this.cardImageElement = document.getElementById("card-image") as HTMLImageElement;
         this.cardActionElement = document.getElementById("card-action")!;
 
         const dragEvent = (event: MouseEvent) => {
@@ -95,7 +103,7 @@ export class Game {
         card.style.transform = `rotate(${angle * factor}rad)`;
 
         const text_appear_start = 0.0;
-        const text_appear_end = 0.5;
+        const text_appear_end = 0.3;
 
         const factorAbs = abs(factor);
         const opacityFact = clamp(
@@ -108,11 +116,46 @@ export class Game {
 
             // TODO fix this when the card system is implemented
             if (sign(factor) > 0) {
-                this.cardActionElement.innerText = "OK!!";
-                this.setPips(0, opacityFact, opacityFact);
+                // this.cardActionElement.innerText = "OK!!";
+                // this.setPips(0, opacityFact, opacityFact);
+
+                this.cardActionElement.innerText =
+                    this.currentEvent?.current.card.right.text ?? "No event";
+
+                const pipMask: [number, number, number, number] = [0, 0, 0, 0];
+                if (this.currentEvent?.current.card.right.employeesModifier) {
+                    pipMask[0] = opacityFact;
+                }
+                if (this.currentEvent?.current.card.right.shareholdersModifier) {
+                    pipMask[1] = opacityFact;
+                }
+                if (this.currentEvent?.current.card.right.publicPerceptionModifier) {
+                    pipMask[2] = opacityFact;
+                }
+                if (this.currentEvent?.current.card.right.goldenParachuteAmount) {
+                    pipMask[3] = opacityFact;
+                }
+
+                this.setPips(...pipMask);
             } else {
-                this.cardActionElement.innerText = "NOT OK!!";
-                this.setPips(opacityFact, opacityFact, 0);
+                this.cardActionElement.innerText =
+                    this.currentEvent?.current.card.left.text ?? "No event";
+
+                const pipMask: [number, number, number, number] = [0, 0, 0, 0];
+                if (this.currentEvent?.current.card.left.employeesModifier) {
+                    pipMask[0] = opacityFact;
+                }
+                if (this.currentEvent?.current.card.left.shareholdersModifier) {
+                    pipMask[1] = opacityFact;
+                }
+                if (this.currentEvent?.current.card.left.publicPerceptionModifier) {
+                    pipMask[2] = opacityFact;
+                }
+                if (this.currentEvent?.current.card.left.goldenParachuteAmount) {
+                    pipMask[3] = opacityFact;
+                }
+
+                this.setPips(...pipMask);
             }
         } else {
             this.cardActionElement.style.opacity = "0";
@@ -123,7 +166,22 @@ export class Game {
         this.cardDragFactor = factor;
     }
 
-    card_stop_dragging(): void {
+    applyCardEffect(effect: CardEffect): void {
+        if (effect.employeesModifier) {
+            this.set_employees(this.employees + effect.employeesModifier);
+        }
+        if (effect.shareholdersModifier) {
+            this.set_shareholders(this.shareholders + effect.shareholdersModifier);
+        }
+        if (effect.publicPerceptionModifier) {
+            this.set_public_perception(this.public_perception + effect.publicPerceptionModifier);
+        }
+        if (effect.goldenParachuteAmount) {
+            this.add_score(effect.goldenParachuteAmount);
+        }
+    }
+
+    async card_stop_dragging(): Promise<void> {
         const valid_threshold = 0.3;
         const card = this.cardElement;
 
@@ -135,23 +193,48 @@ export class Game {
 
             // TODO fix this when the card system is implemented
             if (signFactor > 0) {
-                this.set_public_perception(this.public_perception + 0.1);
-                this.set_shareholders(this.shareholders + 0.1);
+                this.applyCardEffect(
+                    this.currentEvent?.current.card.right ?? {
+                        text: "No event",
+                    }
+                );
+
+                if (this.currentEvent?.current.nextRight) {
+                    this.currentEvent.current = this.currentEvent.current.nextRight;
+                } else {
+                    this.pick_random_event();
+                }
             } else {
-                this.set_employees(this.employees - 0.1);
-                this.set_shareholders(this.shareholders - 0.1);
+                this.applyCardEffect(
+                    this.currentEvent?.current.card.left ?? {
+                        text: "No event",
+                    }
+                );
+
+                if (this.currentEvent?.current.nextLeft) {
+                    this.currentEvent.current = this.currentEvent.current.nextLeft;
+                } else {
+                    this.pick_random_event();
+                }
             }
 
-            this.cardDragFactor = 0;
-        } else {
-            card.style.transition = "transform 0.5s";
-            card.style.transform = "rotate(0rad)";
+            this.updateCard();
 
-            this.cardActionElement.style.opacity = "0";
-            this.cardActionElement.style.transform = "rotate(0rad)";
+            await new Promise((resolve) => setTimeout(resolve, 500));
 
-            this.cardDragFactor = 0;
+            card.style.transition = "0s";
+            card.style.transform = `translateY(${window.innerWidth}px)`;
+
+            await new Promise((resolve) => setTimeout(resolve, 100));
         }
+
+        card.style.transition = "transform 0.5s";
+        card.style.transform = "rotate(0rad)";
+
+        this.cardActionElement.style.opacity = "0";
+        this.cardActionElement.style.transform = "rotate(0rad)";
+
+        this.cardDragFactor = 0;
     }
 
     card_dragging(event: MouseEvent): void {
@@ -161,10 +244,9 @@ export class Game {
         // compute the the factor for the animation based on the mouse x position
         const clickX = event.clientX;
 
-        const screenWidth = window.innerWidth;
-        const screenDragPercentage = 0.5;
+        const dragFactor = 0.001;
 
-        let factor = (clickX - this.cardClickXpos) / (screenWidth * screenDragPercentage);
+        let factor = (clickX - this.cardClickXpos) * dragFactor;
 
         // factor = clamp(factor, -1, 1);
 
@@ -230,18 +312,38 @@ export class Game {
         this.dialogueElement.innerText = value;
     }
 
-    setPips(employees: number, shareholders: number, public_perception: number): void {
+    setPips(
+        employees: number,
+        shareholders: number,
+        public_perception: number,
+        score: number
+    ): void {
         this.employees_element_pip.style.opacity = `${employees}`;
         this.shareholders_element_pip.style.opacity = `${shareholders}`;
         this.public_perception_element_pip.style.opacity = `${public_perception}`;
+        this.score_element_pip.style.opacity = `${score}`;
     }
 
     resetPips(): void {
-        this.setPips(0, 0, 0);
+        this.setPips(0, 0, 0, 0);
+    }
+
+    updateCard(): void {
+        this.cardImageElement.src = this.currentEvent?.current.card.image ?? "";
+        this.dialogueElement.innerText = this.currentEvent?.current.description ?? "";
+    }
+
+    pick_random_event(): void {
+        const randomIndex = Math.floor(Math.random() * events.length);
+        this.currentEvent = events[randomIndex];
+        this.currentEvent.current = this.currentEvent.root;
+        this.updateCard();
+        console.log(this.currentEvent, randomIndex);
     }
 
     play() {
         this.update_bars();
+        this.pick_random_event();
 
         this.resetPips();
     }

@@ -1,8 +1,47 @@
 {
-    "events": [
+    "eventNodes": [
         {
-            "name": "Event 1",
-            "root": {}
+            "id": 0,
+            "description": "This is the root event",
+            "card": {
+                "image": "https://via.placeholder.com/512",
+                "left": {
+                    "text": "This is the left text",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.1
+                },
+                "right": {
+                    "text": "This is the right text",
+                    "employeesModifier": 0.1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "description": "This is the first event after the root",
+            "card": {
+                "image": "https://via.placeholder.com/512",
+                "left": {
+                    "text": "This is the left text",
+                    "shareholdersModifier": -0.1
+                },
+                "right": {
+                    "text": "This is the left text",
+                    "goldenParachuteAmount": 1000
+                }
+            }
+        }
+    ],
+
+    "eventTrees": [
+        {
+            "name": "event 1",
+            "tree": {
+                "id": 0,
+                "right": {
+                    "id": 1
+                }
+            }
         }
     ]
 }
