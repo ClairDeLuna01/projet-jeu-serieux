@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    background-color: #555;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* disable text selection */
+    user-select: none;
+}
+
+.node {
+    width: auto;
+    height: auto;
+    background-color: #0008;
+    border: 1px solid #000;
+
+    top: 100px;
+    left: 100px;
+
+    border-radius: 10px;
+    position: fixed;
+    color: white;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.node-description {
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    width: 300px;
+    min-height: 50px;
+    max-height: 200px;
+    resize: none;
+    overflow: auto;
+}
+
+.node-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 10px;
+    margin: 10px;
+    border: 2px solid #aaa;
+}
+
+.node-actions {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.node-action-input {
+    width: 40px;
+    text-align: center;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+}
+
+.node-action-input-parachute {
+    width: 70px;
+    text-align: center;
+
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+}
+
+.node-action-row-header {
+    vertical-align: middle;
+    text-align: end;
+}
+
+.node-action-row-value {
+    text-align: center;
+}
+
+.node-actions tr td {
+    padding: 3px;
+}
+
+.node-action-link-cell {
+    text-align: center;
+}
+
+.node-action-link-wrapper {
+    position: relative;
+    width: 0;
+    height: 0;
+}
+
+.node-action-link {
+    position: absolute;
+    top: -5px;
+    left: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 27px;
+    height: 27px;
+    background-color: #888;
+    color: #fff;
+    border-radius: 50%;
+    margin: 5px;
+    border: 2px solid #ffffff;
+    cursor: pointer;
+}
+
+.node-action-link:hover {
+    background-color: #555;
+}
+
+.node-action-flags {
+    resize: none;
+    height: 30px;
+    width: 100px;
+    background-color: #000;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.event-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #222;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    height: 50px;
+    border-radius: 0px 0px 15px 0px;
+}

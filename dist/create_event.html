@@ -4,13 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="create_event_style.css">
     <title>Vidoe gaemed :(</title>
 </head>
 
 <body>
     <div id="create-event">
-
+        <div class="node">
+            <textarea class="node-description" placeholder="Event Description" draggable="false"></textarea>
+            <img class="node-image" src="assets/cards/card_placeholder.png" alt="card" draggable="false" />
+            <table class="node-actions">
+                <tr>
+                    <th></th>
+                    <th>Left</th>
+                    <th>Right</th>
+                </tr>
+                <tr>
+                    <td class="node-action-row-header">Flags</td>
+                    <td class="node-action-row-value"><textarea class="node-action-flags"
+                            placeholder="Flags (comma separated)"></textarea></td>
+                    <td class="node-action-row-value"><textarea class="node-action-flags"
+                            placeholder="Flags (comma separated)"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="node-action-row-header">Employees</td>
+                    <td class="node-action-row-value"><input type="text" class="node-action-row-value node-action-input"
+                            value="0.0" /></td>
+                    <td class="node-action-row-value"><input type="text" class="node-action-row-value node-action-input"
+                            value="0.0" /></td>
+                </tr>
+                <tr>
+                    <td class="node-action-row-header">Shareholders</td>
+                    <td class="node-action-row-value"><input type="text" class="node-action-row-value node-action-input"
+                            value="0.0" /></td>
+                    <td class="node-action-row-value"><input type="text" class="node-action-row-value node-action-input"
+                            value="0.0" /></td>
+                </tr>
+                <tr>
+                    <td class="node-action-row-header">Public Perception</td>
+                    <td class="node-action-row-value"><input type="text" class="node-action-input" value="0.0" /></td>
+                    <td class="node-action-row-value"><input type="text" class="node-action-input" value="0.0" /></td>
+                </tr>
+                <tr>
+                    <td class="node-action-row-header">Golden Parachute</td>
+                    <td class="node-action-row-value"><input type="text"
+                            class="node-action-row-value node-action-input-parachute" value="0" /></td>
+                    <td class="node-action-row-value"><input type="text"
+                            class="node-action-row-value node-action-input-parachute" value="0" /></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="node-action-link-cell">
+                        <div class="node-action-link-wrapper">
+                            <div class="node-action-link">+</div>
+                        </div>
+                    </td>
+                    <td class="node-action-link-cell">
+                        <div class="node-action-link-wrapper">
+                            <div class="node-action-link">
+                                +
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="event-info">
+            <input class="event-name" type="text" placeholder="Event Name" />
+            <textarea class="event-req-flags" type="text" placeholder="Required Flags"> </textarea>
+        </div>
+        <div class="event-nav"></div>
+        <div class="image-browser"></div>
     </div>
-    <script src="bundle.js"></script>
+    </div>
+    <script src="create_event.js"></script>
 </body>

@@ -10,30 +10,32 @@
 
 <body>
     <div id="game">
-        <img id="background" src="../assets/background.png" alt="background" draggable="false" />
+        <img id="background" src="assets/background.png" alt="background" draggable="false" />
         <div id="status-bar">
             <div id="score">
-                <div id="score-pip" class="pip"></div>
-                <img src="../assets/golden parachute.png" alt="score" draggable="false" />
+                <div style="position: relative; width: 0; height: 0">
+                    <div id="score-pip" class="pip"></div>
+                </div>
+                <img src="assets/golden parachute.png" alt="score" draggable="false" />
                 <div id="score-value">0</div>
             </div>
             <div id="employees" class="ressource">
                 <div id="employees-pip" class="pip"></div>
-                <img src="../assets/employees.png" alt="employees" draggable="false" />
+                <img src="assets/employees.png" alt="employees" draggable="false" />
                 <div class="fill-wrapper">
                     <div class="fill" style="height: 50%" id="employees-fill"></div>
                 </div>
             </div>
             <div id="shareholders" class="ressource">
                 <div id="shareholders-pip" class="pip"></div>
-                <img src="../assets/shareholders.png" alt="shareholders" draggable="false" />
+                <img src="assets/shareholders.png" alt="shareholders" draggable="false" />
                 <div class="fill-wrapper">
                     <div class="fill" id="shareholders-fill"></div>
                 </div>
             </div>
             <div id="public-perception" class="ressource">
                 <div id="public-perception-pip" class="pip"></div>
-                <img src="../assets/public perception.png" alt="public-perception" draggable="false" />
+                <img src="assets/public perception.png" alt="public-perception" draggable="false" />
                 <div class="fill-wrapper">
                     <div class="fill" id="public-perception-fill"></div>
                 </div>
@@ -46,12 +48,12 @@
                 afloat. Good luck!
             </div>
             <div id="card">
-                <img id="card-image" src="../assets/card_placeholder.png" alt="card" draggable="false" />
+                <img id="card-image" src="assets/card_placeholder.png" alt="card" draggable="false" />
                 <div id="card-action">OK!!</div>
             </div>
         </div>
     </div>
-    <script src="bundle.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

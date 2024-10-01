@@ -1,4 +1,4 @@
-import { rotate_around_axis } from "./utils";
+import { CancelableDelay, formatMoney } from "./utils";
 import { clamp, Vector2 } from "@math.gl/core";
 import { abs, sign } from "mathjs";
 
@@ -29,10 +29,19 @@ export class Game {
     private cardImageElement: HTMLImageElement;
     private cardActionElement: HTMLElement;
 
+    private gameFieldElement: HTMLElement;
+
     private cardClickXpos = -1;
     private cardDragFactor = 0;
 
     private currentEvent?: Event = undefined;
+
+    private disableCardDrag = false;
+
+    private cardAnimDelay1 = new CancelableDelay();
+    private cardAnimDelay2 = new CancelableDelay();
+
+    private flags: string[] = [];
 
     constructor() {
         this.score = 0;
@@ -57,17 +66,27 @@ export class Game {
         this.cardImageElement = document.getElementById("card-image") as HTMLImageElement;
         this.cardActionElement = document.getElementById("card-action")!;
 
+        this.gameFieldElement = document.getElementById("game-field")!;
+
         const dragEvent = (event: MouseEvent) => {
             this.card_dragging(event);
         };
 
-        this.cardElement.addEventListener("mousedown", (event) => {
+        this.gameFieldElement.addEventListener("mousedown", (event) => {
+            if (this.disableCardDrag) {
+                this.cardAnimDelay1.cancel();
+                this.cardAnimDelay2.cancel();
+                return;
+            }
             this.cardClickXpos = event.clientX;
         });
 
         document.addEventListener("mousemove", dragEvent);
 
         document.addEventListener("mouseup", (event) => {
+            if (this.disableCardDrag) {
+                return;
+            }
             this.cardClickXpos = -1;
             this.card_stop_dragging();
             this.resetPips();
@@ -114,7 +133,6 @@ export class Game {
         if (factorAbs > text_appear_start) {
             this.cardActionElement.style.opacity = `${opacityFact}`;
 
-            // TODO fix this when the card system is implemented
             if (sign(factor) > 0) {
                 // this.cardActionElement.innerText = "OK!!";
                 // this.setPips(0, opacityFact, opacityFact);
@@ -179,11 +197,15 @@ export class Game {
         if (effect.goldenParachuteAmount) {
             this.add_score(effect.goldenParachuteAmount);
         }
+        if (effect.flags) {
+            this.flags.push(...effect.flags);
+        }
     }
 
-    async card_stop_dragging(): Promise<void> {
+    async card_stop_dragging() {
         const valid_threshold = 0.3;
         const card = this.cardElement;
+        this.disableCardDrag = true;
 
         if (abs(this.cardDragFactor) > valid_threshold) {
             const signFactor = sign(this.cardDragFactor);
@@ -191,7 +213,6 @@ export class Game {
             card.style.transition = "transform 0.5s";
             card.style.transform = `translateX(${signFactor * window.innerWidth}px)`;
 
-            // TODO fix this when the card system is implemented
             if (signFactor > 0) {
                 this.applyCardEffect(
                     this.currentEvent?.current.card.right ?? {
@@ -220,12 +241,12 @@ export class Game {
 
             this.updateCard();
 
-            await new Promise((resolve) => setTimeout(resolve, 500));
+            await this.cardAnimDelay1.delay(500);
 
             card.style.transition = "0s";
             card.style.transform = `translateY(${window.innerWidth}px)`;
 
-            await new Promise((resolve) => setTimeout(resolve, 100));
+            await this.cardAnimDelay2.delay(100);
         }
 
         card.style.transition = "transform 0.5s";
@@ -235,10 +256,11 @@ export class Game {
         this.cardActionElement.style.transform = "rotate(0rad)";
 
         this.cardDragFactor = 0;
+        this.disableCardDrag = false;
     }
 
     card_dragging(event: MouseEvent): void {
-        if (this.cardClickXpos === -1) {
+        if (this.cardClickXpos === -1 || this.disableCardDrag) {
             return;
         }
         // compute the the factor for the animation based on the mouse x position
@@ -302,10 +324,11 @@ export class Game {
     }
 
     update_bars(): void {
-        this.score_element.innerText = this.score.toString();
         this.employees_element.style.height = `${this.employees * 100}%`;
         this.shareholders_element.style.height = `${this.shareholders * 100}%`;
         this.public_perception_element.style.height = `${this.public_perception * 100}%`;
+
+        this.score_element.innerText = formatMoney(this.score);
     }
 
     set_dialogue(value: string): void {
@@ -334,16 +357,30 @@ export class Game {
     }
 
     pick_random_event(): void {
-        const randomIndex = Math.floor(Math.random() * events.length);
-        this.currentEvent = events[randomIndex];
-        this.currentEvent.current = this.currentEvent.root;
-        this.updateCard();
-        console.log(this.currentEvent, randomIndex);
+        let tries = 0;
+        while (true) {
+            if (tries > 100) {
+                console.error("Couldn't find a valid event");
+                return;
+            }
+            const randomIndex = Math.floor(Math.random() * events.length);
+            const event = events[randomIndex];
+            if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
+                this.currentEvent = event;
+                this.currentEvent.current = this.currentEvent.root;
+                this.updateCard();
+                return;
+            }
+            tries++;
+        }
+        // console.log(this.currentEvent, randomIndex);
     }
 
     play() {
         this.update_bars();
-        this.pick_random_event();
+        this.currentEvent = events[0];
+        this.currentEvent.current = this.currentEvent.root;
+        this.updateCard();
 
         this.resetPips();
     }

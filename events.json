@@ -4,7 +4,7 @@
             "id": 0,
             "description": "This is the root event",
             "card": {
-                "image": "https://via.placeholder.com/512",
+                "image": "assets/cards/card_placeholder.png",
                 "left": {
                     "text": "This is the left text",
                     "employeesModifier": -0.1,
@@ -20,7 +20,7 @@
             "id": 1,
             "description": "This is the first event after the root",
             "card": {
-                "image": "https://via.placeholder.com/512",
+                "image": "assets/cards/card_placeholder.png",
                 "left": {
                     "text": "This is the left text",
                     "shareholdersModifier": -0.1
@@ -28,6 +28,37 @@
                 "right": {
                     "text": "This is the left text",
                     "goldenParachuteAmount": 1000
+                }
+            }
+        },
+        {
+            "id": 2,
+            "description": "This is another event",
+            "card": {
+                "image": "assets/cards/card_placeholder.png",
+                "left": {
+                    "text": "This is the left text",
+                    "employeesModifier": -0.1,
+                    "flags": ["flag1"]
+                },
+                "right": {
+                    "text": "This is the right text",
+                    "employeesModifier": 0.1
+                }
+            }
+        },
+        {
+            "id": 3,
+            "description": "This is yet another event",
+            "card": {
+                "image": "assets/cards/card_placeholder.png",
+                "left": {
+                    "text": "This is the left text",
+                    "employeesModifier": -0.1
+                },
+                "right": {
+                    "text": "This is the right text",
+                    "employeesModifier": 0.1
                 }
             }
         }
@@ -41,6 +72,19 @@
                 "right": {
                     "id": 1
                 }
+            }
+        },
+        {
+            "name": "event 2",
+            "tree": {
+                "id": 2
+            }
+        },
+        {
+            "name": "event 3",
+            "requiredFlags": ["flag1"],
+            "tree": {
+                "id": 3
             }
         }
     ]

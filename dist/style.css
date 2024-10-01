@@ -64,7 +64,6 @@ body {
 }
 
 .pip {
-    display: inline-block;
     margin: 0;
     position: relative;
     top: -18px;
@@ -77,6 +76,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#score-pip.pip {
+    top: -50px;
+    left: 28px;
+    position: absolute;
 }
 
 .pip-big {
