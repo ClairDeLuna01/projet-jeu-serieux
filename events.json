@@ -1,14 +1,43 @@
 {
     "eventNodes": [
         {
-            "id": 0,
-            "description": "This is the root event",
+            "id": 0, // Carte d'intro 1
+            "description": "Bienvenue à la direction de Nullisoft ! Nous avons pris la peine de lire attentivement votre CV et nous sommes impressionnés par votre capacité d'héritage familial.",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager
+                "left": {
+                    "text": "Merci !"
+                },
+                "right": {
+                    "text": "Mais que faites-vous chez moi !?"
+                }
+            }
+        },
+        {
+            "id": 1, // Carte d'intro 2
+            "description": "Chez Nullisoft, notre mot d'ordre est de créer des Applications Réactives Génératrice d'Expériences Numériques Transactionnaires ! C'est notre travail et l'essence même de l'âme incroyable que nous infusons à tous nos services vidéoludiques !",
             "card": {
                 "image": "https://via.placeholder.com/512",
                 "left": {
+                    "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
+                    "goldenParachuteAmount": 100
+                },
+                "right": {
+                    "text": "Tu est viré.", // TODO : changer l'image du mec pour rajouter une fausse moustache
+                    "shareholdersModifier": 0.1,
+                    "flags": ["MANAGER_FIRED"]
+                }
+            }
+        },
+        {
+            "id": 2, //
+            "description": "This is another event",
+            "card": {
+                "image": "assets/cards/card_placeholder.png",
+                "left": {
                     "text": "This is the left text",
                     "employeesModifier": -0.1,
-                    "shareholdersModifier": 0.1
+                    "flags": ["flag1"]
                 },
                 "right": {
                     "text": "This is the right text",
@@ -17,17 +46,17 @@
             }
         },
         {
-            "id": 1,
-            "description": "This is the first event after the root",
+            "id": 3,
+            "description": "This is yet another event",
             "card": {
-                "image": "https://via.placeholder.com/512",
+                "image": "assets/cards/card_placeholder.png",
                 "left": {
                     "text": "This is the left text",
-                    "shareholdersModifier": -0.1
+                    "employeesModifier": -0.1
                 },
                 "right": {
-                    "text": "This is the left text",
-                    "goldenParachuteAmount": 1000
+                    "text": "This is the right text",
+                    "employeesModifier": 0.1
                 }
             }
         }
