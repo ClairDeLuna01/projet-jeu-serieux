@@ -25,6 +25,11 @@ module.exports = {
                 ],
                 type: "javascript/auto",
             },
+            {
+                test: /\.json$/,
+                loader: path.resolve(__dirname, "webpack.jsonc.loader.js"),
+                type: "javascript/auto",
+            },
         ],
     },
     resolve: {

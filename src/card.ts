@@ -7,6 +7,7 @@ export interface CardEffect {
     publicPerceptionModifier?: number;
     goldenParachuteAmount?: number;
     flags?: string[];
+    removeFlags?: string[];
 }
 
 export interface Card {
@@ -28,12 +29,14 @@ export class Event {
     public root: EventNode;
     public current: EventNode;
     public requiredFlags: string[] = [];
+    public notFlags: string[] = [];
 
-    constructor(name: string, node: EventNode, requiredFlags: string[]) {
+    constructor(name: string, node: EventNode, requiredFlags: string[], notFlags: string[]) {
         this.root = node;
         this.current = node;
         this.name = name;
         this.requiredFlags = requiredFlags;
+        this.notFlags = notFlags;
     }
 }
 
@@ -55,6 +58,7 @@ interface JSONEventTree {
     name: string;
     tree: JSONEventTreeNode;
     requiredFlags?: string[];
+    notFlags?: string[];
 }
 
 interface JSONSchema {
@@ -81,7 +85,7 @@ function loadEvents(): void {
 
     events = file.eventTrees.map((tree) => {
         const root = buildTree(tree.tree, file.eventNodes);
-        return new Event(tree.name, root, tree.requiredFlags ?? []);
+        return new Event(tree.name, root, tree.requiredFlags ?? [], tree.notFlags ?? []);
     });
 }
 

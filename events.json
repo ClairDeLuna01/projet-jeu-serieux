@@ -4,7 +4,7 @@
             "id": 0, // Carte d'intro 1
             "description": "Bienvenue à la direction de Nullisoft ! Nous avons pris la peine de lire attentivement votre CV et nous sommes impressionnés par votre capacité d'héritage familial.",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager 
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager
                 "left": {
                     "text": "Merci !"
                 },
@@ -112,19 +112,6 @@
                 "right": {"id": 1},
                 "left": {"id": 1}
                 
-            }
-        },
-        {
-            "name": "event 2",
-            "tree": {
-                "id": 2
-            }
-        },
-        {
-            "name": "event 3",
-            "requiredFlags": ["flag1"],
-            "tree": {
-                "id": 3
             }
         }
     ]

@@ -6,6 +6,10 @@ import "./card";
 
 import { Card, events, Event, CardEffect } from "./card";
 
+interface SpecialFlagType {
+    [key: string]: () => void;
+}
+
 export class Game {
     private score: number;
     private score_element: HTMLElement;
@@ -42,6 +46,12 @@ export class Game {
     private cardAnimDelay2 = new CancelableDelay();
 
     private flags: string[] = [];
+
+    private specialFlags: SpecialFlagType = {
+        flag1: function () {
+            console.log("flag1");
+        },
+    };
 
     constructor() {
         this.score = 0;
@@ -100,7 +110,8 @@ export class Game {
 
     card_animation(factor: number): void {
         const card = this.cardElement;
-        const angle = Math.PI / 3;
+        const angle = Math.PI / 12;
+        const translation = 50;
 
         card.style.transition = "transform 0s";
 
@@ -119,7 +130,7 @@ export class Game {
 
         factor = clamp(factor, -1, 1);
 
-        card.style.transform = `rotate(${angle * factor}rad)`;
+        card.style.transform = `rotate(${angle * factor}rad) translateX(${translation * factor}%)`;
 
         const text_appear_start = 0.0;
         const text_appear_end = 0.3;
@@ -199,6 +210,15 @@ export class Game {
         }
         if (effect.flags) {
             this.flags.push(...effect.flags);
+
+            effect.flags.forEach((flag) => {
+                if (this.specialFlags[flag]) {
+                    this.specialFlags[flag]();
+                }
+            });
+        }
+        if (effect.removeFlags) {
+            this.flags = this.flags.filter((flag) => !effect.removeFlags?.includes(flag));
         }
     }
 
@@ -356,23 +376,28 @@ export class Game {
         this.dialogueElement.innerText = this.currentEvent?.current.description ?? "";
     }
 
+    getAllEventsWithMatchingFlags(flags: string[]): Event[] {
+        return events.filter((event) => {
+            return (
+                event.requiredFlags.every((flag) => flags.includes(flag)) &&
+                !event.notFlags.some((flag) => flags.includes(flag))
+            );
+        });
+    }
+
     pick_random_event(): void {
-        let tries = 0;
-        while (true) {
-            if (tries > 100) {
-                console.error("Couldn't find a valid event");
-                return;
-            }
-            const randomIndex = Math.floor(Math.random() * events.length);
-            const event = events[randomIndex];
-            if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
-                this.currentEvent = event;
-                this.currentEvent.current = this.currentEvent.root;
-                this.updateCard();
-                return;
-            }
-            tries++;
+        const matchingEvents = this.getAllEventsWithMatchingFlags(this.flags);
+
+        const randomIndex = Math.floor(Math.random() * matchingEvents.length);
+        const event = matchingEvents[randomIndex];
+
+        if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
+            this.currentEvent = event;
+            this.currentEvent.current = this.currentEvent.root;
+            this.updateCard();
+            return;
         }
+
         // console.log(this.currentEvent, randomIndex);
     }
 
