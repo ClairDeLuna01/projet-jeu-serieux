@@ -34,6 +34,7 @@ export class Game {
     private cardActionElement: HTMLElement;
 
     private gameFieldElement: HTMLElement;
+    private gameElement: HTMLElement;
 
     private cardClickXpos = -1;
     private cardDragFactor = 0;
@@ -103,6 +104,7 @@ export class Game {
         this.cardActionElement = document.getElementById("card-action")!;
 
         this.gameFieldElement = document.getElementById("game-field")!;
+        this.gameElement = document.getElementById("game")!;
 
         const dragEvent = (event: MouseEvent) => {
             this.card_dragging(event);
