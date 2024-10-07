@@ -17,39 +17,81 @@
             "id": 1, // Carte d'intro 2
             "description": "Chez Nullisoft, notre mot d'ordre est de créer des Applications Réactives Génératrice d'Expériences Numériques Transactionnaires ! C'est notre travail et l'essence même de l'âme incroyable que nous infusons à tous nos services vidéoludiques !",
             "card": {
-                "image": "https://via.placeholder.com/512",
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager 
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
                     "goldenParachuteAmount": 100
                 },
                 "right": {
-                    "text": "Tu est viré.", // TODO : changer l'image du mec pour rajouter une fausse moustache
+                    "text": "Vous êtes viré.", // TODO : changer l'image du mec pour rajouter une fausse moustache 
                     "shareholdersModifier": 0.1,
                     "flags": ["MANAGER_FIRED"]
                 }
             }
         },
         {
-            "id": 2, //
-            "description": "This is another event",
+            // TODO : ajouter l'évênement
+            "id": 2, // Le nerd demande de faire un jeu profond
+            "description": "J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques !",
             "card": {
-                "image": "assets/cards/card_placeholder.png",
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd
                 "left": {
-                    "text": "This is the left text",
+                    "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
-                    "flags": ["flag1"]
+                    "publicPerceptionModifier": 0.25
                 },
                 "right": {
-                    "text": "This is the right text",
-                    "employeesModifier": 0.1
+                    "text": "Prends cet argent! Mais attention, il s'appel revient.",
+                    "employeesModifier": 0.1,
+                    "publicPerceptionModifier": 0.25,
+                    "goldenParachuteAmount": -1000
                 }
             }
         },
         {
-            "id": 3,
+            // TODO : ajouter l'évênement
+            "id": 3, // Le nerd demande la grève
+            "description": "C'en est trop ! Payez-nous nos heures supplémentaires et installez une machine à eau dans le couloir ! Ou sinon… On fait grève ! ",
+            "card": {
+                "image": "assets/cards/card_placeholder.png",  // TODO : mettre image du nerd
+                "left": {
+                    "text": "Vous êtes virés, tous!",
+                    "employeesModifier": -1.0
+                },
+                "right": {
+                    "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
+                    "employeesModifier": 0.20,
+                    "goldenParachuteAmount" : -500
+                }
+            }
+        },
+        { 
+            // TODO : ajouter l'évênement
+            "id": 4, // Le nerd préviens d'un retard de deadline
+            "description": "Patron, nous rencontrons des difficultés à respecter la prochaine deadline pour la sortie du projet. Le jeu n'est pas prêt ! Que devons-nous faire ?",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd
+                "left": {
+                    "text": "Tout vient à point à qui sait attendre. Repoussons un peu la sortie.",
+                    "employeesModifier": 0.1,
+                    "goldenParachuteAmount": 5000,
+                    "publicPerceptionModifier": 0.05,
+                    "shareholdersModifier": -0.15
+                },
+                "right": {
+                    "text": "Quadruple heures supplémentaires pour tout le monde.",
+                    "employeesModifier": -0.1,
+                    "goldenParachuteAmount": 500,
+                    "shareholdersModifier": 0.05,
+                    "publicPerceptionModifier": -0.15
+                }
+            }
+        },
+        {
+            "id": 356,
             "description": "This is yet another event",
             "card": {
-                "image": "assets/cards/card_placeholder.png",
+                "image": "assets/cards/card_placeholder.png", 
                 "left": {
                     "text": "This is the left text",
                     "employeesModifier": -0.1
@@ -79,12 +121,12 @@
 
     "eventTrees": [
         {
-            "name": "event 1",
+            "name": "Intro",
             "tree": {
                 "id": 0,
-                "right": {
-                    "id": 1
-                }
+                "right": {"id": 1},
+                "left": {"id": 1}
+                
             }
         },
         {
