@@ -47,8 +47,34 @@ export class Game {
 
     private flags: string[] = [];
 
+    private lowThreshold = 0.3;
+    private veryLowThreshold = 0.1;
+    private highThreshold = 0.7;
+    private veryHighThreshold = 0.9;
+
+    private barFlags: string[] = [
+        "LOW_EMPLOYEES",
+        "LOW_SHAREHOLDERS",
+        "LOW_PUBLIC_PERCEPTION",
+        "VERY_LOW_EMPLOYEES",
+        "VERY_LOW_SHAREHOLDERS",
+        "VERY_LOW_PUBLIC_PERCEPTION",
+        "ZERO_EMPLOYEES",
+        "ZERO_SHAREHOLDERS",
+        "ZERO_PUBLIC_PERCEPTION",
+        "HIGH_EMPLOYEES",
+        "HIGH_SHAREHOLDERS",
+        "HIGH_PUBLIC_PERCEPTION",
+        "VERY_HIGH_EMPLOYEES",
+        "VERY_HIGH_SHAREHOLDERS",
+        "VERY_HIGH_PUBLIC_PERCEPTION",
+        "MAX_EMPLOYEES",
+        "MAX_SHAREHOLDERS",
+        "MAX_PUBLIC_PERCEPTION",
+    ];
+
     private specialFlags: SpecialFlagType = {
-        flag1: function () {
+        MANAGER_FIRED: function () {
             console.log("flag1");
         },
     };
@@ -385,7 +411,47 @@ export class Game {
         });
     }
 
+    isAnyBarMaxOrZero(): boolean {
+        return (
+            this.employees === 0 ||
+            this.employees === 1 ||
+            this.shareholders === 0 ||
+            this.shareholders === 1 ||
+            this.public_perception === 0 ||
+            this.public_perception === 1
+        );
+    }
+
+    getAllEventsWithAppropriateMaxOrZeroFlag(): Event[] {
+        return events.filter((event) => {
+            return (
+                (this.employees === 0 && event.requiredFlags.includes("ZERO_EMPLOYEES")) ||
+                (this.employees === 1 && event.requiredFlags.includes("MAX_EMPLOYEES")) ||
+                (this.shareholders === 0 && event.requiredFlags.includes("ZERO_SHAREHOLDERS")) ||
+                (this.shareholders === 1 && event.requiredFlags.includes("MAX_SHAREHOLDERS")) ||
+                (this.public_perception === 0 &&
+                    event.requiredFlags.includes("ZERO_PUBLIC_PERCEPTION")) ||
+                (this.public_perception === 1 &&
+                    event.requiredFlags.includes("MAX_PUBLIC_PERCEPTION"))
+            );
+        });
+    }
+
     pick_random_event(): void {
+        if (this.isAnyBarMaxOrZero()) {
+            const matchingEvents = this.getAllEventsWithAppropriateMaxOrZeroFlag();
+
+            const randomIndex = Math.floor(Math.random() * matchingEvents.length);
+            const event = matchingEvents[randomIndex];
+
+            if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
+                this.currentEvent = event;
+                this.currentEvent.current = this.currentEvent.root;
+                this.updateCard();
+                return;
+            }
+        }
+
         const matchingEvents = this.getAllEventsWithMatchingFlags(this.flags);
 
         const randomIndex = Math.floor(Math.random() * matchingEvents.length);
@@ -399,6 +465,59 @@ export class Game {
         }
 
         // console.log(this.currentEvent, randomIndex);
+    }
+
+    updateBarFlags(): void {
+        // start by removing all bar flags
+        this.barFlags.forEach((flag) => {
+            this.flags = this.flags.filter((f) => f !== flag);
+        });
+
+        // add the new flags
+        // employees
+        if (this.employees < this.lowThreshold) {
+            this.flags.push("LOW_EMPLOYEES");
+        } else if (this.employees < this.veryLowThreshold) {
+            this.flags.push("VERY_LOW_EMPLOYEES");
+        } else if (this.employees === 0) {
+            this.flags.push("ZERO_EMPLOYEES");
+        } else if (this.employees > this.highThreshold) {
+            this.flags.push("HIGH_EMPLOYEES");
+        } else if (this.employees > this.veryHighThreshold) {
+            this.flags.push("VERY_HIGH_EMPLOYEES");
+        } else if (this.employees === 1) {
+            this.flags.push("MAX_EMPLOYEES");
+        }
+
+        // shareholders
+        if (this.shareholders < this.lowThreshold) {
+            this.flags.push("LOW_SHAREHOLDERS");
+        } else if (this.shareholders < this.veryLowThreshold) {
+            this.flags.push("VERY_LOW_SHAREHOLDERS");
+        } else if (this.shareholders === 0) {
+            this.flags.push("ZERO_SHAREHOLDERS");
+        } else if (this.shareholders > this.highThreshold) {
+            this.flags.push("HIGH_SHAREHOLDERS");
+        } else if (this.shareholders > this.veryHighThreshold) {
+            this.flags.push("VERY_HIGH_SHAREHOLDERS");
+        } else if (this.shareholders === 1) {
+            this.flags.push("MAX_SHAREHOLDERS");
+        }
+
+        // public perception
+        if (this.public_perception < this.lowThreshold) {
+            this.flags.push("LOW_PUBLIC_PERCEPTION");
+        } else if (this.public_perception < this.veryLowThreshold) {
+            this.flags.push("VERY_LOW_PUBLIC_PERCEPTION");
+        } else if (this.public_perception === 0) {
+            this.flags.push("ZERO_PUBLIC_PERCEPTION");
+        } else if (this.public_perception > this.highThreshold) {
+            this.flags.push("HIGH_PUBLIC_PERCEPTION");
+        } else if (this.public_perception > this.veryHighThreshold) {
+            this.flags.push("VERY_HIGH_PUBLIC_PERCEPTION");
+        } else if (this.public_perception === 1) {
+            this.flags.push("MAX_PUBLIC_PERCEPTION");
+        }
     }
 
     play() {

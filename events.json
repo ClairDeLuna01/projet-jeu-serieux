@@ -59,6 +59,21 @@
                     "employeesModifier": 0.1
                 }
             }
+        },
+        {
+            "id": 4,
+            "description": "oh no you're dead :(",
+            "card": {
+                "image": "assets/cards/card_placeholder.png",
+                "left": {
+                    "text": "This is the left text",
+                    "employeesModifier": -0.1
+                },
+                "right": {
+                    "text": "This is the right text",
+                    "employeesModifier": 0.1
+                }
+            }
         }
     ],
 
@@ -70,6 +85,13 @@
                 "right": {
                     "id": 1
                 }
+            }
+        },
+        {
+            "name": "death event",
+            "tree": {
+                "id": 4,
+                "flags": ["MAX_SHAREHOLDERS"]
             }
         }
     ]
