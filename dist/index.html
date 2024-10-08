@@ -10,7 +10,6 @@
 
 <body>
     <div id="game">
-        <img id="background" src="assets/background.png" alt="background" draggable="false" />
         <div id="status-bar">
             <div id="score">
                 <div style="position: relative; width: 0; height: 0">
@@ -42,7 +41,8 @@
             </div>
         </div>
 
-        <div id="game-field">
+        <div id="game-field" class="hide">
+            <img id="background" src="assets/background.png" alt="background" draggable="false" />
             <div id="dialogue">
                 Hey! You're the new CEO of a big video game company! You have to make decisions to keep your company
                 afloat. Good luck!
@@ -52,90 +52,118 @@
                 <div id="card-action">OK!!</div>
             </div>
         </div>
-    </div>
 
-    <div id="letter-minigame" class="hide">
-        <div id="letter-minigame-content">
-            <div id="letter-minigame-header">
-                Write this appology letter! <br>
-                Try to avoid making too many mistakes!
-            </div>
-            <div id="letter-minigame-body">
-                <div id="letter-minigame-text-header">
-                    CEO of Nullisoft Inc. <br>
-                    1234 Game Street <br>
-                    Game City, 12345 <br> <br>
-                    Date:
-                    <script> document.write(new Date().toLocaleDateString()); </script> <br> <br>
+        <div id="letter-minigame">
+            <div id="letter-minigame-bg"></div>
+            <div id="letter-minigame-content">
+                <div id="letter-minigame-header">
+                    Finish this appology letter! <br>
+                    Try to avoid making too many mistakes!
                 </div>
-
-                <div id="letter-minigame-text">
-                    <div class="letter-minigame-text-paragraph">
-                        Dear [Recipient],
+                <div id="letter-minigame-body">
+                    <div id="letter-minigame-text-header">
+                        CEO of Nullisoft Inc. <br>
+                        1234 Game Street <br>
+                        Game City, 12345 <br> <br>
+                        Date:
+                        <script> document.write(new Date().toLocaleDateString()); </script> <br> <br>
                     </div>
 
-                    <!-- <br><br> -->
+                    <div id="letter-minigame-text">
+                        <div class="letter-minigame-text-paragraph">
+                            Dear [Recipient],
+                        </div>
 
-                    <div class="letter-minigame-text-paragraph">
-                        On behalf of Nullisoft Inc., I would like to extend <div class="letter-minigame-question">my
-                            sincerest apologies</div> for the recent events
-                        surrounding our company. We understand that our actions have caused a great deal of concern and
-                        frustration among our customers, and we are committed to making things right.
+                        <div class="letter-minigame-text-paragraph">
+                            On behalf of Nullisoft Inc., I would like to extend
+                            <div class="letter-minigame-blank">my sincerest apologies</div>
+                            for the recent events surrounding our company. We understand that our actions have caused
+                            <div class="letter-minigame-blank">a great deal of concern and frustration</div>
+                            among our customers, and we are committed to making things right.
+                        </div>
+
+                        <div class="letter-minigame-text-paragraph">
+                            We are currently working to address the issues that have been brought to our attention, and
+                            we are taking steps to ensure that they do not happen again in the future. We value
+                            <div class="letter-minigame-blank">our customers</div>
+                            and their feedback, and we want to assure you that we are doing everything in our power
+                            to resolve this matter as
+                            <div class="letter-minigame-blank">quickly as possible</div>.
+                        </div>
+
+                        <div class="letter-minigame-text-paragraph">
+                            We
+                            <div class="letter-minigame-blank">appreciate your patience and understanding</div>
+                            as we work to make things right. If you have any questions or concerns,
+                            <div class="letter-minigame-blank">please do not hesitate to contact us</div>.
+                            We are here to help and will do everything we can
+                            to ensure that you are satisfied with our products and services.
+                        </div>
+
+                        <div class="letter-minigame-text-paragraph">
+                            Thank you for your continued support.
+                        </div>
+
+                        <div class="letter-minigame-text-paragraph">
+                            Sincerely, <br>
+                            CEO, Nullisoft Inc.
+                        </div>
+
                     </div>
-
-                    <!-- <br><br> -->
-
-                    <div class="letter-minigame-text-paragraph">
-                        We are currently working to address the issues that have been brought to our attention, and we
-                        are
-                        taking steps to ensure that they do not happen again in the future. We value our customers and
-                        their
-                        feedback, and we want to assure you that we are doing everything in our power to resolve this
-                        matter
-                        as quickly as possible.
-                    </div>
-
-                    <!-- <br><br> -->
-
-                    <div class="letter-minigame-text-paragraph">
-                        We appreciate your patience and understanding as we work to make things right. If you have any
-                        questions or concerns, please do not hesitate to contact us. We are here to help and will do
-                        everything we can to ensure that you are satisfied with our products and services.
-                    </div>
-
-                    <!-- <br><br> -->
-
-                    <div class="letter-minigame-text-paragraph">
-                        Thank you for your continued support.
-                    </div>
-
-                    <!-- <br><br> -->
-
-                    <div class="letter-minigame-text-paragraph">
-                        Sincerely, <br>
-                        CEO, Nullisoft Inc.
-                    </div>
-
                 </div>
-            </div>
-            <div id="letter-minigame-input">
-                <div class="letter-minigame-input-element">
-                    my sincerest apologies
-                </div>
-                <div class="letter-minigame-input-element">
-                    nothing at all
-                </div>
-                <div class="letter-minigame-input-element">
-                    a lot of money
-                </div>
-                <div class="letter-miniagme-input-element">
-                    all my fucks
+                <div id="letter-minigame-input">
+                    <div class="letter-minigame-input-element">
+                        my sincerest apologies
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        nothing at all
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        a lot of money
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        a great deal of concern and frustration
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        our customers
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        our brain-washed minions
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        quickly as possible
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        cheaply as possible
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        quietly as possible
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        appreciate your patience and understanding
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        wish you would just go away
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        don't understand what we did wrong
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        please do not hesitate to contact us
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        please do not contact us
+                    </div>
+                    <div class="letter-minigame-input-element">
+                        too bad :)
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <script src="main.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

@@ -1,12 +1,12 @@
 {
     "devDependencies": {
+        "@types/mathjs": "^9.4.2",
+        "node-json-minify": "^3.0.0",
+        "ts-loader": "^9.5.1",
         "typescript": "^5.6.2",
         "webpack": "^5.94.0",
         "webpack-cli": "^5.1.4",
-        "webpack-dev-server": "^5.1.0",
-        "ts-loader": "^9.5.1",
-        "node-json-minify": "^3.0.0",
-        "@types/mathjs": "^9.4.2"
+        "webpack-dev-server": "^5.1.0"
     },
     "name": "game",
     "version": "1.0.0",
