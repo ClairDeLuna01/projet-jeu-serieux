@@ -55,7 +55,7 @@
             "id": 3, // Le nerd demande la grève
             "description": "C'en est trop ! Payez-nous nos heures supplémentaires et installez une machine à eau dans le couloir ! Ou sinon… On fait grève ! ",
             "card": {
-                "image": "assets/cards/card_placeholder.png",  // TODO : mettre image du nerd
+                "image": "assets/cards/nerd_strike.png",
                 "left": {
                     "text": "Vous êtes virés, tous!",
                     "employeesModifier": -1.0
@@ -73,7 +73,7 @@
             "id": 4, // Le nerd préviens d'un retard de deadline
             "description": "Patron, nous rencontrons des difficultés à respecter la prochaine deadline pour la sortie du projet. Le jeu n'est pas prêt ! Que devons-nous faire ?",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd
+                "image": "assets/cards/nerd_neutral.png",
                 "left": {
                     "text": "Tout vient à point à qui sait attendre. Repoussons un peu la sortie.",
                     "employeesModifier": 0.1,
@@ -111,10 +111,10 @@
             }
         },
         {
-            "id": 6,
+            "id": 6, // Le nerd demande de finir plus tôt sa journée
             "description": "J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance, patron. Puis-je prendre ma journée ?",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd qui pleure
+                "image": "assets/cards/nerd_smile.png",
                 "left": {
                     "text": "Bravo, vous avez bien mérité votre repos ! Et tenez, je vous offre le café.",
                     "employeesModifier": 0.15,
