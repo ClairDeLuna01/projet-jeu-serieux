@@ -5,11 +5,19 @@ class LetterMinigame {
     public letterHTML: string;
     public blanks: string[];
 
+    private letterBodyElement: HTMLElement;
+    private letterInputElement: HTMLElement;
+
     constructor(letterRaw: string) {
         this.letterRaw = letterRaw;
         this.blanks = [];
 
         this.processLetter();
+
+        this.letterBodyElement = document.getElementById("letter-minigame-text")!;
+        this.letterInputElement = document.getElementById("letter-minigame-input")!;
+
+        this.letterBodyElement.innerHTML = this.letterHTML;
     }
 
     processLetter() {
@@ -48,3 +56,5 @@ class LetterMinigame {
         this.letterHTML += endTag;
     }
 }
+
+const letterMinigame1 = new LetterMinigame(letter1);

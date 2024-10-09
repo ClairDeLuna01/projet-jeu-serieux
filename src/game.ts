@@ -291,8 +291,6 @@ export class Game {
                 }
             }
 
-            this.updateCard();
-
             await this.cardAnimDelay1.delay(500);
 
             card.style.transition = "0s";
@@ -303,6 +301,8 @@ export class Game {
 
         card.style.transition = "transform 0.5s";
         card.style.transform = "rotate(0rad)";
+
+        this.updateCard();
 
         this.cardActionElement.style.opacity = "0";
         this.cardActionElement.style.transform = "rotate(0rad)";
@@ -454,7 +454,7 @@ export class Game {
                 if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
                     this.currentEvent = event;
                     this.currentEvent.current = this.currentEvent.root;
-                    this.updateCard();
+                    // this.updateCard();
                     return;
                 }
             }
@@ -468,7 +468,7 @@ export class Game {
         if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
             this.currentEvent = event;
             this.currentEvent.current = this.currentEvent.root;
-            this.updateCard();
+            // this.updateCard();
             return;
         }
 
