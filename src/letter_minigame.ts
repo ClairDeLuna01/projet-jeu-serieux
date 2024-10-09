@@ -15,5 +15,36 @@ class LetterMinigame {
     processLetter() {
         const lines = this.letterRaw.split("\n");
         const paragraphTag = '<div class="letter-minigame-text-paragraph">';
+        const blankTag = '<div class="letter-minigame-blank">';
+        const endTag = "</div>";
+        const blankPattern = "||";
+
+        const header = `<div id="letter-minigame-text-header">
+                        CEO of Nullisoft Inc. <br>
+                        1234 Game Street <br>
+                        Game City, 12345 <br> <br>
+                        Date:
+                        <script> document.write(new Date().toLocaleDateString()); </script> <br> <br>
+                    </div>`;
+
+        this.letterHTML = header + paragraphTag;
+
+        for (const line of lines) {
+            if (line === "") {
+                this.letterHTML += endTag + paragraphTag;
+            } else {
+                const words = line.split(" ");
+                for (const word of words) {
+                    if (word.includes(blankPattern)) {
+                        this.blanks.push(word);
+                        this.letterHTML += blankTag + blankPattern + endTag + " ";
+                    } else {
+                        this.letterHTML += word + " ";
+                    }
+                }
+            }
+        }
+
+        this.letterHTML += endTag;
     }
 }
