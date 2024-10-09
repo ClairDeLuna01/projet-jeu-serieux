@@ -142,14 +142,14 @@ body {
 #card {
     position: relative;
     margin: 20px;
-    height: 350px;
+    height: 494px;
     width: 350px;
     transform-origin: 50% 80%;
 }
 
 #card-image {
     width: 350px;
-    height: 350px;
+    height: 494px;
     border-radius: 20px;
     flex-shrink: 0;
     animation: blur-image;
