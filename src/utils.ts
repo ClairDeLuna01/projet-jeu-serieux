@@ -68,5 +68,7 @@ export function formatMoney(value: number): string {
     let suffixIndex = 0;
     for (; value >= 1000; value /= 1000, suffixIndex++);
 
-    return "$" + value.toFixed(2) + suffixes[suffixIndex];
+    console.log(value, suffixIndex);
+
+    return "$" + Math.floor(value * 100) / 100 + suffixes[suffixIndex];
 }

@@ -1,6 +1,6 @@
 import letter1 from "../letters/letter1.txt";
 
-class LetterMinigame {
+export class LetterMinigame {
     public letterRaw: string;
     public letterHTML: string;
     public blanks: string[];
@@ -58,3 +58,4 @@ class LetterMinigame {
 }
 
 const letterMinigame1 = new LetterMinigame(letter1);
+export const letterMinigames = [letterMinigame1];

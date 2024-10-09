@@ -1,7 +1,7 @@
 import { CancelableDelay, formatMoney } from "./utils";
 import { clamp, Vector2 } from "@math.gl/core";
 import { abs, sign } from "mathjs";
-import "./letter_minigame";
+import { letterMinigames, LetterMinigame } from "./letter_minigame";
 
 import "./card";
 
@@ -36,6 +36,7 @@ export class Game {
 
     private gameFieldElement: HTMLElement;
     private gameElement: HTMLElement;
+    private letterMinigameElement: HTMLElement;
 
     private cardClickXpos = -1;
     private cardDragFactor = 0;
@@ -106,6 +107,9 @@ export class Game {
 
         this.gameFieldElement = document.getElementById("game-field")!;
         this.gameElement = document.getElementById("game")!;
+
+        this.letterMinigameElement = document.getElementById("letter-minigame")!;
+        this.letterMinigameElement.classList.add("hide");
 
         const dragEvent = (event: MouseEvent) => {
             this.card_dragging(event);
@@ -527,6 +531,8 @@ export class Game {
             this.flags.push("MAX_PUBLIC_PERCEPTION");
         }
     }
+
+    startLetterMinigame(minigame: LetterMinigame): void {}
 
     play() {
         this.update_bars();
