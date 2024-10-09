@@ -20,12 +20,13 @@
                 "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager 
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
-                    "goldenParachuteAmount": 100
+                    "goldenParachuteAmount": 100,
+                    "flags": ["INTRO_DONE"]
                 },
                 "right": {
                     "text": "Vous êtes viré.", // TODO : changer l'image du mec pour rajouter une fausse moustache 
                     "shareholdersModifier": 0.1,
-                    "flags": ["MANAGER_FIRED"]
+                    "flags": ["MANAGER_FIRED", "INTRO_DONE"]
                 }
             }
         },
@@ -38,7 +39,8 @@
                 "left": {
                     "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
-                    "publicPerceptionModifier": 0.25
+                    "shareholdersModifier": 0.25,
+                    "goldenParachuteAmount": 1000
                 },
                 "right": {
                     "text": "Prends cet argent! Mais attention, il s'appel revient.",
@@ -61,7 +63,8 @@
                 "right": {
                     "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
                     "employeesModifier": 0.20,
-                    "goldenParachuteAmount" : -500
+                    "goldenParachuteAmount" : -500,
+                    "flags" : ["STRIKE_AVOIDED"] // TODO : ajouter une machine à eau dans un coin de l'écran
                 }
             }
         },
@@ -87,6 +90,44 @@
                 }
             }
         },
+        { 
+            // TODO : ajouter l'évênement
+            "id": 5, // Le nerd fait un burnout
+            "description": "J'en peux plus... Cela fait 18 semaines que je n'ai pas revu mon poisson rouge. Je vois des images du projet chaque fois que je ferme les yeux.",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd qui pleure
+                "left": {
+                    "text": "Si vous pensez que vos problèmes m'intéressent...",
+                    "employeesModifier": -0.35,
+                    "publicPerceptionModifier": -0.05,
+                    "shareholdersModifier" : 0.1,
+                    "goldenParachuteAmount" : 3000
+                },
+                "right": {
+                    "text": "Euuh... Prenez un jour de congé, hein. Je vous l'offre.",
+                    "employeesModifier": 0.25,
+                    "publicPerceptionModifier": 0.1
+                }
+            }
+        },
+        {
+            "id": 6,
+            "description": "J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance, patron. Puis-je prendre ma journée ?",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd qui pleure
+                "left": {
+                    "text": "Bravo, vous avez bien mérité votre repos ! Et tenez, je vous offre le café.",
+                    "employeesModifier": 0.15,
+                    "goldenParachuteAmount" : -1
+                },
+                "right": {
+                    "text": "MAIS RETOUNREZ TRAVAILLEZ, FEIGNASSE !!!!",
+                    "employeesModifier": -0.15,
+                    "shareholdersModifier" : 0.1,
+                    "goldenParachuteAmount" : 1000
+                }
+            }
+        },
         {
             "id": 356,
             "description": "This is yet another event",
@@ -101,40 +142,38 @@
                     "employeesModifier": 0.1
                 }
             }
-        },
-        {
-            "id": 4,
-            "description": "oh no you're dead :(",
-            "card": {
-                "image": "assets/cards/card_placeholder.png",
-                "left": {
-                    "text": "This is the left text",
-                    "employeesModifier": -0.1
-                },
-                "right": {
-                    "text": "This is the right text",
-                    "employeesModifier": 0.1
-                }
-            }
         }
     ],
 
     "eventTrees": [
-        {
-            "name": "Intro",
-            "tree": {
-                "id": 0,
-                "right": {"id": 1},
-                "left": {"id": 1}
+        // {
+        //     "name": "Intro",
+        //     "notFlags" : ["INTRO_DONE"],
+        //     "tree": {
+        //         "id": 0,
+        //         "right": {"id": 1},
+        //         "left": {"id": 1}
                 
-            }
-        },
-        {
-            "name": "death event",
-            "tree": {
-                "id": 4,
-                "flags": ["MAX_SHAREHOLDERS"]
-            }
-        }
+        //     }
+        // }
+        // , 
+        //     {"name": "event","tree": {"id": 2}}
+        // , 
+        //     {"name": "event", "notFlags" : ["STRIKE_AVOIDED"], "tree": {"id": 3}}
+        // , 
+        //     {"name": "event","tree": {"id": 4}}
+        // , 
+        //     {"name": "event","tree": {"id": 5}}
+        // , 
+            {"name": "event","tree": {"id": 6}}
+        
+            // {"name": "event","tree": {"id": 4}},
+        // {
+        //     "name": "event",
+        //     "tree": {
+        //         "id": 4,
+        //         "flags": ["MAX_SHAREHOLDERS"]
+        //     }
+        // }
     ]
 }
