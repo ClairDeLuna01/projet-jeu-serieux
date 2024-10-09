@@ -35,7 +35,7 @@
             "id": 2, // Le nerd demande de faire un jeu profond
             "description": "J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques !",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd
+                "image": "assets/cards/nerd_confident.png",
                 "left": {
                     "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
@@ -95,7 +95,7 @@
             "id": 5, // Le nerd fait un burnout
             "description": "J'en peux plus... Cela fait 18 semaines que je n'ai pas revu mon poisson rouge. Je vois des images du projet chaque fois que je ferme les yeux.",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du nerd qui pleure
+                "image": "assets/cards/nerd_depression.png",
                 "left": {
                     "text": "Si vous pensez que vos problèmes m'intéressent...",
                     "employeesModifier": -0.35,
@@ -157,14 +157,14 @@
         //     }
         // }
         // , 
-        //     {"name": "event","tree": {"id": 2}}
-        // , 
+            {"name": "event","tree": {"id": 2}}
+        , 
             {"name": "event", "notFlags" : ["STRIKE_AVOIDED"], "flags" : ["LOW_EMPLOYEES"], "tree": {"id": 3}}
         , 
-        //     {"name": "event","tree": {"id": 4}}
-        // , 
-        //     {"name": "event","tree": {"id": 5}}
-        // , 
+            {"name": "event","tree": {"id": 4}}
+        , 
+            {"name": "event","tree": {"id": 5}}
+        , 
             {"name": "event", "tree": {"id": 6}}
         
             // {"name": "event","tree": {"id": 4}},
