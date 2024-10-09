@@ -152,15 +152,17 @@ body {
     height: 350px;
     border-radius: 20px;
     flex-shrink: 0;
+    animation: blur-image;
 }
 
 #card-action {
     position: absolute;
-    color: white;
+    color: gold;
     top: 7%;
     /* right: 50%; */
     transform: translateX(50%);
-    font-size: 40px;
+    font-size: 25px;
+    -webkit-text-stroke: 1px black;
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
     opacity: 0;

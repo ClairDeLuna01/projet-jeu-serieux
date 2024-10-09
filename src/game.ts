@@ -1,6 +1,7 @@
 import { CancelableDelay, formatMoney } from "./utils";
 import { clamp, Vector2 } from "@math.gl/core";
 import { abs, sign } from "mathjs";
+import "./letter_minigame";
 
 import "./card";
 
@@ -159,6 +160,8 @@ export class Game {
         factor = clamp(factor, -1, 1);
 
         card.style.transform = `rotate(${angle * factor}rad) translateX(${translation * factor}%)`;
+        // apply the blur animation to the card with percentage based on the factor
+        this.cardImageElement.style.filter = `blur(${abs(factor) * 5}px)`;
 
         const text_appear_start = 0.0;
         const text_appear_end = 0.3;
@@ -274,6 +277,7 @@ export class Game {
                     this.pick_random_event();
                 }
             } else {
+                this.cardImageElement.style.filter = "blur(0px)";
                 this.applyCardEffect(
                     this.currentEvent?.current.card.left ?? {
                         text: "No event",
@@ -302,6 +306,7 @@ export class Game {
 
         this.cardActionElement.style.opacity = "0";
         this.cardActionElement.style.transform = "rotate(0rad)";
+        this.cardImageElement.style.filter = "blur(0px)";
 
         this.cardDragFactor = 0;
         this.disableCardDrag = false;

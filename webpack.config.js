@@ -30,6 +30,10 @@ module.exports = {
                 loader: path.resolve(__dirname, "webpack.jsonc.loader.js"),
                 type: "javascript/auto",
             },
+            {
+                test: /\.txt$/,
+                use: "raw-loader",
+            },
         ],
     },
     resolve: {
