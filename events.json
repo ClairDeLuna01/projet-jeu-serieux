@@ -159,13 +159,13 @@
         // , 
         //     {"name": "event","tree": {"id": 2}}
         // , 
-        //     {"name": "event", "notFlags" : ["STRIKE_AVOIDED"], "tree": {"id": 3}}
-        // , 
+            {"name": "event", "notFlags" : ["STRIKE_AVOIDED"], "flags" : ["LOW_EMPLOYEES"], "tree": {"id": 3}}
+        , 
         //     {"name": "event","tree": {"id": 4}}
         // , 
         //     {"name": "event","tree": {"id": 5}}
         // , 
-            {"name": "event","tree": {"id": 6}}
+            {"name": "event", "tree": {"id": 6}}
         
             // {"name": "event","tree": {"id": 4}},
         // {
