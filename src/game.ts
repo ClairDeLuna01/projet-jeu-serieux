@@ -447,15 +447,16 @@ export class Game {
     pick_random_event(): void {
         if (this.isAnyBarMaxOrZero()) {
             const matchingEvents = this.getAllEventsWithAppropriateMaxOrZeroFlag();
+            if (matchingEvents.length > 0) {
+                const randomIndex = Math.floor(Math.random() * matchingEvents.length);
+                const event = matchingEvents[randomIndex];
 
-            const randomIndex = Math.floor(Math.random() * matchingEvents.length);
-            const event = matchingEvents[randomIndex];
-
-            if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
-                this.currentEvent = event;
-                this.currentEvent.current = this.currentEvent.root;
-                this.updateCard();
-                return;
+                if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
+                    this.currentEvent = event;
+                    this.currentEvent.current = this.currentEvent.root;
+                    this.updateCard();
+                    return;
+                }
             }
         }
 
