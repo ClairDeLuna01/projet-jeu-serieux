@@ -17,14 +17,14 @@
             "id": 1, // Carte d'intro 2
             "description": "Chez Nullisoft, notre mot d'ordre est de créer des Applications Réactives Génératrice d'Expériences Numériques Transactionnaires ! C'est notre travail et l'essence même de l'âme incroyable que nous infusons à tous nos services vidéoludiques !",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager 
+                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
                     "goldenParachuteAmount": 100,
                     "flags": ["INTRO_DONE"]
                 },
                 "right": {
-                    "text": "Vous êtes viré.", // TODO : changer l'image du mec pour rajouter une fausse moustache 
+                    "text": "Vous êtes viré.", // TODO : changer l'image du mec pour rajouter une fausse moustache
                     "shareholdersModifier": 0.1,
                     "flags": ["MANAGER_FIRED", "INTRO_DONE"]
                 }
@@ -35,7 +35,7 @@
             "id": 2, // Le nerd demande de faire un jeu profond
             "description": "J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques !",
             "card": {
-                "image": "assets/cards/nerd_confident.png",
+                "image": "assets/cards/nerd/nerd_confident.png",
                 "left": {
                     "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
@@ -55,25 +55,25 @@
             "id": 3, // Le nerd demande la grève
             "description": "C'en est trop ! Payez-nous nos heures supplémentaires et installez une machine à eau dans le couloir ! Ou sinon… On fait grève ! ",
             "card": {
-                "image": "assets/cards/nerd_strike.png",
+                "image": "assets/cards/nerd/nerd_strike.png",
                 "left": {
                     "text": "Vous êtes virés, tous!",
                     "employeesModifier": -1.0
                 },
                 "right": {
                     "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
-                    "employeesModifier": 0.20,
-                    "goldenParachuteAmount" : -500,
-                    "flags" : ["STRIKE_AVOIDED"] // TODO : ajouter une machine à eau dans un coin de l'écran
+                    "employeesModifier": 0.2,
+                    "goldenParachuteAmount": -500,
+                    "flags": ["STRIKE_AVOIDED", "HAS_WATER_COOLER"] // TODO : ajouter une machine à eau dans un coin de l'écran
                 }
             }
         },
-        { 
+        {
             // TODO : ajouter l'évênement
             "id": 4, // Le nerd préviens d'un retard de deadline
             "description": "Patron, nous rencontrons des difficultés à respecter la prochaine deadline pour la sortie du projet. Le jeu n'est pas prêt ! Que devons-nous faire ?",
             "card": {
-                "image": "assets/cards/nerd_neutral.png",
+                "image": "assets/cards/nerd/nerd_neutral.png",
                 "left": {
                     "text": "Tout vient à point à qui sait attendre. Repoussons un peu la sortie.",
                     "employeesModifier": 0.1,
@@ -90,18 +90,18 @@
                 }
             }
         },
-        { 
+        {
             // TODO : ajouter l'évênement
             "id": 5, // Le nerd fait un burnout
             "description": "J'en peux plus... Cela fait 18 semaines que je n'ai pas revu mon poisson rouge. Je vois des images du projet chaque fois que je ferme les yeux.",
             "card": {
-                "image": "assets/cards/nerd_depression.png",
+                "image": "assets/cards/nerd/nerd_depression.png",
                 "left": {
                     "text": "Si vous pensez que vos problèmes m'intéressent...",
                     "employeesModifier": -0.35,
                     "publicPerceptionModifier": -0.05,
-                    "shareholdersModifier" : 0.1,
-                    "goldenParachuteAmount" : 3000
+                    "shareholdersModifier": 0.1,
+                    "goldenParachuteAmount": 3000
                 },
                 "right": {
                     "text": "Euuh... Prenez un jour de congé, hein. Je vous l'offre.",
@@ -114,17 +114,17 @@
             "id": 6, // Le nerd demande de finir plus tôt sa journée
             "description": "J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance, patron. Puis-je prendre ma journée ?",
             "card": {
-                "image": "assets/cards/nerd_smile.png",
+                "image": "assets/cards/nerd/nerd_smile.png",
                 "left": {
                     "text": "Bravo, vous avez bien mérité votre repos ! Et tenez, je vous offre le café.",
                     "employeesModifier": 0.15,
-                    "goldenParachuteAmount" : -1
+                    "goldenParachuteAmount": -1
                 },
                 "right": {
                     "text": "MAIS RETOUNREZ TRAVAILLEZ, FEIGNASSE !!!!",
                     "employeesModifier": -0.15,
-                    "shareholdersModifier" : 0.1,
-                    "goldenParachuteAmount" : 1000
+                    "shareholdersModifier": 0.1,
+                    "goldenParachuteAmount": 1000
                 }
             }
         },
@@ -132,7 +132,7 @@
             "id": 356,
             "description": "This is yet another event",
             "card": {
-                "image": "assets/cards/card_placeholder.png", 
+                "image": "assets/cards/card_placeholder.png",
                 "left": {
                     "text": "This is the left text",
                     "employeesModifier": -0.1
@@ -148,26 +148,25 @@
     "eventTrees": [
         // {
         //     "name": "Intro",
-        //     "notFlags" : ["INTRO_DONE"],
+        //     "notFlags": ["INTRO_DONE"],
         //     "tree": {
         //         "id": 0,
-        //         "right": {"id": 1},
-        //         "left": {"id": 1}
-                
+        //         "right": { "id": 1 },
+        //         "left": { "id": 1 }
         //     }
-        // }
-        // , 
-            {"name": "event","tree": {"id": 2}}
-        , 
-            {"name": "event", "notFlags" : ["STRIKE_AVOIDED"], "flags" : ["LOW_EMPLOYEES"], "tree": {"id": 3}}
-        , 
-            {"name": "event","tree": {"id": 4}}
-        , 
-            {"name": "event","tree": {"id": 5}}
-        , 
-            {"name": "event", "tree": {"id": 6}}
-        
-            // {"name": "event","tree": {"id": 4}},
+        // },
+        { "name": "event", "tree": { "id": 2 } },
+        {
+            "name": "event",
+            "notFlags": ["STRIKE_AVOIDED"],
+            "flags": ["LOW_EMPLOYEES"],
+            "tree": { "id": 3 }
+        },
+        { "name": "event", "tree": { "id": 4 } },
+        { "name": "event", "tree": { "id": 5 } },
+        { "name": "event", "tree": { "id": 6 } }
+
+        // {"name": "event","tree": {"id": 4}},
         // {
         //     "name": "event",
         //     "tree": {

@@ -11,6 +11,24 @@ interface SpecialFlagType {
     [key: string]: () => void;
 }
 
+class Trinket {
+    unlocked: boolean;
+    flag: string;
+    name: string;
+    element: HTMLElement;
+    constructor(flag: string, imagePath: string, name: string) {
+        this.unlocked = false;
+        this.flag = flag;
+        this.name = name;
+        this.element = document.getElementById("trinket-" + name)!;
+        this.element.classList.add("hide");
+    }
+}
+
+const trinkets = [
+    new Trinket("HAS_WATER_COOLER", "./assets/trinkets/water_cooler.png", "water-cooler"),
+];
+
 export class Game {
     private score: number;
     private score_element: HTMLElement;
@@ -37,6 +55,8 @@ export class Game {
     private gameFieldElement: HTMLElement;
     private gameElement: HTMLElement;
     private letterMinigameElement: HTMLElement;
+
+    private nameElement: HTMLElement;
 
     private cardClickXpos = -1;
     private cardDragFactor = 0;
@@ -107,6 +127,8 @@ export class Game {
 
         this.gameFieldElement = document.getElementById("game-field")!;
         this.gameElement = document.getElementById("game")!;
+
+        this.nameElement = document.getElementById("name")!;
 
         this.letterMinigameElement = document.getElementById("letter-minigame")!;
         this.letterMinigameElement.classList.add("hide");
@@ -255,6 +277,8 @@ export class Game {
         if (effect.removeFlags) {
             this.flags = this.flags.filter((flag) => !effect.removeFlags?.includes(flag));
         }
+
+        this.updateTrinkets();
     }
 
     async card_stop_dragging() {
@@ -408,9 +432,44 @@ export class Game {
         this.setPips(0, 0, 0, 0);
     }
 
+    extractNameFromEventImagePath(): string {
+        const path = this.currentEvent?.current.card.image ?? "";
+        const parts = path.split("/");
+        const folder = parts[parts.length - 2];
+
+        const names: any = {
+            nerd: "The Nerd",
+        };
+
+        return names[folder] ?? "";
+    }
+
+    async updateName() {
+        const name = this.extractNameFromEventImagePath();
+        if (this.nameElement.innerText !== name) {
+            for (let i = 0; i < name.length; i++) {
+                this.nameElement.innerText = name.slice(0, i + 1);
+                await new Promise((resolve) => setTimeout(resolve, 100));
+            }
+        } else {
+            this.nameElement.innerText = name;
+        }
+    }
+
     updateCard(): void {
         this.cardImageElement.src = this.currentEvent?.current.card.image ?? "";
         this.dialogueElement.innerText = this.currentEvent?.current.description ?? "";
+        this.updateName();
+    }
+
+    updateTrinkets(): void {
+        for (const trinket of trinkets) {
+            if (this.flags.includes(trinket.flag)) {
+                trinket.element.classList.remove("hide");
+            } else {
+                trinket.element.classList.add("hide");
+            }
+        }
     }
 
     getAllEventsWithMatchingFlags(flags: string[]): Event[] {
@@ -532,7 +591,19 @@ export class Game {
         }
     }
 
-    startLetterMinigame(minigame: LetterMinigame): void {}
+    async startLetterMinigame(minigame: LetterMinigame) {
+        this.gameFieldElement.classList.add("hide");
+        this.letterMinigameElement.classList.remove("hide");
+        minigame.setGame(this);
+
+        minigame.start();
+
+        await minigame.waitTilDone();
+
+        this.gameFieldElement.classList.remove("hide");
+        this.letterMinigameElement.classList.add("hide");
+        this.pick_random_event();
+    }
 
     play() {
         this.update_bars();
@@ -541,5 +612,7 @@ export class Game {
         this.updateCard();
 
         this.resetPips();
+
+        // this.startLetterMinigame(letterMinigames[0]);
     }
 }
