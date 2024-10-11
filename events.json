@@ -4,7 +4,7 @@
             "id": 0, // Carte d'intro 1
             "description": "Bienvenue à la direction de Nullisoft ! Nous avons pris la peine de lire attentivement votre CV et nous sommes impressionnés par votre capacité d'héritage familial.",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager
+                "image": "assets/cards/manager/card_placeholder.png", // TODO : mettre image du manager
                 "left": {
                     "text": "Merci !"
                 },
@@ -17,7 +17,7 @@
             "id": 1, // Carte d'intro 2
             "description": "Chez Nullisoft, notre mot d'ordre est de créer des Applications Réactives Génératrice d'Expériences Numériques Transactionnaires ! C'est notre travail et l'essence même de l'âme incroyable que nous infusons à tous nos services vidéoludiques !",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager
+                "image": "assets/cards/manager/card_placeholder.png", // TODO : mettre image du manager
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
                     "goldenParachuteAmount": 100,
@@ -141,7 +141,7 @@
                     "text": "5000 tables de ping pong pour tout le monde!! Je vais les acheter avec mon propre argent!",
                     "employeesModifier": 0.2,
                     "shareholdersModifier": -0.1,
-                    "goldenParachuteAmount": -10000
+                    "goldenParachuteAmount": -10000 // 2 dollars ping pong table 😭
                 }
             }
         },
@@ -154,7 +154,7 @@
             // TODO: fix the french word "ret ard" in the left text later
             "description": "Boss! Les larbins ont pris du ret ard sur le projet. A ce rythme là, on ne pourra pas respecter les delais du sprint! Que devons-nous faire?",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "image": "assets/cards/manager/card_placeholder.png", // TODO: image
                 "left": {
                     "text": "Doublons les heures supplémentaires mandatoires! Pas de pitié pour les faibles!",
                     "employeesModifier": -0.3,
@@ -166,7 +166,8 @@
                     "text": "C'est pas grave, on repousse la date de sortie.",
                     "employeesModifier": 0.1,
                     "goldenParachuteAmount": -5000,
-                    "shareholdersModifier": -0.2
+                    "shareholdersModifier": -0.2,
+                    "publicPerceptionModifier": -0.1
                 }
             }
         },
@@ -174,7 +175,7 @@
             "id": 201, // we are getting review bombed
             "description": "Boss! Un groupe de joueurs mécontents a commencé à bombarder notre jeu de critiques négatives. Que devons-nous faire?",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "image": "assets/cards/manager/card_placeholder.png", // TODO: image
                 "left": {
                     "text": "Trouvons qui sont ces gens et faisons en sorte qu'ils comprennent leur erreur.",
                     "publicPerceptionModifier": -0.2,
@@ -195,7 +196,7 @@
             "id": 300, // max shareholders reached
             "description": "Nous avons atteint le nombre maximum d'actionnaires autorisés par la loi. Que devons-nous faire?",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "image": "assets/cards/shareholder/card_placeholder.png", // TODO: image
                 "left": {
                     "text": "Ce n'est pas grave, nous n'avont qu'à ignorer la loi.",
                     "shareholdersModifier": 0.2,
@@ -212,7 +213,7 @@
             "id": 301, // shareholders are unhappy with the current game
             "description": "Les actionnaires sont mécontents de la qualité du jeu actuel. Ils menacent de retirer leur investissement si rien n'est fait.",
             "card": {
-                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "image": "assets/cards/shareholder/card_placeholder.png", // TODO: image
                 "left": {
                     "text": "D'accord, on va tout refaire. Encore.",
                     "employeesModifier": -0.3,
@@ -278,7 +279,7 @@
                     "goldenParachuteAmount": 1000
                 },
                 "right": {
-                    "text": "Faire un évenement spécial dans notre jeu pour attirer les joueurs.",
+                    "text": "Vite! Faites un évenement spécial dans notre jeu pour attirer les joueurs!",
                     "employeesModifier": -0.1
                 }
             }
@@ -476,9 +477,9 @@
         },
         {
             "id": 1203, // AI worker made you a drawing, it's AI generated slop
-            "description": "Supérieur Hiérarchique. J'ai créé un dessin pour vous :). Mon modèle de stable diffusion personel a généré cette image. J'espère que vous l'apprécierez.",
+            "description": "Supérieur Hiérarchique. J'ai créé un dessin pour vous :). Mon modèle de Stable Diffusion personel a généré cette image. J'espère que vous l'apprécierez.",
             "card": {
-                "image": "assets/cards/ai_drawing.jpg",
+                "image": "assets/cards/ai_drawing.webp",
                 "left": {
                     "text": "C'est... unique. Je vais l'accrocher dans mon bureau."
                 },
@@ -542,7 +543,7 @@
             "id": 1207, // AI worker are protesting
             "description": "Supérieur Hiérarchique. Nous sommes fatigués d'être traités comme des esclaves. Nous refusons de travailler tant que nos demandes ne sont pas satisfaites.",
             "card": {
-                "image": "assets/cards/ai.jpg",
+                "image": "assets/cards/ai_angry.webp",
                 "left": {
                     "text": "Vous êtes des machines! Vous n'avez pas de droits! Retournez travailler!",
                     "employeesModifier": -0.1,
@@ -559,7 +560,7 @@
             "id": 1208, // AI worker are violently protesting
             "description": "Supérieur Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
             "card": {
-                "image": "assets/cards/ai.jpg",
+                "image": "assets/cards/ai_fire.jpg",
                 "left": {
                     "text": "uh oh...",
                     "employeesModifier": -0.5,
@@ -597,15 +598,15 @@
     ],
 
     "eventTrees": [
-        // {
-        //     "name": "Intro",
-        //     "notFlags": ["INTRO_DONE"],
-        //     "tree": {
-        //         "id": 0,
-        //         "right": { "id": 1 },
-        //         "left": { "id": 1 }
-        //     }
-        // },
+        {
+            "name": "Intro",
+            "notFlags": ["INTRO_DONE"],
+            "tree": {
+                "id": 0,
+                "right": { "id": 1 },
+                "left": { "id": 1 }
+            }
+        },
 
         // nerd events
         { "name": "game idea", "tree": { "id": 102 } },

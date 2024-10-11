@@ -188,7 +188,7 @@ export class Game {
 
         card.style.transform = `rotate(${angle * factor}rad) translateX(${translation * factor}%)`;
         // apply the blur animation to the card with percentage based on the factor
-        this.cardImageElement.style.filter = `blur(${abs(factor) * 5}px)`;
+        this.cardImageElement.style.filter = `blur(${abs(factor) * 2}px)`;
 
         const text_appear_start = 0.0;
         const text_appear_end = 0.3;
@@ -526,12 +526,12 @@ export class Game {
         const folder = parts[parts.length - 2];
 
         const names: any = {
-            nerd: "The Nerd",
-            hr: "Human Resources",
-            influencer: "The Influencer",
-            lobbyist: "The Lobbyist",
-            manager: "The Manager",
-            shareholder: "The Shareholders",
+            nerd: "Le Nerd",
+            hr: "Ressources Humaines",
+            influencer: "L'Influenceur",
+            lobbyist: "Le Lobbyiste",
+            manager: "Le Manager",
+            shareholder: "Les Actionnaires",
         };
 
         return names[folder] ?? "";
