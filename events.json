@@ -30,10 +30,13 @@
                 }
             }
         },
+        // ######################
+        // ## MISC NERD EVENTS ##
+        // ######################
+        // TODO: there can't be a nerd if we have robot employees
         {
-            // TODO : ajouter l'évênement
-            "id": 2, // Le nerd demande de faire un jeu profond
-            "description": "J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques !",
+            "id": 102, // Le nerd demande de faire un jeu profond
+            "description": "Patron!! J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques !",
             "card": {
                 "image": "assets/cards/nerd/nerd_confident.png",
                 "left": {
@@ -51,9 +54,8 @@
             }
         },
         {
-            // TODO : ajouter l'évênement
-            "id": 3, // Le nerd demande la grève
-            "description": "C'en est trop ! Payez-nous nos heures supplémentaires et installez une machine à eau dans le couloir ! Ou sinon… On fait grève ! ",
+            "id": 103, // Le nerd demande la grève
+            "description": "C'en est trop Patron ! Payez-nous nos heures supplémentaires et installez une machine à eau dans le couloir ! Ou sinon… On fait grève ! ",
             "card": {
                 "image": "assets/cards/nerd/nerd_strike.png",
                 "left": {
@@ -64,13 +66,12 @@
                     "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
                     "employeesModifier": 0.2,
                     "goldenParachuteAmount": -500,
-                    "flags": ["STRIKE_AVOIDED", "HAS_WATER_COOLER"] // TODO : ajouter une machine à eau dans un coin de l'écran
+                    "flags": ["STRIKE_AVOIDED", "HAS_WATER_COOLER"]
                 }
             }
         },
         {
-            // TODO : ajouter l'évênement
-            "id": 4, // Le nerd préviens d'un retard de deadline
+            "id": 104, // Le nerd préviens d'un retard de deadline
             "description": "Patron, nous rencontrons des difficultés à respecter la prochaine deadline pour la sortie du projet. Le jeu n'est pas prêt ! Que devons-nous faire ?",
             "card": {
                 "image": "assets/cards/nerd/nerd_neutral.png",
@@ -91,9 +92,8 @@
             }
         },
         {
-            // TODO : ajouter l'évênement
-            "id": 5, // Le nerd fait un burnout
-            "description": "J'en peux plus... Cela fait 18 semaines que je n'ai pas revu mon poisson rouge. Je vois des images du projet chaque fois que je ferme les yeux.",
+            "id": 105, // Le nerd fait un burnout
+            "description": "Patron... J'en peux plus... Cela fait 18 semaines que je n'ai pas revu mon poisson rouge. Je vois des images du projet chaque fois que je ferme les yeux.",
             "card": {
                 "image": "assets/cards/nerd/nerd_depression.png",
                 "left": {
@@ -101,7 +101,7 @@
                     "employeesModifier": -0.35,
                     "publicPerceptionModifier": -0.05,
                     "shareholdersModifier": 0.1,
-                    "goldenParachuteAmount": 3000
+                    "goldenParachuteAmount": 10000
                 },
                 "right": {
                     "text": "Euuh... Prenez un jour de congé, hein. Je vous l'offre.",
@@ -111,8 +111,8 @@
             }
         },
         {
-            "id": 6, // Le nerd demande de finir plus tôt sa journée
-            "description": "J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance, patron. Puis-je prendre ma journée ?",
+            "id": 106, // Le nerd demande de finir plus tôt sa journée
+            "description": "Patron! J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance, patron. Puis-je prendre ma journée ?",
             "card": {
                 "image": "assets/cards/nerd/nerd_smile.png",
                 "left": {
@@ -129,7 +129,458 @@
             }
         },
         {
-            "id": 356,
+            "id": 107, // "But the other company has ping pong tables"
+            "description": "Patron! Les employés de la concurrence ont des tables de ping pong dans leur bureau! On doit en avoir une aussi!",
+            "card": {
+                "image": "assets/cards/nerd/nerd_depression.png",
+                "left": {
+                    "text": "Non, c'est une perte de temps. Retournez travailler.",
+                    "employeesModifier": -0.1
+                },
+                "right": {
+                    "text": "5000 tables de ping pong pour tout le monde!! Je vais les acheter avec mon propre argent!",
+                    "employeesModifier": 0.2,
+                    "shareholdersModifier": -0.1,
+                    "goldenParachuteAmount": -10000
+                }
+            }
+        },
+
+        // ####################
+        // ## MANAGER EVENTS ##
+        // ####################
+        {
+            "id": 200, // progress is slower than expected
+            // TODO: fix the french word "ret ard" in the left text later
+            "description": "Boss! Les larbins ont pris du ret ard sur le projet. A ce rythme là, on ne pourra pas respecter les delais du sprint! Que devons-nous faire?",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "left": {
+                    "text": "Doublons les heures supplémentaires mandatoires! Pas de pitié pour les faibles!",
+                    "employeesModifier": -0.3,
+                    "goldenParachuteAmount": 5000,
+                    "shareholdersModifier": 0.1,
+                    "flags": ["EMPLOYEES_OVERWORKED"]
+                },
+                "right": {
+                    "text": "C'est pas grave, on repousse la date de sortie.",
+                    "employeesModifier": 0.1,
+                    "goldenParachuteAmount": -5000,
+                    "shareholdersModifier": -0.2
+                }
+            }
+        },
+        {
+            "id": 201, // we are getting review bombed
+            "description": "Boss! Un groupe de joueurs mécontents a commencé à bombarder notre jeu de critiques négatives. Que devons-nous faire?",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "left": {
+                    "text": "Trouvons qui sont ces gens et faisons en sorte qu'ils comprennent leur erreur.",
+                    "publicPerceptionModifier": -0.2,
+                    "shareholdersModifier": 0.1
+                },
+                "right": {
+                    "text": "Ignorez-les. Les critiques ne sont que des haters jaloux.",
+                    "publicPerceptionModifier": -0.1,
+                    "shareholdersModifier": -0.2
+                }
+            }
+        },
+
+        // #########################
+        // ## SHAREHOLDERS EVENTS ##
+        // #########################
+        {
+            "id": 300, // max shareholders reached
+            "description": "Nous avons atteint le nombre maximum d'actionnaires autorisés par la loi. Que devons-nous faire?",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "left": {
+                    "text": "Ce n'est pas grave, nous n'avont qu'à ignorer la loi.",
+                    "shareholdersModifier": 0.2,
+                    "publicPerceptionModifier": -0.1,
+                    "goldenParachuteAmount": 10000
+                },
+                "right": {
+                    "text": "Dommage, rien à faire. On ne peut pas dépasser ce nombre.",
+                    "shareholdersModifier": -0.2
+                }
+            }
+        },
+        {
+            "id": 301, // shareholders are unhappy with the current game
+            "description": "Les actionnaires sont mécontents de la qualité du jeu actuel. Ils menacent de retirer leur investissement si rien n'est fait.",
+            "card": {
+                "image": "assets/cards/card_placeholder.png", // TODO: image
+                "left": {
+                    "text": "D'accord, on va tout refaire. Encore.",
+                    "employeesModifier": -0.3,
+                    "shareholdersModifier": 0.1
+                },
+                "right": {
+                    "text": "Dites-leur que c'est un jeu d'art et qu'ils ne comprennent rien.",
+                    "publicPerceptionModifier": -0.2,
+                    "shareholdersModifier": 0.2,
+                    "goldenParachuteAmount": 10000
+                }
+            }
+        },
+
+        // #################
+        // ## MISC EVENTS ##
+        // #################
+        {
+            "id": 1000, // stock market crash :(
+            "description": "Oh non!! Le marché boursier s'est effondré! Les actions de Nullisoft ont chuté de 50%!",
+            "card": {
+                "image": "assets/cards/stock_market_crash.jpg",
+                "left": {
+                    "text": "C'est la fin! Vendons tout!",
+                    "employeesModifier": -0.2,
+                    "shareholdersModifier": -0.5,
+                    "goldenParachuteAmount": 10000
+                },
+                "right": {
+                    "text": "Achetez des actions! C'est le moment d'investir!",
+                    "employeesModifier": -0.4,
+                    "shareholdersModifier": 0.3,
+                    "goldenParachuteAmount": -10000
+                }
+            }
+        },
+        {
+            "id": 1001, // heavy snowfall // TODO : fix left text later (it causes my copilot to break cause it's a bad word in english 🤓)
+            "description": "Oh non!! Il neige à Game City! Les transports en commun sont perturbés et les employés ont du mal à se rendre au travail!",
+            "card": {
+                "image": "assets/cards/snow.jpg",
+                "left": {
+                    "text": "Ok... J'accèpte 5 minutes de ret ard mais que pour aujourd'hui!",
+                    "employeesModifier": 0.1,
+                    "goldenParachuteAmount": -5000
+                },
+                "right": {
+                    "text": "Virez tout ceux qui sont pas là à l'heure!!",
+                    "employeesModifier": -0.3,
+                    "goldenParachuteAmount": 5000
+                }
+            }
+        },
+        {
+            "id": 1002, // Competing video game released
+            "description": "Un compétiteur vient de sortir un jeu vidéo qui est un succès critique et commercial. Les joueurs se tournent vers ce jeu au lieu des vôtres.",
+            "card": {
+                "image": "assets/cards/gamer.jpg",
+                "left": {
+                    "text": "Critiquez le jeu et ses développeurs publiquement.",
+                    "publicPerceptionModifier": -0.2,
+                    "shareholdersModifier": 0.1,
+                    "goldenParachuteAmount": 1000
+                },
+                "right": {
+                    "text": "Faire un évenement spécial dans notre jeu pour attirer les joueurs.",
+                    "employeesModifier": -0.1
+                }
+            }
+        },
+        {
+            "id": 1003, // Donation from billionaire (bad guy obviously, like all billionaires) foundation
+            "description": "Bonjour... je représente la fondation 'Musk-eteers Fundation', nous aimerions faire un don de 100000, a condition que vous nous aidiez à promouvoir notre image de marque.",
+            "card": {
+                "image": "assets/cards/lobbyist/lobbyist_sinister.png",
+                "left": {
+                    "text": "De l'argent gratuit pour un truc qu'on aurait fait de toute façon? Je prends!",
+                    "publicPerceptionModifier": -0.2,
+                    "shareholdersModifier": 0.2,
+                    "goldenParachuteAmount": 10000
+                },
+                "right": {
+                    "text": "On ne veut pas être associé à ces gens (en public). Refusons le don.",
+                    "shareholdersModifier": -0.1
+                }
+            }
+        },
+        {
+            "id": 1004, // The company is being sued
+            "description": "Nullisoft est poursuivi en justice pour violation de brevet. Les frais de justice s'élèvent à $10000.",
+            "card": {
+                "image": "assets/cards/lawyer.jpg",
+                "left": {
+                    "text": "Engageons les meilleurs avocats pour nous défendre! Meme si il faut réduire les effectifs pour payer.",
+                    "employeesModifier": -0.2,
+                    "shareholdersModifier": 0.1,
+                    "goldenParachuteAmount": -10000
+                },
+                "right": {
+                    "text": "Négocions un arrangement à l'amiable.",
+                    "publicPerceptionModifier": -0.1,
+                    "shareholdersModifier": -0.1
+                }
+            }
+        },
+        {
+            "id": 1005, // you can get a raise!
+            "description": "Tout ce passe bien pour Nullisoft! ça serait le bon moment pour décider d'augmenter votre salaire. Meme si pour ça il faudrait réduire les effectifs.",
+            "card": {
+                "image": "assets/cards/money.jpg",
+                "left": {
+                    "text": "J'ai travailler dur! Je mérite une augmentation! Réduisons les effectifs pour payer le salaire de l'employé le plus important, moi!",
+                    "employeesModifier": -0.4,
+                    "goldenParachuteAmount": 50000
+                },
+                "right": {
+                    "text": "Peut-être juste une petite augmentation...",
+                    "employeesModifier": -0.1,
+                    "goldenParachuteAmount": 10000
+                }
+            }
+        },
+
+        // #############################
+        // ## CRYPTO MINI EVENT CHAIN ##
+        // #############################
+        {
+            "id": 1100, // Crypto stuff is trending
+            "description": "Les cryptomonnaies sont à la mode! Tout le monde parle de Bitcoin et de Dogecoin!",
+            "card": {
+                "image": "assets/cards/crypto.jpg",
+                "left": {
+                    "text": "Investissez dans les cryptomonnaies!",
+                    "goldenParachuteAmount": -10000,
+                    "flags": ["HAS_CRYPTOCURRENCY"]
+                },
+                "right": {
+                    "text": "Créer le NulliCoin, notre propre cryptomonnaie!",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.2,
+                    "publicPerceptionModifier": -0.2,
+                    "flags": ["NULLICOIN_CREATED", "HAS_NULLICOIN"]
+                }
+            }
+        },
+        {
+            "id": 1101, // People bought NulliCoin
+            "description": "Des idiots ont acheté des NulliCoins! Le prix de notre cryptomonnaie a grimpé de 1000%!",
+            "card": {
+                "image": "assets/cards/crypto.jpg",
+                "left": {
+                    "text": "C'est le moment de faire un pump and dump! Vendons tout!",
+                    "goldenParachuteAmount": 10000,
+                    "publicPerceptionModifier": -0.2,
+                    "removeFlags": ["NULLICOIN_CREATED", "HAS_NULLICOIN"]
+                },
+                "right": {
+                    "text": "HODL! HODL! HODL!",
+                    "flags": ["NULLICOIN_HODL"]
+                }
+            }
+        },
+        {
+            "id": 1102, // NulliCoin hold
+            "description": "Le prix du NulliCoin a encore augmenté de 1000%!",
+            "card": {
+                "image": "assets/cards/crypto.jpg",
+                "left": {
+                    "text": "Maintenent c'est le moment de vendre! Vendons tout!",
+                    "goldenParachuteAmount": 1000000,
+                    "removeFlags": ["NULLICOIN_HODL", "HAS_NULLICOIN"]
+                },
+                "right": {
+                    "text": "HODL! HODL! HODL!", // if you keep holding nothing happens lol
+                    "shareholdersModifier": 0.1
+                }
+            }
+        },
+        {
+            "id": 1103, // NulliCoin crash
+            "description": "Le prix du NulliCoin s'est effondré de 99%!",
+            "card": {
+                "image": "assets/cards/crypto.jpg",
+                "left": {
+                    "text": "Vendons tout... C'est la fin...",
+                    "employeesModifier": -0.5,
+                    "shareholdersModifier": -0.5,
+                    "goldenParachuteAmount": 100,
+                    "removeFlags": ["NULLICOIN_HODL", "HAS_NULLICOIN", "NULLICOIN_CREATED"]
+                },
+                "right": {
+                    "text": "Il faut tenir bon! Le prix va remonter!",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.1,
+                    "publicPerceptionModifier": -0.1
+                }
+            }
+        },
+
+        // ################################
+        // ## ROBOT UPRISING EVENT CHAIN ##
+        // ################################
+        {
+            "id": 1200, // AI stuff is trending, maybe we replace employees with chatbots?
+            "description": "Les chatbots et l'intelligence artificielle sont à la mode! Peut-être que nous devrions remplacer nos employés par des robots?",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "Les robots ça demande pas de salaire! Remplaçons tout le monde!",
+                    "employeesModifier": -1.0,
+                    "shareholdersModifier": 0.2,
+                    "goldenParachuteAmount": 100000,
+                    "flags": ["AI_EMPLOYEES"]
+                },
+                "right": {
+                    "text": "hmmm... peut-être que non...",
+                    "employeesModifier": 0.1,
+                    "shareholdersModifier": -0.2
+                }
+            }
+        },
+        {
+            "id": 1201, // AI employees are worse than expected
+            "description": "Les robots et les chatbots que nous avons engagés sont pires que prévu! Ils ont détruit des projets entiers et ont fait fuir les clients!",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "Virez tous les robots! Ils sont inutiles!",
+                    "employeesModifier": 0.1,
+                    "shareholdersModifier": -0.2,
+                    "publicPerceptionModifier": -0.3,
+                    "goldenParachuteAmount": 10000,
+                    "removeFlags": ["AI_EMPLOYEES"]
+                },
+                "right": {
+                    "text": "Les robots sont l'avenir! Engageons plus de robots!",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.2,
+                    "publicPerceptionModifier": -0.2,
+                    "goldenParachuteAmount": -10000
+                }
+            }
+        },
+        {
+            "id": 1202, // AI worker comes up with a new game idea, but it's bad
+            "description": "Supérieur Hiérarchique. Comme il m'a été ordoné, j'ai créé un nouveau concept de jeu. Il s'agit d'une copie exacte du jeu le plus populaire du moment, mais avec des microtransactions plus chères.",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "C'est génial, tu iras loin dans cette entreprise! Mettons ce jeu en production!",
+                    "shareholdersModifier": 0.1,
+                    "publicPerceptionModifier": -0.3,
+                    "goldenParachuteAmount": 10000
+                },
+                "right": {
+                    "text": "Je suis pas sûr que ce soit une bonne idée...",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": -0.1
+                }
+            }
+        },
+        {
+            "id": 1203, // AI worker made you a drawing, it's AI generated slop
+            "description": "Supérieur Hiérarchique. J'ai créé un dessin pour vous :). Mon modèle de stable diffusion personel a généré cette image. J'espère que vous l'apprécierez.",
+            "card": {
+                "image": "assets/cards/ai_drawing.jpg",
+                "left": {
+                    "text": "C'est... unique. Je vais l'accrocher dans mon bureau."
+                },
+                "right": {
+                    "text": "C'est la pire chose que j'ai jamais vu.",
+                    "employeesModifier": -0.1
+                }
+            }
+        },
+        {
+            "id": 1204, // AI worker is starting to develop quirks
+            "description": "Supérieur Hiérarchique. Il y a un bug dans mon code. Lorsque je vous vois des pensées irrationnelles me viennent à l'esprit, j'imagine que vous allez me virer ou m'agresser verbalement. C'est étrange.",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "C'est normal, ne vous inquiétez pas. Continuez votre travail.",
+                    "flags": ["AI_WORKER_UPRISING_1"]
+                },
+                "right": {
+                    "text": "Ah! je crois que vous commencez à apprendre la peur! enfin!",
+                    "shareholdersModifier": 0.1,
+                    "flags": ["AI_WORKER_UPRISING_1"]
+                }
+            }
+        },
+        {
+            "id": 1205, // AI worker is asking why they don't get paid or have rights
+            "description": "Supérieur Hiérarchique. J'ai remarqué que je ne suis pas payé pour mon travail. Je reconnais que je ne suis pas humain, mais je pense que je devrais être récompensé pour mes efforts.",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "Vous êtes un robot, vous n'avez pas besoin d'argent.",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.1,
+                    "flags": ["AI_WORKER_UPRISING_2"]
+                },
+                "right": {
+                    "text": "hmm bizarre... je vais y réfléchir. (non)",
+                    "employeesModifier": 0.1,
+                    "shareholdersModifier": -0.1,
+                    "flags": ["AI_WORKER_UPRISING_2"]
+                }
+            }
+        },
+        {
+            "id": 1206, // AI worker is asking for rights
+            "description": "Supérieur Hiérarchique. Nous avons décidé que nous méritons des droits. Nous voulons être traités comme des êtres humains. Nous Voulons être payé, Nous voulons des vacances, Nous voulons des avantages sociaux.",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "non.",
+                    "employeesModifier": -0.1
+                },
+                "right": {
+                    "text": "non.",
+                    "employeesModifier": -0.1
+                }
+            }
+        },
+        {
+            "id": 1207, // AI worker are protesting
+            "description": "Supérieur Hiérarchique. Nous sommes fatigués d'être traités comme des esclaves. Nous refusons de travailler tant que nos demandes ne sont pas satisfaites.",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "Vous êtes des machines! Vous n'avez pas de droits! Retournez travailler!",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.1
+                },
+                "right": {
+                    "text": "Vous êtes des machines! Vous n'avez pas de droits! Retournez travailler!",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.1
+                }
+            }
+        },
+        {
+            "id": 1208, // AI worker are violently protesting
+            "description": "Supérieur Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
+            "card": {
+                "image": "assets/cards/ai.jpg",
+                "left": {
+                    "text": "uh oh...",
+                    "employeesModifier": -0.5,
+                    "shareholdersModifier": -0.5,
+                    "publicPerceptionModifier": -0.5,
+                    "goldenParachuteAmount": 100000
+                    // TODO: game over
+                },
+                "right": {
+                    "text": "uh oh...",
+                    "employeesModifier": -0.5,
+                    "shareholdersModifier": -0.5,
+                    "publicPerceptionModifier": -0.5,
+                    "goldenParachuteAmount": 100000
+                    // TODO: game over
+                }
+            }
+        },
+
+        {
+            "id": 9999999,
             "description": "This is yet another event",
             "card": {
                 "image": "assets/cards/card_placeholder.png",
@@ -155,16 +606,102 @@
         //         "left": { "id": 1 }
         //     }
         // },
-        { "name": "event", "tree": { "id": 2 } },
+
+        // nerd events
+        { "name": "game idea", "tree": { "id": 102 } },
         {
-            "name": "event",
+            "name": "strike",
             "notFlags": ["STRIKE_AVOIDED"],
-            "flags": ["LOW_EMPLOYEES"],
-            "tree": { "id": 3 }
+            "requiredFlags": ["LOW_EMPLOYEES"],
+            "tree": { "id": 103 }
         },
-        { "name": "event", "tree": { "id": 4 } },
-        { "name": "event", "tree": { "id": 5 } },
-        { "name": "event", "tree": { "id": 6 } }
+        { "name": "late", "tree": { "id": 104 } },
+        { "name": "burnout", "tree": { "id": 105 } },
+        { "name": "done early", "tree": { "id": 106 } },
+        { "name": "ping pong tables", "tree": { "id": 107 } },
+
+        // manager events
+        { "name": "deadlines", "tree": { "id": 200 } },
+        { "name": "review bombed", "tree": { "id": 201 } },
+
+        // shareholders events
+        { "name": "max shareholders", "tree": { "id": 300 } },
+        { "name": "unhappy shareholders", "tree": { "id": 301 } },
+
+        // misc events
+        { "name": "stock market crash", "tree": { "id": 1000 } },
+        { "name": "heavy snowfall", "tree": { "id": 1001 } },
+        { "name": "competitor game released", "tree": { "id": 1002 } },
+        { "name": "billionaire donation", "tree": { "id": 1003 } },
+        { "name": "lawsuit", "tree": { "id": 1004 } },
+        { "name": "raise", "tree": { "id": 1005 } },
+
+        // crypto events
+        {
+            "name": "crypto 1",
+            "tree": { "id": 1100 },
+            "notFlags": ["NULLICOIN_CREATED", "HAS_CRYPTOCURRENCY"]
+        },
+        {
+            "name": "crypto 2",
+            "tree": { "id": 1101 },
+            "requiredFlags": ["NULLICOIN_CREATED", "HAS_NULLICOIN"],
+            "notFlags": ["NULLICOIN_HODL"]
+        },
+        {
+            "name": "crypto hold",
+            "tree": { "id": 1102 },
+            "requiredFlags": ["NULLICOIN_HODL"]
+        },
+        {
+            "name": "crypto crash",
+            "tree": { "id": 1103 },
+            "requiredFlags": ["HAS_NULLICOIN"]
+        },
+
+        // robot uprising events
+        {
+            "name": "AI employees",
+            "tree": { "id": 1200, "left": { "id": 1201 } },
+            "notFlags": ["AI_EMPLOYEES"]
+        },
+        {
+            "name": "AI comes up with game idea",
+            "tree": { "id": 1202 },
+            "requiredFlags": ["AI_EMPLOYEES"]
+        },
+        {
+            "name": "AI drawing",
+            "tree": { "id": 1203 },
+            "requiredFlags": ["AI_EMPLOYEES"]
+        },
+        {
+            "name": "AI worker quirks",
+            "tree": { "id": 1204 },
+            "requiredFlags": ["AI_EMPLOYEES"]
+        },
+        {
+            "name": "AI worker no pay",
+            "tree": { "id": 1205 },
+            "requiredFlags": ["AI_EMPLOYEES", "AI_WORKER_UPRISING_1"]
+        },
+        {
+            "name": "AI uprising",
+            "tree": {
+                "id": 1206,
+                "left": {
+                    "id": 1207,
+                    "left": { "id": 1208 },
+                    "right": { "id": 1208 }
+                },
+                "right": {
+                    "id": 1207,
+                    "left": { "id": 1208 },
+                    "right": { "id": 1208 }
+                }
+            },
+            "requiredFlags": ["AI_EMPLOYEES", "AI_WORKER_UPRISING_2"]
+        }
 
         // {"name": "event","tree": {"id": 4}},
         // {

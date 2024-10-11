@@ -1,26 +1,29 @@
 Dear [Recipient],
 
-On behalf of Nullisoft Inc., I would like to extend
-||my sincerest apologies||
-for the recent events surrounding our company. We understand that our actions have caused
-||a great deal of concern and frustration||
+On behalf of Nullisoft Inc., I would like to extend 
+||my sincerest apologies|| 
+for the recent events surrounding our company. We understand that our actions have caused 
+||a great deal of concern and frustration|| 
 among our customers, and we are committed to making things right.
 
-We are currently working to address the issues that have been brought to our attention, and
-we are taking steps to ensure that they do not happen again in the future. We value
-||our customers||
-and their feedback, and we want to assure you that we are doing everything in our power
-to resolve this matter as
-||quickly as possible||.
+We are currently working to address the issues that have been brought to our attention, and 
+we are taking steps to ensure that they do not happen again in the future. We value 
+||our customers|| 
+and their feedback, and we want to assure you that we are doing everything in our power 
+to resolve this matter as 
+||quickly as possible||
+.
 
-We
-||appreciate your patience and understanding||
-as we work to make things right. If you have any questions or concerns,
-||please do not hesitate to contact us||.
-We are here to help and will do everything we can
-to ensure that you are satisfied with our products and services.
+We 
+||appreciate your patience and understanding|| 
+as we work to make things right. If you have any questions or concerns, 
+||please do not hesitate to contact us||
+. 
+We are here to help and will do everything we can 
+to ensure that you are satisfied with our products and services. 
 
-Thank you for your continued support.
+Thank you for your continued support. 
 
 Sincerely, 
-CEO, Nullisoft Inc.
+
+CEO, Nullisoft Inc. 

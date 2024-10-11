@@ -134,10 +134,11 @@ export class Game {
         this.letterMinigameElement.classList.add("hide");
 
         const dragEvent = (event: MouseEvent) => {
+            // console.log("dragging");
             this.card_dragging(event);
         };
 
-        this.gameFieldElement.addEventListener("mousedown", (event) => {
+        this.gameFieldElement.addEventListener("pointerdown", (event) => {
             if (this.disableCardDrag) {
                 this.cardAnimDelay1.cancel();
                 this.cardAnimDelay2.cancel();
@@ -146,9 +147,9 @@ export class Game {
             this.cardClickXpos = event.clientX;
         });
 
-        document.addEventListener("mousemove", dragEvent);
+        document.addEventListener("pointermove", dragEvent);
 
-        document.addEventListener("mouseup", (event) => {
+        document.addEventListener("pointerup", (event) => {
             if (this.disableCardDrag) {
                 return;
             }
@@ -201,6 +202,9 @@ export class Game {
         if (factorAbs > text_appear_start) {
             this.cardActionElement.style.opacity = `${opacityFact}`;
 
+            const largePipThreshold = 0.3;
+            const largePipThresholdScorePercentage = 0.1; // if the score increase is more than this percentage of the total score
+
             if (sign(factor) > 0) {
                 // this.cardActionElement.innerText = "OK!!";
                 // this.setPips(0, opacityFact, opacityFact);
@@ -210,16 +214,36 @@ export class Game {
 
                 const pipMask: [number, number, number, number] = [0, 0, 0, 0];
                 if (this.currentEvent?.current.card.right.employeesModifier) {
-                    pipMask[0] = opacityFact;
+                    pipMask[0] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.right.employeesModifier >=
+                        largePipThreshold
+                            ? 1.0
+                            : 0);
                 }
                 if (this.currentEvent?.current.card.right.shareholdersModifier) {
-                    pipMask[1] = opacityFact;
+                    pipMask[1] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.right.shareholdersModifier >=
+                        largePipThreshold
+                            ? 1.0
+                            : 0);
                 }
                 if (this.currentEvent?.current.card.right.publicPerceptionModifier) {
-                    pipMask[2] = opacityFact;
+                    pipMask[2] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.right.publicPerceptionModifier >=
+                        largePipThreshold
+                            ? 1.0
+                            : 0);
                 }
                 if (this.currentEvent?.current.card.right.goldenParachuteAmount) {
-                    pipMask[3] = opacityFact;
+                    pipMask[3] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.right.goldenParachuteAmount >=
+                        this.score * largePipThresholdScorePercentage
+                            ? 1.0
+                            : 0);
                 }
 
                 this.setPips(...pipMask);
@@ -229,16 +253,35 @@ export class Game {
 
                 const pipMask: [number, number, number, number] = [0, 0, 0, 0];
                 if (this.currentEvent?.current.card.left.employeesModifier) {
-                    pipMask[0] = opacityFact;
+                    pipMask[0] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.left.employeesModifier >= largePipThreshold
+                            ? 1.0
+                            : 0);
                 }
                 if (this.currentEvent?.current.card.left.shareholdersModifier) {
-                    pipMask[1] = opacityFact;
+                    pipMask[1] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.left.shareholdersModifier >=
+                        largePipThreshold
+                            ? 1.0
+                            : 0);
                 }
                 if (this.currentEvent?.current.card.left.publicPerceptionModifier) {
-                    pipMask[2] = opacityFact;
+                    pipMask[2] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.left.publicPerceptionModifier >=
+                        largePipThreshold
+                            ? 1.0
+                            : 0);
                 }
                 if (this.currentEvent?.current.card.left.goldenParachuteAmount) {
-                    pipMask[3] = opacityFact;
+                    pipMask[3] =
+                        opacityFact +
+                        (this.currentEvent?.current.card.left.goldenParachuteAmount >=
+                        this.score * largePipThresholdScorePercentage
+                            ? 1.0
+                            : 0);
                 }
 
                 this.setPips(...pipMask);
@@ -318,6 +361,8 @@ export class Game {
                     this.pick_random_event();
                 }
             }
+
+            this.dialogueElement.style.animation = "fadeOut 0.5s forwards";
 
             await this.cardAnimDelay1.delay(500);
 
@@ -412,8 +457,16 @@ export class Game {
         this.score_element.innerText = formatMoney(this.score);
     }
 
-    set_dialogue(value: string): void {
+    async set_dialogue(value: string): Promise<void> {
         this.dialogueElement.innerText = value;
+        // this.dialogueElement.style.animation = "none";
+        // this.dialogueElement.style.transform = "translateY(-300px)";
+        // this.dialogueElement.style.transition = "0s";
+        // this.dialogueElement.offsetHeight;
+        // await new Promise((resolve) => setTimeout(resolve, 100));
+        this.dialogueElement.style.animation = "fadeIn 1.0s";
+        // this.dialogueElement.style.transition = "transform 0.3s";
+        // this.dialogueElement.style.transform = "translateY(0)";
     }
 
     setPips(
@@ -422,10 +475,45 @@ export class Game {
         public_perception: number,
         score: number
     ): void {
-        this.employees_element_pip.style.opacity = `${employees}`;
-        this.shareholders_element_pip.style.opacity = `${shareholders}`;
-        this.public_perception_element_pip.style.opacity = `${public_perception}`;
-        this.score_element_pip.style.opacity = `${score}`;
+        if (employees > 1) {
+            this.employees_element_pip.style.opacity = `${employees - 1}`;
+            this.employees_element_pip.classList.remove("pip");
+            this.employees_element_pip.classList.add("pip-big");
+        } else {
+            this.employees_element_pip.style.opacity = `${employees}`;
+            this.employees_element_pip.classList.remove("pip-big");
+            this.employees_element_pip.classList.add("pip");
+        }
+
+        if (shareholders > 1) {
+            this.shareholders_element_pip.style.opacity = `${shareholders - 1}`;
+            this.shareholders_element_pip.classList.remove("pip");
+            this.shareholders_element_pip.classList.add("pip-big");
+        } else {
+            this.shareholders_element_pip.style.opacity = `${shareholders}`;
+            this.shareholders_element_pip.classList.remove("pip-big");
+            this.shareholders_element_pip.classList.add("pip");
+        }
+
+        if (public_perception > 1) {
+            this.public_perception_element_pip.style.opacity = `${public_perception - 1}`;
+            this.public_perception_element_pip.classList.remove("pip");
+            this.public_perception_element_pip.classList.add("pip-big");
+        } else {
+            this.public_perception_element_pip.style.opacity = `${public_perception}`;
+            this.public_perception_element_pip.classList.remove("pip-big");
+            this.public_perception_element_pip.classList.add("pip");
+        }
+
+        if (score > 1) {
+            this.score_element_pip.style.opacity = `${score - 1}`;
+            this.score_element_pip.classList.remove("pip");
+            this.score_element_pip.classList.add("pip-big");
+        } else {
+            this.score_element_pip.style.opacity = `${score}`;
+            this.score_element_pip.classList.remove("pip-big");
+            this.score_element_pip.classList.add("pip");
+        }
     }
 
     resetPips(): void {
@@ -439,6 +527,11 @@ export class Game {
 
         const names: any = {
             nerd: "The Nerd",
+            hr: "Human Resources",
+            influencer: "The Influencer",
+            lobbyist: "The Lobbyist",
+            manager: "The Manager",
+            shareholder: "The Shareholders",
         };
 
         return names[folder] ?? "";
@@ -451,6 +544,7 @@ export class Game {
                 this.nameElement.innerText = name.slice(0, i + 1);
                 await new Promise((resolve) => setTimeout(resolve, 100));
             }
+            this.nameElement.innerText = name;
         } else {
             this.nameElement.innerText = name;
         }
@@ -458,7 +552,7 @@ export class Game {
 
     updateCard(): void {
         this.cardImageElement.src = this.currentEvent?.current.card.image ?? "";
-        this.dialogueElement.innerText = this.currentEvent?.current.description ?? "";
+        this.set_dialogue(this.currentEvent?.current.description ?? "");
         this.updateName();
     }
 
@@ -613,6 +707,6 @@ export class Game {
 
         this.resetPips();
 
-        // this.startLetterMinigame(letterMinigames[0]);
+        // this.startLetterMinigame(letterMinigames[1]);
     }
 }

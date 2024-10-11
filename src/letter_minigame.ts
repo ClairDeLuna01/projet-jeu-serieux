@@ -1,4 +1,5 @@
 import letter1 from "../letters/letter1.txt";
+import letter2 from "../letters/letter2.txt";
 import { CardEffect } from "./card";
 import { Game } from "./game";
 
@@ -104,12 +105,24 @@ export class LetterMinigame {
         console.log(guess);
         if (guess === this.blanks[this.currentBlankIndex]) {
             this.game.applyCardEffect(effectGood);
+            this.blankElements[this.currentBlankIndex].style.backgroundColor = "#ded";
+            this.blankElements[this.currentBlankIndex].style.color = "#050";
         } else {
             this.game.applyCardEffect(effectBad);
+            this.blankElements[this.currentBlankIndex].style.backgroundColor = "#edd";
+            this.blankElements[this.currentBlankIndex].style.color = "#500";
         }
 
         this.currentBlankIndex++;
         this.updateGuesses();
+
+        if (this.currentBlankIndex < this.blanks.length) {
+            this.blankElements[this.currentBlankIndex].scrollIntoView({
+                behavior: "smooth",
+                block: "nearest",
+                inline: "center",
+            });
+        }
     }
 
     isDone() {
@@ -171,9 +184,13 @@ export class LetterMinigame {
                 if (line.includes(blankPattern)) {
                     const blankParts = line.split(blankPattern);
                     this.blanks.push(blankParts[1]);
-                    this.letterHTML += blankTag + blankParts[1] + endTag;
+                    this.letterHTML +=
+                        blankTag +
+                        blankParts[1] +
+                        endTag +
+                        (blankParts[2]?.at(0) === " " ? " " : "");
                 } else {
-                    this.letterHTML += " " + line + " ";
+                    this.letterHTML += line;
                 }
             }
         }
@@ -183,4 +200,5 @@ export class LetterMinigame {
 }
 
 const letterMinigame1 = new LetterMinigame(letter1);
-export const letterMinigames = [letterMinigame1];
+const letterMinigame2 = new LetterMinigame(letter2);
+export const letterMinigames = [letterMinigame1, letterMinigame2];

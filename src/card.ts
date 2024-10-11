@@ -69,6 +69,10 @@ interface JSONSchema {
 function buildTree(tree: JSONEventTreeNode, nodes: JSONEventNode[]): EventNode {
     const node = nodes.find((n) => n.id === tree.id)!;
 
+    if (!node) {
+        throw new Error("Could not find node " + tree.id);
+    }
+
     const left = tree.left ? buildTree(tree.left, nodes) : undefined;
     const right = tree.right ? buildTree(tree.right, nodes) : undefined;
 
