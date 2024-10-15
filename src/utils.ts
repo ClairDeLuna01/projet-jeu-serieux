@@ -72,3 +72,7 @@ export function formatMoney(value: number): string {
 
     return "$" + Math.floor(value * 100) / 100 + suffixes[suffixIndex];
 }
+
+export function isAsciiPrintable(keycode: string): boolean {
+    return keycode.length === 1 && keycode.charCodeAt(0) >= 32 && keycode.charCodeAt(0) <= 126;
+}

@@ -2,6 +2,7 @@ import { CancelableDelay, formatMoney } from "./utils";
 import { clamp, Vector2 } from "@math.gl/core";
 import { abs, sign } from "mathjs";
 import { letterMinigames, LetterMinigame } from "./letter_minigame";
+import { typingMinigames, TypingMinigame } from "./typing_minigame";
 
 import "./card";
 
@@ -55,7 +56,9 @@ export class Game {
     private gameFieldElement: HTMLElement;
     private gameElement: HTMLElement;
     private letterMinigameElement: HTMLElement;
+    private typingMinigameElement: HTMLElement;
 
+    private isUpdatingName = false;
     private nameElement: HTMLElement;
 
     private cardClickXpos = -1;
@@ -132,6 +135,9 @@ export class Game {
 
         this.letterMinigameElement = document.getElementById("letter-minigame")!;
         this.letterMinigameElement.classList.add("hide");
+
+        this.typingMinigameElement = document.getElementById("typing-minigame")!;
+        this.typingMinigameElement.classList.add("hide");
 
         const dragEvent = (event: MouseEvent) => {
             // console.log("dragging");
@@ -538,6 +544,10 @@ export class Game {
     }
 
     async updateName() {
+        if (this.isUpdatingName) {
+            return;
+        }
+        this.isUpdatingName = true;
         const name = this.extractNameFromEventImagePath();
         if (this.nameElement.innerText !== name) {
             for (let i = 0; i < name.length; i++) {
@@ -548,6 +558,7 @@ export class Game {
         } else {
             this.nameElement.innerText = name;
         }
+        this.isUpdatingName = false;
     }
 
     updateCard(): void {
@@ -699,6 +710,20 @@ export class Game {
         this.pick_random_event();
     }
 
+    async startTypingMinigame(minigame: TypingMinigame) {
+        this.gameFieldElement.classList.add("hide");
+        this.typingMinigameElement.classList.remove("hide");
+        minigame.setGame(this);
+
+        minigame.start();
+
+        await minigame.waitTilDone();
+
+        this.gameFieldElement.classList.remove("hide");
+        this.typingMinigameElement.classList.add("hide");
+        this.pick_random_event();
+    }
+
     play() {
         this.update_bars();
         this.currentEvent = events[0];
@@ -708,5 +733,6 @@ export class Game {
         this.resetPips();
 
         // this.startLetterMinigame(letterMinigames[1]);
+        // this.startTypingMinigame(typingMinigames[0]);
     }
 }

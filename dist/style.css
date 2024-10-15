@@ -367,9 +367,176 @@ html {
     }
 }
 
+#typing-minigame {
+    width: 100%;
+    height: 100%;
+    color: black;
+}
+
+#typing-minigame-bg {
+    background-color: #bd8cf5;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+#typing-minigame-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 90vh;
+    padding: 20px;
+}
+
+#typing-minigame-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: #8cf5bd;
+    padding: 15px;
+    border-radius: 15px;
+    width: 80%;
+    text-align: center;
+    height: 90px;
+}
+
+@media (max-width: 600px) {
+    #typing-minigame-header {
+        font-size: 18px;
+        height: 100px;
+    }
+}
+
+#typing-minigame-wpm {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    background-color: #f5bd8c;
+    padding: 15px;
+    border-radius: 15px;
+    width: 80%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+#typing-minigame-wpm-value {
+    margin-left: 5px;
+}
+
+#typing-minigame-wpm-label {
+    margin-right: 5px;
+}
+
+@media (max-width: 600px) {
+    #typing-minigame-wpm {
+        font-size: 30px;
+        height: 30px;
+    }
+}
+
+#typing-minigame-text {
+    display: flex;
+    flex-direction: row;
+    font-size: 18px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    width: 80%;
+    text-align: justify;
+    height: 50%;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    #typing-minigame-text {
+        height: 50vh;
+    }
+}
+
+.typing-minigame-paragraph {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.typing-minigame-word {
+    display: inline-block;
+    font-size: 24px;
+    padding: 0px;
+    border-radius: 0px;
+    background-color: #fff;
+    margin: 0px;
+}
+
+.typing-minigame-letter {
+    display: inline-block;
+    font-size: 24px;
+    padding: 0px;
+    /* border-radius: 5px; */
+    background-color: #fff;
+    margin: 0px;
+    cursor: text;
+}
+
+@media (max-width: 600px) {
+    .typing-minigame-word {
+        font-size: 18px;
+    }
+
+    .typing-minigame-letter {
+        font-size: 18px;
+    }
+}
+
+.typing-minigame-letter.correct {
+    background-color: rgb(121, 250, 121);
+}
+
+.typing-minigame-letter.wrong {
+    background-color: rgb(250, 121, 121);
+}
+
+.typing-minigame-letter.active {
+    animation: typing-minigame-letter-type 0.25s;
+}
+
+.typing-minigame-letter.reverse {
+    animation: typing-minigame-letter-reverse 0.25s;
+}
+
 /*
  * Animation stuff
  */
+
+@keyframes typing-minigame-letter-type {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    1% {
+        background-color: #fff;
+        transform: translateY(-7px) scale(1.2) rotate(-10deg);
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+}
+
+@keyframes typing-minigame-letter-reverse {
+    0% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+    1% {
+        background-color: #fff;
+        transform: translateY(-7px) scale(1.2) rotate(10deg);
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+}
 
 @keyframes bgBlink {
     0% {
