@@ -20,7 +20,7 @@
                 "image": "assets/cards/manager/card_placeholder.png", // TODO : mettre image du manager
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
-                    "goldenParachuteAmount": 100,
+                    "goldenParachuteAmount": 1000,
                     "flags": ["INTRO_DONE"]
                 },
                 "right": {
@@ -43,13 +43,13 @@
                     "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
                     "shareholdersModifier": 0.25,
-                    "goldenParachuteAmount": 1000
+                    "goldenParachuteAmount": 10000
                 },
                 "right": {
                     "text": "Prends cet argent! Mais attention, il s'appel revient.",
                     "employeesModifier": 0.1,
                     "publicPerceptionModifier": 0.25,
-                    "goldenParachuteAmount": -1000
+                    "goldenParachuteAmount": -10000
                 }
             }
         },
@@ -78,14 +78,14 @@
                 "left": {
                     "text": "Tout vient à point à qui sait attendre. Repoussons un peu la sortie.",
                     "employeesModifier": 0.1,
-                    "goldenParachuteAmount": 5000,
+                    "goldenParachuteAmount": 50000,
                     "publicPerceptionModifier": 0.05,
                     "shareholdersModifier": -0.15
                 },
                 "right": {
                     "text": "Quadruple heures supplémentaires pour tout le monde.",
                     "employeesModifier": -0.1,
-                    "goldenParachuteAmount": 500,
+                    "goldenParachuteAmount": 5000,
                     "shareholdersModifier": 0.05,
                     "publicPerceptionModifier": -0.15
                 }
@@ -98,7 +98,7 @@
                 "image": "assets/cards/nerd/nerd_depression.png",
                 "left": {
                     "text": "Si vous pensez que vos problèmes m'intéressent...",
-                    "employeesModifier": -0.35,
+                    "employeesModifier": -0.25,
                     "publicPerceptionModifier": -0.05,
                     "shareholdersModifier": 0.1,
                     "goldenParachuteAmount": 10000
