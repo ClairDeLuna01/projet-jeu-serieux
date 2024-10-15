@@ -20,7 +20,7 @@
                 "image": "assets/cards/card_placeholder.png", // TODO : mettre image du manager 
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
-                    "goldenParachuteAmount": 100,
+                    "goldenParachuteAmount": 1000,
                     "flags": ["INTRO_DONE"]
                 },
                 "right": {
@@ -40,13 +40,13 @@
                     "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
                     "shareholdersModifier": 0.25,
-                    "goldenParachuteAmount": 1000
+                    "goldenParachuteAmount": 10000
                 },
                 "right": {
                     "text": "Prends cet argent! Mais attention, il s'appel revient.",
                     "employeesModifier": 0.1,
                     "publicPerceptionModifier": 0.25,
-                    "goldenParachuteAmount": -1000
+                    "goldenParachuteAmount": -10000
                 }
             }
         },
@@ -63,7 +63,7 @@
                 "right": {
                     "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
                     "employeesModifier": 0.20,
-                    "goldenParachuteAmount" : -500,
+                    "goldenParachuteAmount" : -5000,
                     "flags" : ["STRIKE_AVOIDED"] // TODO : ajouter une machine à eau dans un coin de l'écran
                 }
             }
@@ -77,14 +77,14 @@
                 "left": {
                     "text": "Tout vient à point à qui sait attendre. Repoussons un peu la sortie.",
                     "employeesModifier": 0.1,
-                    "goldenParachuteAmount": 5000,
+                    "goldenParachuteAmount": 50000,
                     "publicPerceptionModifier": 0.05,
                     "shareholdersModifier": -0.15
                 },
                 "right": {
                     "text": "Quadruple heures supplémentaires pour tout le monde.",
                     "employeesModifier": -0.1,
-                    "goldenParachuteAmount": 500,
+                    "goldenParachuteAmount": 5000,
                     "shareholdersModifier": 0.05,
                     "publicPerceptionModifier": -0.15
                 }
@@ -98,10 +98,10 @@
                 "image": "assets/cards/nerd_depression.png",
                 "left": {
                     "text": "Si vous pensez que vos problèmes m'intéressent...",
-                    "employeesModifier": -0.35,
+                    "employeesModifier": -0.25,
                     "publicPerceptionModifier": -0.05,
                     "shareholdersModifier" : 0.1,
-                    "goldenParachuteAmount" : 3000
+                    "goldenParachuteAmount" : 30000
                 },
                 "right": {
                     "text": "Euuh... Prenez un jour de congé, hein. Je vous l'offre.",
@@ -124,7 +124,28 @@
                     "text": "MAIS RETOUNREZ TRAVAILLEZ, FEIGNASSE !!!!",
                     "employeesModifier": -0.15,
                     "shareholdersModifier" : 0.1,
-                    "goldenParachuteAmount" : 1000
+                    "goldenParachuteAmount" : 10000
+                }
+            }
+        },
+        {
+            "id": 7, // Le nerd demande de retirer des microtransactions 
+            "description": "Je ne pense pas que l'ajout de lootboxs dans le battle pass de monnaies premium soit un bon ajout. Nous risquons de perdre des joueurs et de ternir l'expérience de jeu.",
+            "card": {
+                "image": "assets/cards/nerd_neutral.png",
+                "left": {
+                    "text": "Bon, OK, enlève-les et demande aux testeurs ce qu'ils en pensent.",
+                    "employeesModifier": 0.05,
+                    "goldenParachuteAmount" : 1e4,
+                    "shareholdersModifier" : -0.1,
+                    "publicPerceptionModifier" : 0.1
+                },
+                "right": {
+                    "text": "Tu sais peut-être faire des jeux, mais moi, je sais… eum bah je possède le studio, donc tu vas faire ce que je te dis et tout garder !",
+                    "employeesModifier": -0.05,
+                    "goldenParachuteAmount" : 1e5,
+                    "shareholdersModifier" : 0.1,
+                    "publicPerceptionModifier" : -0.1
                 }
             }
         },
@@ -166,7 +187,9 @@
             {"name": "event","tree": {"id": 5}}
         , 
             {"name": "event", "tree": {"id": 6}}
-        
+        , 
+            {"name": "event", "tree": {"id": 7}}
+
             // {"name": "event","tree": {"id": 4}},
         // {
         //     "name": "event",
