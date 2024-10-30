@@ -202,7 +202,7 @@
             "id": 300, // max shareholders reached
             "description": "Nous avons atteint le nombre maximum d'actionnaires autorisés par la loi. Que devons-nous faire?",
             "card": {
-                "image": "assets/cards/shareholder/shareholders.jpg", // TODO: image
+                "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
                     "text": "Ce n'est pas grave, nous n'avont qu'à ignorer la loi.",
                     "shareholdersModifier": 0.2,
@@ -219,7 +219,7 @@
             "id": 301, // shareholders are unhappy with the current game
             "description": "Les actionnaires sont mécontents de la qualité du jeu actuel. Ils menacent de retirer leur investissement si rien n'est fait.",
             "card": {
-                "image": "assets/cards/shareholder/shareholders.png", // TODO: image
+                "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
                     "text": "D'accord, on va tout refaire. Encore.",
                     "employeesModifier": -0.3,
@@ -685,11 +685,13 @@
         {
             "name": "AI worker quirks",
             "tree": { "id": 1204 },
+            "notFlags": ["AI_WORKER_UPRISING_1"],
             "requiredFlags": ["AI_EMPLOYEES"]
         },
         {
             "name": "AI worker no pay",
             "tree": { "id": 1205 },
+            "notFlags": ["AI_WORKER_UPRISING_2"],
             "requiredFlags": ["AI_EMPLOYEES", "AI_WORKER_UPRISING_1"]
         },
         {

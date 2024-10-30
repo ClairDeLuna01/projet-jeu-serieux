@@ -6,6 +6,7 @@ export class MainMenu {
     private startButton: HTMLElement;
     private optionsButton: HTMLElement;
     private creditsButton: HTMLElement;
+    private howToPlayButton: HTMLElement;
     private mainMenu: HTMLElement;
 
     private creditsMenu: HTMLElement;
@@ -17,10 +18,14 @@ export class MainMenu {
     private optionsVolumeSliderLabel: HTMLElement;
     private optionsFullscreenCheckbox: HTMLInputElement;
 
+    private howToPlayMenu: HTMLElement;
+    private howToPlayBackButton: HTMLElement;
+
     constructor() {
         this.startButton = document.getElementById("main-menu-start")!;
         this.optionsButton = document.getElementById("main-menu-options")!;
         this.creditsButton = document.getElementById("main-menu-credits")!;
+        this.howToPlayButton = document.getElementById("main-menu-how-to-play")!;
         this.mainMenu = document.getElementById("main-menu")!;
 
         this.creditsMenu = document.getElementById("credits")!;
@@ -34,6 +39,9 @@ export class MainMenu {
             "fullscreen-checkbox"
         ) as HTMLInputElement;
 
+        this.howToPlayMenu = document.getElementById("how-to-play")!;
+        this.howToPlayBackButton = document.getElementById("how-to-play-back")!;
+
         this.optionsVolumeSlider.value = `${game.getVolume() * 100}`;
         this.updateVolume();
 
@@ -46,6 +54,9 @@ export class MainMenu {
         this.optionsBackButton.addEventListener("click", () => this.closeOptions());
         this.optionsVolumeSlider.addEventListener("input", () => this.updateVolume());
         this.optionsFullscreenCheckbox.addEventListener("change", () => this.toggleFullscreen());
+
+        this.howToPlayButton.addEventListener("click", () => this.openHowToPlay());
+        this.howToPlayBackButton.addEventListener("click", () => this.closeHowToPlay());
     }
 
     private startGame() {
@@ -70,6 +81,16 @@ export class MainMenu {
 
     private closeOptions() {
         this.optionsMenu.classList.add("hide");
+        this.mainMenu.classList.remove("hide");
+    }
+
+    private openHowToPlay() {
+        this.mainMenu.classList.add("hide");
+        this.howToPlayMenu.classList.remove("hide");
+    }
+
+    private closeHowToPlay() {
+        this.howToPlayMenu.classList.add("hide");
         this.mainMenu.classList.remove("hide");
     }
 

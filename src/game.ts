@@ -249,8 +249,11 @@ export class Game {
         factor = clamp(factor, -1, 1);
 
         card.style.transform = `rotate(${angle * factor}rad) translateX(${translation * factor}%)`;
-        // apply the blur animation to the card with percentage based on the factor
-        this.cardImageElement.style.filter = `blur(${abs(factor) * 2}px)`;
+        // apply the fade to white animation to the card with percentage based on the factor
+        const fadeFactor = 0.8;
+        this.cardImageElement.style.filter = `contrast(${
+            1 - abs(factor * fadeFactor)
+        }) brightness(${1 + abs(factor * fadeFactor)})`;
 
         const text_appear_start = 0.0;
         const text_appear_end = 0.3;
@@ -414,7 +417,7 @@ export class Game {
                     this.pick_random_event();
                 }
             } else {
-                this.cardImageElement.style.filter = "blur(0px)";
+                this.cardImageElement.style.filter = "";
                 this.applyCardEffect(
                     this.currentEvent?.current.card.left ?? {
                         text: "No event",
@@ -445,7 +448,7 @@ export class Game {
 
         this.cardActionElement.style.opacity = "0";
         this.cardActionElement.style.transform = "rotate(0rad)";
-        this.cardImageElement.style.filter = "blur(0px)";
+        this.cardImageElement.style.filter = "";
 
         this.cardDragFactor = 0;
         this.disableCardDrag = false;
