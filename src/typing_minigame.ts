@@ -2,7 +2,7 @@ import speech1 from "../letters/speech1.txt";
 import speech2 from "../letters/speech2.txt";
 import { CardEffect } from "./card";
 import { Game } from "./game";
-import { isAsciiPrintable } from "./utils";
+import { isExtendedAsciiPrintable } from "./utils";
 
 export class TypingMinigame {
     private text: string;
@@ -39,7 +39,7 @@ export class TypingMinigame {
 
         const secret_cheat_key = "`";
 
-        if (isAsciiPrintable(event.key)) {
+        if (isExtendedAsciiPrintable(event.key)) {
             if (this.textIndex === 0) {
                 this.typingStartTimestamp = Date.now();
             }

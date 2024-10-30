@@ -77,6 +77,10 @@ export function isAsciiPrintable(keycode: string): boolean {
     return keycode.length === 1 && keycode.charCodeAt(0) >= 32 && keycode.charCodeAt(0) <= 126;
 }
 
+export function isExtendedAsciiPrintable(keycode: string): boolean {
+    return keycode.length === 1 && keycode.charCodeAt(0) >= 32 && keycode.charCodeAt(0) <= 255;
+}
+
 export const cardImages: { [key: string]: HTMLImageElement } = {};
 export function preloadCardImage(url: string): void {
     const img = new Image();

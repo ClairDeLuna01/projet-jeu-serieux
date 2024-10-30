@@ -33,11 +33,14 @@ export class LetterMinigame {
         "n'avez rien à vous faire",
         "nos compétiteurs",
         "notre future",
-        "please leave us alone",
-        "prioritize our shareholders",
-        "our shareholders",
-        "never talk to me ever again",
+        "SVP laissez nous tranquille",
+        "nous sommes désolés",
+        "nos actionnaires",
+        "ne me parlez plus jamais",
+        "de l'argent",
+        "de l'argent",
         ":D",
+        ":P",
     ];
 
     constructor(letterRaw: string, effectGood: CardEffect, effectBad: CardEffect) {

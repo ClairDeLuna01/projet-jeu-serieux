@@ -1015,6 +1015,6 @@ export class Game {
         // this.employees = 0.05;
         // this.set_shareholders(1);
 
-        // this.startLetterMinigame(letterMinigames["consumers"]);
+        this.startTypingMinigame(typingMinigames["consumers"]);
     }
 }
