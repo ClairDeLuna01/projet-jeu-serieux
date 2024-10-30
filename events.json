@@ -133,10 +133,25 @@
         // ## MISC HR EVENTS   ##
         // ######################
         {
-            "id": 107, // "But the other company has ping pong tables"
-            "description": "Monsieur, les employés ont exprimé des remarques sur 'l'absence de vie et de joie' à l'intérieur des locaux. Notre concurrence vient de nous devancer avec des tables de ping-pong dans leurs bureaux qui font des cartons sur les réseaux sociaux. ",
+            "id": 400, // HR presentation
+            "description": "Mes salutations, je me présente : Robert Lotissement. Je suis à la tête des ressources humaines de votre humble entreprise... Vous savez, regarder mon assistante ne servira à rien, c'est ici que cela se passe... sur l'écran, voilà.",
             "card": {
-                "image": "assets/cards/nerd/nerd_depression.png" /* TODO : mettre à jour l'image*/,
+                "image": "assets/cards/hr/HR.png",
+                "left": {
+                    "text": "Le télétravail, je vois. C'est... moderne.",
+                    "employeesModifier": -0.05
+                },
+                "right": {
+                    "text": "Eh bien, j'espère qu'on pourra vos faire confiance pour remettre d'aplomb tous ces fainéants !",
+                    "employeesModifier": -0.05
+                }
+            }
+        },
+        {
+            "id": 401, // "But the other company has ping pong tables"
+            "description": "Les employés ont exprimé des remarques sur 'l'absence de vie et de joie' à l'intérieur des locaux. Notre concurrence vient de nous devancer avec des tables de ping-pong dans leurs bureaux qui font des cartons sur les réseaux sociaux.",
+            "card": {
+                "image": "assets/cards/hr/HR.png",
                 "left": {
                     "text": "Du fun ? Cela va les distraire de leur travail ! Fermez le dossier.",
                     "employeesModifier": -0.1
@@ -145,7 +160,95 @@
                     "text": "Oh non, il faut qu'on se rattrape ! Tenez, allez acheter 5000 tables de ping-pongs pour nos locaux.",
                     "employeesModifier": 0.2,
                     "shareholdersModifier": -0.1,
-                    "goldenParachuteAmount": -10000 // 2 dollars ping pong table 😭
+                    "goldenParachuteAmount": -100000 // 2 dollars ping pong table 😭
+                }
+            }
+        },
+        {
+            "id": 402, // HR parle du voleur de lait
+            "description": "Un terrible mal s'abat sur l'entreprise depuis quelques semaines. Un voleur de lait en série sévit et ne laisse plus une goutte aux autres  pour leur pause rafraichissante. Les employés demandent à ce que le coupable soit retrouvé.",
+            "card": {
+                "image": "assets/cards/hr/HR.png",
+                "left": {
+                    "text": "Ne vous en faites, je le connais bien, puisque c'est moi.",
+                    "employeesModifier": -0.1
+                },
+                "right": {
+                    "text": "Engagez un détective privé et mettez de l'ordre dans toute cette affaire !",
+                    "employeesModifier": 0.2,
+                    "goldenParachuteAmount": -10000 
+                }
+            }
+        },
+        {
+            "id": 403, // le HR organise un séminaire
+            "description": "La tendance à la mode sur les réseaux est d'organiser des séminaires spirituels sur la plage. Je connais le propriétaire d'une usine pétrochimique qui serait prêt à nous laisser son terrain proche de la rive. Il nous a déconseillé la baignade, mais mise à part cet inconvénient, tout est bon. Ai-je votre accord pour officialiser l'événement ?",
+            "card": {
+                "image": "assets/cards/hr/HR.png",
+                "left": {
+                    "text": "Allez-y, mais personnellement, je préfère rester aux bureaux pour la journée, hein.",
+                    "employeesModifier": 0.1,
+                    "publicPerceptionModifier": -0.1
+                },
+                "right": {
+                    "text": "Êtes-vous sûre que les employés aient envie de cela ? La chose me parait un peu... dangereuse. Ça ira pour cette fois.",
+                    "employeesModifier": -0.1,
+                    "publicPerceptionModifier": 0.1
+                }
+            }
+        },
+        {
+            "id": 404, // le HR propose de réduire les salaires
+            "description": "Suite aux nouvelles régulations gouvernementales, le montant du salaire minimum vient de baisser.  Je peux réduire celui de tous nos employés et vous laisser une jolie partie de la différence. C'est une occasion exceptionnelle, alors profitez-en.",
+            "card": {
+                "image": "assets/cards/hr/HR.png",
+                "left": {
+                    "text": "Je me porte très bien, laissez-les tranquile.",
+                    "employeesModifier": 0.1,
+                    "publicPerceptionModifier": 0.05,
+                    "shareholdersModifier": -0.05
+                },
+                "right": {
+                    "text": "Alors-là, il ne faut pas me le demander deux fois ! Qu'attendez-vous !? ALLER, FAITES-LE !",
+                    "employeesModifier": -0.1,
+                    "publicPerceptionModifier": -0.05,
+                    "shareholdersModifier": 0.05,
+                    "goldenParachuteAmount": 500000
+                }
+            }
+        },
+        {
+            "id": 405, // le HR propose des doggos :)
+            "description": "Je viens d'avoir une idée d'optimisation accrue de la portée effective et de l'efficacité de la communication de notre image de marque. Voici le concept : on laisse les employés amener leurs animaux durant une journée par mois et on les force à prendre des photos. Dans mon jargon, on appelle ça un coup de génie marketing.",
+            "card": {
+                "image": "assets/cards/hr/HR.png",
+                "left": {
+                    "text": "Non merci, je suis allergique aux chiens.",
+                    "publicPerceptionModifier": -0.1
+                },
+                "right": {
+                    "text": "Allez-y et achetez des croquettes pour ces petits bouts de choux.",
+                    "employeesModifier": 0.05,
+                    "publicPerceptionModifier": 0.1,
+                    "goldenParachuteAmount": -1000
+                }
+            }
+        },
+        {
+            "id": 406, // le HR propose de virer le manager
+            "description": "Certains employés ont parlé à des enquêteurs et journalistes à propos des 'comportements indécents et déplacés' que le manager des équipes de développement perpétue dans l'entreprise. Il ne nous reste plus qu'une seule solution pour sauver notre réputation avant la tempête : le renvoyer.",
+            "card": {
+                "image": "assets/cards/hr/HR.png",
+                "left": {
+                    "text": "Virez-moi ce débile.",
+                    "publicPerceptionModifier": 0.05,
+                    "shareholdersModifier" : 0.1,
+                    "flags": ["MANAGER_FIRED"]
+                },
+                "right": {
+                    "text": "Le manager est ESSENTIEL à la bonne continuation de nos projets. Gardez-le.",
+                    "publicPerceptionModifier": -0.1,
+                    "shareholdersModifier" : -0.05
                 }
             }
         },
@@ -155,12 +258,11 @@
         // ####################
         {
             "id": 200, // progress is slower than expected
-            // TODO: fix the french word "ret ard" in the left text later
             "description": "Boss, les devs se trainent à finir le jeu. Ils n'arrêtent pas de me bassiner avec leur 'crunch', mais je leur ai répété que je ne mange pas des céréales de prolos. Vous avez une idée ?",
             "card": {
                 "image": "assets/cards/manager/manager_normal.jpg",
                 "left": {
-                    "text": "Simple : S'ils se trainent, alors ils se taisent et travaillent plus.",
+                    "text": "Simple : s'ils se trainent, alors ils se taisent et travaillent plus.",
                     "employeesModifier": -0.3,
                     "goldenParachuteAmount": 5000,
                     "shareholdersModifier": 0.1,
@@ -609,8 +711,18 @@
             "notFlags": ["INTRO_DONE"],
             "tree": {
                 "id": 0,
-                "right": { "id": 1 },
-                "left": { "id": 1 }
+                "right": 
+                {
+                     "id": 1,
+                     "right" : { "id": 400 },
+                     "left" : { "id": 400 }
+                },
+                "left":
+                {
+                    "id": 1,
+                    "right" : { "id": 400 },
+                    "left" : { "id": 400 }
+                }
             }
         },
 
@@ -625,7 +737,6 @@
         { "name": "late", "tree": { "id": 104 } },
         { "name": "burnout", "tree": { "id": 105 } },
         { "name": "done early", "tree": { "id": 106 } },
-        { "name": "ping pong tables", "tree": { "id": 107 } },
 
         // manager events
         { "name": "deadlines", "tree": { "id": 200 } },
@@ -710,7 +821,15 @@
                 }
             },
             "requiredFlags": ["AI_EMPLOYEES", "AI_WORKER_UPRISING_2"]
-        }
+        },
+
+        // HR EVENTS
+        { "name": "ping pong tables", "tree": { "id": 401 } },
+        { "name": "voleur de lait", "tree": { "id": 402 } },
+        { "name": "séminaire", "tree": { "id": 403 } },
+        { "name": "baisse des salaires", "tree": { "id": 404 } },
+        { "name": "doggo", "tree": { "id": 405 } },
+        { "name": "fire manager", "notFlags": ["MANAGER_FIRED"], "tree": { "id": 406 } }
 
         // {"name": "event","tree": {"id": 4}},
         // {
