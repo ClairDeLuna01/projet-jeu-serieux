@@ -20,7 +20,7 @@
                 "image": "assets/cards/manager/manager_normal.jpg",
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
-                    "goldenParachuteAmount": 1000,
+                    "goldenParachuteAmount": 10000,
                     "flags": ["INTRO_DONE"]
                 },
                 "right": {
@@ -42,13 +42,13 @@
                     "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
                     "shareholdersModifier": 0.15,
-                    "goldenParachuteAmount": 10000
+                    "goldenParachuteAmount": 100000
                 },
                 "right": {
                     "text": "Prends cet argent! Mais attention, il s'appel revient.",
                     "employeesModifier": 0.1,
                     "publicPerceptionModifier": 0.15,
-                    "goldenParachuteAmount": -10000
+                    "goldenParachuteAmount": -100000
                 }
             }
         },
@@ -64,7 +64,7 @@
                 "right": {
                     "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
                     "employeesModifier": 0.15,
-                    "goldenParachuteAmount": -500,
+                    "goldenParachuteAmount": -50000,
                     "flags": ["STRIKE_AVOIDED", "HAS_WATER_COOLER"]
                 }
             }
@@ -77,14 +77,14 @@
                 "left": {
                     "text": "Tout vient à point à qui sait attendre. Repoussons un peu la sortie.",
                     "employeesModifier": 0.1,
-                    "goldenParachuteAmount": 50000,
+                    "goldenParachuteAmount": 5000,
                     "publicPerceptionModifier": 0.05,
                     "shareholdersModifier": -0.1
                 },
                 "right": {
                     "text": "Quadruple heures supplémentaires pour tout le monde.",
                     "employeesModifier": -0.1,
-                    "goldenParachuteAmount": 5000,
+                    "goldenParachuteAmount": 50000,
                     "shareholdersModifier": 0.05,
                     "publicPerceptionModifier": -0.1
                 }
@@ -100,7 +100,7 @@
                     "employeesModifier": -0.15,
                     "publicPerceptionModifier": -0.05,
                     "shareholdersModifier": 0.1,
-                    "goldenParachuteAmount": 10000
+                    "goldenParachuteAmount": 100000
                 },
                 "right": {
                     "text": "Euuh... Prenez un jour de congé, hein. Je vous l'offre.",
@@ -123,7 +123,7 @@
                     "text": "MAIS RETOUNREZ TRAVAILLEZ, FEIGNASSE !!!!",
                     "employeesModifier": -0.1,
                     "shareholdersModifier": 0.1,
-                    "goldenParachuteAmount": 1000
+                    "goldenParachuteAmount": 25000
                 }
             }
         },
@@ -159,7 +159,7 @@
                     "text": "Oh non, il faut qu'on se rattrape ! Tenez, allez acheter 5000 tables de ping-pongs pour nos locaux.",
                     "employeesModifier": 0.2,
                     "shareholdersModifier": -0.1,
-                    "goldenParachuteAmount": -100000 // 2 dollars ping pong table 😭
+                    "goldenParachuteAmount": -100000 
                 }
             }
         },
@@ -175,7 +175,7 @@
                 "right": {
                     "text": "Engagez un détective privé et mettez de l'ordre dans toute cette affaire !",
                     "employeesModifier": 0.2,
-                    "goldenParachuteAmount": -10000
+                    "goldenParachuteAmount": -100000
                 }
             }
         },
@@ -212,7 +212,7 @@
                     "employeesModifier": -0.1,
                     "publicPerceptionModifier": -0.05,
                     "shareholdersModifier": 0.05,
-                    "goldenParachuteAmount": 500000
+                    "goldenParachuteAmount": 5000000
                 }
             }
         },
@@ -229,7 +229,7 @@
                     "text": "Allez-y et achetez des croquettes pour ces petits bouts de choux.",
                     "employeesModifier": 0.05,
                     "publicPerceptionModifier": 0.1,
-                    "goldenParachuteAmount": -1000
+                    "goldenParachuteAmount": -10000
                 }
             }
         },
@@ -263,14 +263,14 @@
                 "left": {
                     "text": "Simple : s'ils se trainent, alors ils se taisent et travaillent plus.",
                     "employeesModifier": -0.15,
-                    "goldenParachuteAmount": 5000,
+                    "goldenParachuteAmount": 50000,
                     "shareholdersModifier": 0.1,
                     "flags": ["EMPLOYEES_OVERWORKED"]
                 },
                 "right": {
                     "text": "Laissez-les se reposer un peu. On repoussera la deadline cette fois-ci.",
                     "employeesModifier": 0.1,
-                    "goldenParachuteAmount": -5000,
+                    "goldenParachuteAmount": -50000,
                     "shareholdersModifier": -0.2,
                     "publicPerceptionModifier": -0.1
                 }
@@ -306,7 +306,7 @@
                     "text": "JUSQUA LA LUUUUUUUNE !",
                     "shareholdersModifier": 0.15,
                     "publicPerceptionModifier": -0.1,
-                    "goldenParachuteAmount": 250000
+                    "goldenParachuteAmount": 2500000
                 },
                 "right": {
                     "text": "Euuu, ne vous en faites pas. Je suis assez bien comme ça... ",
@@ -323,13 +323,13 @@
                     "text": "D'accord, on va tout refaire. Encore.",
                     "publicPerceptionModifier": -0.15,
                     "shareholdersModifier": 0.1,
-                    "goldenParachuteAmount": -50000
+                    "goldenParachuteAmount": -500000
                 },
                 "right": {
                     "text": "Nos projets sont des œuvres avant tout, faites-moi confiance sur ce coup.",
                     "publicPerceptionModifier": 0.15,
                     "shareholdersModifier": -0.1,
-                    "goldenParachuteAmount": 50000
+                    "goldenParachuteAmount": 500000
                 }
             }
         },
@@ -341,13 +341,13 @@
                 "left": {
                     "text": "Taisez-vous et profitez de l'argent un peu.",
                     "shareholdersModifier": -0.15,
-                    "goldenParachuteAmount": -50000
+                    "goldenParachuteAmount": -500000
                 },
                 "right": {
                     "text": "D'accord, d'accord, oui, tout ce que vous voulez ! Je vire la moitié des équipes, si ça peut vous consoler.",
                     "employeesModifier": -0.2,
                     "shareholdersModifier": 0.15,
-                    "goldenParachuteAmount": 100000
+                    "goldenParachuteAmount": 1000000
                 }
             }
         },
@@ -382,31 +382,13 @@
             "card": {
                 "image": "assets/cards/snow.jpg",
                 "left": {
-                    "text": "Ok... J'accèpte 5 minutes de ret ard mais que pour aujourd'hui!",
-                    "employeesModifier": 0.1,
-                    "goldenParachuteAmount": -5000
+                    "text": "Ok... J'accèpte 5 minutes de retard mais que pour aujourd'hui!",
+                    "employeesModifier": 0.1
                 },
                 "right": {
                     "text": "Virez tout ceux qui sont pas là à l'heure!!",
                     "employeesModifier": -0.1,
-                    "goldenParachuteAmount": 5000
-                }
-            }
-        },
-        {
-            "id": 1002, // Competing video game released
-            "description": "Un compétiteur vient de sortir un jeu vidéo qui est un succès critique et commercial. Les joueurs se tournent vers ce jeu au lieu des vôtres.",
-            "card": {
-                "image": "assets/cards/gamer.jpg",
-                "left": {
-                    "text": "Critiquez le jeu et ses développeurs publiquement.",
-                    "publicPerceptionModifier": -0.15,
-                    "shareholdersModifier": 0.1,
-                    "goldenParachuteAmount": 1000
-                },
-                "right": {
-                    "text": "Vite! Faites un évenement spécial dans notre jeu pour attirer les joueurs!",
-                    "employeesModifier": -0.1
+                    "goldenParachuteAmount": 100000
                 }
             }
         },
@@ -417,9 +399,9 @@
                 "image": "assets/cards/lobbyist/lobbyist_sinister.png",
                 "left": {
                     "text": "De l'argent gratuit ? Avec plaisir !",
-                    "publicPerceptionModifier": -0.1,
+                    "publicPerceptionModifier": -0.2,
                     "shareholdersModifier": 0.05,
-                    "goldenParachuteAmount": 1000000
+                    "goldenParachuteAmount": 10000000
                 },
                 "right": {
                     "text": "Non merci, vous me faites peur.",
@@ -437,7 +419,7 @@
                     "text": "Engageons les meilleurs avocats pour nous défendre! Meme si il faut réduire les effectifs pour payer.",
                     "employeesModifier": -0.15,
                     "shareholdersModifier": 0.1,
-                    "goldenParachuteAmount": -10000
+                    "goldenParachuteAmount": -100000
                 },
                 "right": {
                     "text": "Négocions un arrangement à l'amiable.",
@@ -454,7 +436,7 @@
                 "left": {
                     "text": "Après tout, c'est moi le patron. Je le mérite bien!",
                     "publicPerceptionModifier": -0.2,
-                    "goldenParachuteAmount": 250000
+                    "goldenParachuteAmount": 2500000
                 },
                 "right": {
                     "text": "Bon, juste une touuute petite augmentation. Je garde le reste pour les employés.",
@@ -474,7 +456,7 @@
                 "image": "assets/cards/crypto.jpg",
                 "left": {
                     "text": "Investissez dans les cryptomonnaies!",
-                    "goldenParachuteAmount": -100000,
+                    "goldenParachuteAmount": -1000000,
                     "flags": ["HAS_CRYPTOCURRENCY"]
                 },
                 "right": {
@@ -493,7 +475,7 @@
                 "image": "assets/cards/crypto.jpg",
                 "left": {
                     "text": "C'est le moment de faire un pump and dump! Vendons tout!",
-                    "goldenParachuteAmount": 100000,
+                    "goldenParachuteAmount": 1000000,
                     "publicPerceptionModifier": -0.15,
                     "removeFlags": ["NULLICOIN_CREATED", "HAS_NULLICOIN"]
                 },
@@ -552,7 +534,7 @@
                     "text": "Les robots ça demande pas de salaire! Remplaçons tout le monde!",
                     "employeesModifier": -1.0,
                     "shareholdersModifier": 0.1,
-                    "goldenParachuteAmount": 100000,
+                    "goldenParachuteAmount": 2000000,
                     "flags": ["AI_EMPLOYEES"]
                 },
                 "right": {
@@ -571,7 +553,7 @@
                     "text": "Virez tous les robots! Ils sont inutiles!",
                     "employeesModifier": 0.1,
                     "shareholdersModifier": -0.1,
-                    "goldenParachuteAmount": 10000,
+                    "goldenParachuteAmount": 100000,
                     "removeFlags": ["AI_EMPLOYEES"]
                 },
                 "right": {
@@ -579,7 +561,7 @@
                     "employeesModifier": -0.1,
                     "shareholdersModifier": 0.1,
                     "publicPerceptionModifier": -0.1,
-                    "goldenParachuteAmount": -10000
+                    "goldenParachuteAmount": -100000
                 }
             }
         },
@@ -592,7 +574,7 @@
                     "text": "C'est génial, tu iras loin dans cette entreprise! Mettons ce jeu en production!",
                     "shareholdersModifier": 0.1,
                     "publicPerceptionModifier": -0.1,
-                    "goldenParachuteAmount": 10000
+                    "goldenParachuteAmount": 100000
                 },
                 "right": {
                     "text": "Je suis pas sûr que ce soit une bonne idée...",
@@ -692,7 +674,7 @@
                     "employeesModifier": -0.25,
                     "shareholdersModifier": -0.25,
                     "publicPerceptionModifier": -0.25,
-                    "goldenParachuteAmount": -1000000,
+                    "goldenParachuteAmount": -10000000,
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
@@ -700,7 +682,7 @@
                     "employeesModifier": -0.25,
                     "shareholdersModifier": -0.25,
                     "publicPerceptionModifier": -0.25,
-                    "goldenParachuteAmount": -1000000,
+                    "goldenParachuteAmount": -10000000,
                     "flags": ["GAME_OVER"]
                 }
             }
@@ -959,7 +941,6 @@
         // misc events
         { "name": "stock market crash", "tree": { "id": 1000 } },
         { "name": "heavy snowfall", "tree": { "id": 1001 } },
-        { "name": "competitor game released", "tree": { "id": 1002 } },
         { "name": "billionaire donation", "tree": { "id": 1003 } },
         { "name": "lawsuit", "tree": { "id": 1004 } },
         { "name": "raise", "tree": { "id": 1005 } },
