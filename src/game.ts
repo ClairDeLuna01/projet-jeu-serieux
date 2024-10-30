@@ -646,6 +646,13 @@ export class Game {
         this.cardImageElement.src = this.currentEvent?.current.card.image ?? "";
         this.set_dialogue(this.currentEvent?.current.description ?? "");
         this.updateName();
+
+        if (
+            this.extractNameFromEventImagePath() == "Le Manager" &&
+            this.flags.find((flag) => flag == "MANAGER_FIRED")
+        ) {
+            this.cardImageElement.src = this.cardImageElement.src.replace(".jpg", "_mustache.jpg");
+        }
     }
 
     updateTrinkets(): void {
@@ -812,6 +819,10 @@ export class Game {
     setVolume(volume: number): void {
         this.gameVolume = volume;
         localStorage.setItem("volume", volume.toString());
+
+        this.musics.forEach((music) => {
+            music.volume = volume;
+        });
     }
 
     play() {

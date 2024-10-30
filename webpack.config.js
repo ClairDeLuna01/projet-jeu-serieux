@@ -3,7 +3,6 @@ const path = require("path");
 module.exports = {
     entry: {
         main: "./src/main.ts",
-        create_event: "./src/create_event.ts",
     },
     mode: "development",
     module: {

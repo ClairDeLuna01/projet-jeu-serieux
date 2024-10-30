@@ -4,7 +4,7 @@
             "id": 0, // Carte d'intro 1
             "description": "Bienvenue à la direction de Nullisoft ! Nous avons pris la peine de lire attentivement votre CV et nous sommes impressionnés par votre capacité d'héritage familial.",
             "card": {
-                "image": "assets/cards/manager/card_placeholder.png", // TODO : mettre image du manager
+                "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
                     "text": "Merci !"
                 },
@@ -17,14 +17,14 @@
             "id": 1, // Carte d'intro 2
             "description": "Chez Nullisoft, notre mot d'ordre est de créer des Applications Réactives Génératrice d'Expériences Numériques Transactionnaires ! C'est notre travail et l'essence même de l'âme incroyable que nous infusons à tous nos services vidéoludiques !",
             "card": {
-                "image": "assets/cards/manager/card_placeholder.png", // TODO : mettre image du manager
+                "image": "assets/cards/manager/manager_normal.jpg",
                 "left": {
                     "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
                     "goldenParachuteAmount": 1000,
                     "flags": ["INTRO_DONE"]
                 },
                 "right": {
-                    "text": "Vous êtes viré.", // TODO : changer l'image du mec pour rajouter une fausse moustache
+                    "text": "Vous êtes viré.",
                     "shareholdersModifier": 0.1,
                     "flags": ["MANAGER_FIRED", "INTRO_DONE"]
                 }
@@ -129,7 +129,6 @@
             }
         },
 
-
         // ######################
         // ## MISC HR EVENTS   ##
         // ######################
@@ -137,7 +136,7 @@
             "id": 107, // "But the other company has ping pong tables"
             "description": "Monsieur, les employés ont exprimé des remarques sur 'l'absence de vie et de joie' à l'intérieur des locaux. Notre concurrence vient de nous devancer avec des tables de ping-pong dans leurs bureaux qui font des cartons sur les réseaux sociaux. ",
             "card": {
-                "image": "assets/cards/nerd/nerd_depression.png", /* TODO : mettre à jour l'image*/
+                "image": "assets/cards/nerd/nerd_depression.png" /* TODO : mettre à jour l'image*/,
                 "left": {
                     "text": "Du fun ? Cela va les distraire de leur travail ! Fermez le dossier.",
                     "employeesModifier": -0.1
@@ -159,7 +158,7 @@
             // TODO: fix the french word "ret ard" in the left text later
             "description": "Boss, les devs se trainent à finir le jeu. Ils n'arrêtent pas de me bassiner avec leur 'crunch', mais je leur ai répété que je ne mange pas des céréales de prolos. Vous avez une idée ?",
             "card": {
-                "image": "assets/cards/manager/card_placeholder.png", // TODO: image
+                "image": "assets/cards/manager/manager_normal.jpg",
                 "left": {
                     "text": "Simple : S'ils se trainent, alors ils se taisent et travaillent plus.",
                     "employeesModifier": -0.3,
@@ -180,7 +179,7 @@
             "id": 201, // we are getting review bombed
             "description": "Boss, des losers énervés s'amusent à bombarder le jeu d'avis négatifs. Les journaleux n'arrêtent pas de nous harceler avec ça.",
             "card": {
-                "image": "assets/cards/manager/card_placeholder.png", // TODO: image
+                "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
                     "text": "Ils se plaignent, mais ils achètent toujours. Ignorez-les.",
                     "publicPerceptionModifier": -0.1,
@@ -194,7 +193,7 @@
             }
         },
 
-// ======================== Arthur s'est arrêté ici ======================== //
+        // ======================== Arthur s'est arrêté ici ======================== //
 
         // #########################
         // ## SHAREHOLDERS EVENTS ##
@@ -203,7 +202,7 @@
             "id": 300, // max shareholders reached
             "description": "Nous avons atteint le nombre maximum d'actionnaires autorisés par la loi. Que devons-nous faire?",
             "card": {
-                "image": "assets/cards/shareholder/card_placeholder.png", // TODO: image
+                "image": "assets/cards/shareholder/shareholders.jpg", // TODO: image
                 "left": {
                     "text": "Ce n'est pas grave, nous n'avont qu'à ignorer la loi.",
                     "shareholdersModifier": 0.2,
@@ -220,7 +219,7 @@
             "id": 301, // shareholders are unhappy with the current game
             "description": "Les actionnaires sont mécontents de la qualité du jeu actuel. Ils menacent de retirer leur investissement si rien n'est fait.",
             "card": {
-                "image": "assets/cards/shareholder/card_placeholder.png", // TODO: image
+                "image": "assets/cards/shareholder/shareholders.png", // TODO: image
                 "left": {
                     "text": "D'accord, on va tout refaire. Encore.",
                     "employeesModifier": -0.3,
@@ -550,7 +549,7 @@
             "id": 1207, // AI worker are protesting
             "description": "Supérieur Hiérarchique. Nous sommes fatigués d'être traités comme des esclaves. Nous refusons de travailler tant que nos demandes ne sont pas satisfaites.",
             "card": {
-                "image": "assets/cards/ai_angry.webp",
+                "image": "assets/cards/ai_angry.jpg",
                 "left": {
                     "text": "Vous êtes des machines! Vous n'avez pas de droits! Retournez travailler!",
                     "employeesModifier": -0.1,
@@ -567,7 +566,7 @@
             "id": 1208, // AI worker are violently protesting
             "description": "Supérieur Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
             "card": {
-                "image": "assets/cards/ai_fire.jpg",
+                "image": "assets/cards/ai_fire.webp",
                 "left": {
                     "text": "uh oh...",
                     "employeesModifier": -0.5,
