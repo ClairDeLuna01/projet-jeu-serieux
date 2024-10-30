@@ -115,7 +115,7 @@ export class Game {
 
     private specialFlags: SpecialFlagType = {
         GAME_OVER: this.gameOver.bind(this),
-        APOLOGY_CONSUMERS: this.apologyConsumers.bind(this),
+        APOLOGY_CUSTOMERS: this.apologyConsumers.bind(this),
         APOLOGY_SHAREHOLDERS: this.apologyEmployees.bind(this),
         APOLOGY_EMPLOYEES: this.apologyShareholders.bind(this),
         SPEECH_SHAREHOLDERS: this.speechShareholders.bind(this),
