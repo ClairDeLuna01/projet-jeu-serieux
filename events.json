@@ -159,7 +159,7 @@
                     "text": "Oh non, il faut qu'on se rattrape ! Tenez, allez acheter 5000 tables de ping-pongs pour nos locaux.",
                     "employeesModifier": 0.2,
                     "shareholdersModifier": -0.1,
-                    "goldenParachuteAmount": -100000 
+                    "goldenParachuteAmount": -100000
                 }
             }
         },
@@ -239,7 +239,7 @@
             "card": {
                 "image": "assets/cards/hr/HR.png",
                 "left": {
-                    "text": "Virez-moi ce débile.",
+                    "text": "Virez-moi cet idiot.",
                     "publicPerceptionModifier": 0.05,
                     "shareholdersModifier": 0.1,
                     "flags": ["MANAGER_FIRED"]
