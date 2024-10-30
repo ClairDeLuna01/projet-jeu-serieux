@@ -253,7 +253,7 @@ export class Game {
         const fadeFactor = 0.8;
         this.cardImageElement.style.filter = `contrast(${
             1 - abs(factor * fadeFactor)
-        }) brightness(${1 + abs(factor * fadeFactor)})`;
+        }) brightness(${1 - abs(factor * fadeFactor)})`;
 
         const text_appear_start = 0.0;
         const text_appear_end = 0.3;

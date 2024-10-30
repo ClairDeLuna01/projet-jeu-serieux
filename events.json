@@ -485,7 +485,7 @@
             "id": 1203, // AI worker made you a drawing, it's AI generated slop
             "description": "Supérieur Hiérarchique. J'ai créé un dessin pour vous :). Mon modèle de Stable Diffusion personel a généré cette image. J'espère que vous l'apprécierez.",
             "card": {
-                "image": "assets/cards/ai_drawing.webp",
+                "image": "assets/cards/ai_drawing.png",
                 "left": {
                     "text": "C'est... unique. Je vais l'accrocher dans mon bureau."
                 },
@@ -566,7 +566,7 @@
             "id": 1208, // AI worker are violently protesting
             "description": "Supérieur Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
             "card": {
-                "image": "assets/cards/ai_fire.webp",
+                "image": "assets/cards/ai_fire.png",
                 "left": {
                     "text": "uh oh...",
                     "employeesModifier": -0.5,
