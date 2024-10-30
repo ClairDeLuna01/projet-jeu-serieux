@@ -998,6 +998,12 @@ export class Game {
         this.flags = [];
         this.updateTrinkets();
 
+        this.set_employees(0.5);
+        this.set_shareholders(0.5);
+        this.set_public_perception(0.5);
+        this.score = 0;
+        this.update_bars();
+
         this.gameElement.classList.remove("hide");
         this.gameFieldElement.classList.remove("hide");
         this.update_bars();
