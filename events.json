@@ -726,7 +726,7 @@
             }
         },
         {
-            "id": 1300, // Game Over no more employees but no lifeline
+            "id": 1301, // Game Over no more employees but no lifeline
             "description": "Boss! Urgent! Tous les employés ont encore quitté l'entreprise! Et cette fois-ci je pense pas qu'un simple 'désolé' suffira...",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -742,7 +742,7 @@
         },
 
         {
-            "id": 1300, // Game Over no more shareholders but still lifeline
+            "id": 1302, // Game Over no more shareholders but still lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -757,7 +757,7 @@
             }
         },
         {
-            "id": 1300, // Game Over no more shareholders but no lifeline
+            "id": 1303, // Game Over no more shareholders but no lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -773,7 +773,7 @@
         },
 
         {
-            "id": 1300, // Game Over no more public perception but still lifeline
+            "id": 1304, // Game Over no more public perception but still lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -788,7 +788,7 @@
             }
         },
         {
-            "id": 1300, // Game Over no more public perception but no lifeline
+            "id": 1305, // Game Over no more public perception but no lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -804,7 +804,7 @@
         },
 
         {
-            "id": 1300, // Game Over max employees but still lifeline
+            "id": 1306, // Game Over max employees but still lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -819,7 +819,7 @@
             }
         },
         {
-            "id": 1300, // Game Over max employees but no lifeline
+            "id": 1307, // Game Over max employees but no lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -835,7 +835,7 @@
         },
 
         {
-            "id": 1300, // Game Over max shareholders but still lifeline
+            "id": 1308, // Game Over max shareholders but still lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -850,7 +850,7 @@
             }
         },
         {
-            "id": 1300, // Game Over max shareholders but no lifeline
+            "id": 1309, // Game Over max shareholders but no lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -866,7 +866,7 @@
         },
 
         {
-            "id": 1300, // Game Over max public perception but still lifeline
+            "id": 13010, // Game Over max public perception but still lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
@@ -881,7 +881,7 @@
             }
         },
         {
-            "id": 1300, // Game Over max public perception but no lifeline
+            "id": 13011, // Game Over max public perception but no lifeline
             "description": "",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
