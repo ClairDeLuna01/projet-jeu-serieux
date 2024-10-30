@@ -41,13 +41,13 @@
                 "left": {
                     "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
-                    "shareholdersModifier": 0.25,
+                    "shareholdersModifier": 0.15,
                     "goldenParachuteAmount": 10000
                 },
                 "right": {
                     "text": "Prends cet argent! Mais attention, il s'appel revient.",
                     "employeesModifier": 0.1,
-                    "publicPerceptionModifier": 0.25,
+                    "publicPerceptionModifier": 0.15,
                     "goldenParachuteAmount": -10000
                 }
             }
@@ -63,7 +63,7 @@
                 },
                 "right": {
                     "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
-                    "employeesModifier": 0.2,
+                    "employeesModifier": 0.15,
                     "goldenParachuteAmount": -500,
                     "flags": ["STRIKE_AVOIDED", "HAS_WATER_COOLER"]
                 }
@@ -79,14 +79,14 @@
                     "employeesModifier": 0.1,
                     "goldenParachuteAmount": 50000,
                     "publicPerceptionModifier": 0.05,
-                    "shareholdersModifier": -0.15
+                    "shareholdersModifier": -0.1
                 },
                 "right": {
                     "text": "Quadruple heures supplémentaires pour tout le monde.",
                     "employeesModifier": -0.1,
                     "goldenParachuteAmount": 5000,
                     "shareholdersModifier": 0.05,
-                    "publicPerceptionModifier": -0.15
+                    "publicPerceptionModifier": -0.1
                 }
             }
         },
@@ -97,7 +97,7 @@
                 "image": "assets/cards/nerd/nerd_depression.png",
                 "left": {
                     "text": "Si vous pensez que vos problèmes m'intéressent...",
-                    "employeesModifier": -0.25,
+                    "employeesModifier": -0.15,
                     "publicPerceptionModifier": -0.05,
                     "shareholdersModifier": 0.1,
                     "goldenParachuteAmount": 10000
@@ -116,12 +116,12 @@
                 "image": "assets/cards/nerd/nerd_smile.png",
                 "left": {
                     "text": "Bravo, vous avez bien mérité votre repos ! Et tenez, je vous offre le café.",
-                    "employeesModifier": 0.15,
+                    "employeesModifier": 0.1,
                     "goldenParachuteAmount": -1
                 },
                 "right": {
                     "text": "MAIS RETOUNREZ TRAVAILLEZ, FEIGNASSE !!!!",
-                    "employeesModifier": -0.15,
+                    "employeesModifier": -0.1,
                     "shareholdersModifier": 0.1,
                     "goldenParachuteAmount": 1000
                 }
@@ -262,7 +262,7 @@
                 "image": "assets/cards/manager/manager_normal.jpg",
                 "left": {
                     "text": "Simple : s'ils se trainent, alors ils se taisent et travaillent plus.",
-                    "employeesModifier": -0.3,
+                    "employeesModifier": -0.15,
                     "goldenParachuteAmount": 5000,
                     "shareholdersModifier": 0.1,
                     "flags": ["EMPLOYEES_OVERWORKED"]
@@ -294,8 +294,6 @@
             }
         },
 
-        // ======================== Arthur s'est arrêté ici ======================== //
-
         // #########################
         // ## SHAREHOLDERS EVENTS ##
         // #########################
@@ -306,13 +304,13 @@
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
                     "text": "JUSQUA LA LUUUUUUUNE !",
-                    "shareholdersModifier": 0.2,
+                    "shareholdersModifier": 0.15,
                     "publicPerceptionModifier": -0.1,
                     "goldenParachuteAmount": 250000
                 },
                 "right": {
                     "text": "Euuu, ne vous en faites pas. Je suis assez bien comme ça... ",
-                    "shareholdersModifier": -0.2
+                    "shareholdersModifier": -0.15
                 }
             }
         },
@@ -342,12 +340,12 @@
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
                     "text": "Taisez-vous et profitez de l'argent un peu.",
-                    "shareholdersModifier": -0.2,
+                    "shareholdersModifier": -0.15,
                     "goldenParachuteAmount": -50000
                 },
                 "right": {
                     "text": "D'accord, d'accord, oui, tout ce que vous voulez ! Je vire la moitié des équipes, si ça peut vous consoler.",
-                    "employeesModifier": -0.1,
+                    "employeesModifier": -0.2,
                     "shareholdersModifier": 0.15,
                     "goldenParachuteAmount": 100000
                 }
@@ -363,21 +361,23 @@
             "card": {
                 "image": "assets/cards/stock_market_crash.jpg",
                 "left": {
-                    "text": "C'est la fin! Vendons tout!",
-                    "employeesModifier": -0.2,
-                    "shareholdersModifier": -0.5,
-                    "goldenParachuteAmount": 10000
+                    "text": "Vendre la majorité de vos actions pour amortir le coup.",
+                    "shareholdersModifier": -0.1,
+                    "goldenParachuteAmount": 100000
                 },
                 "right": {
-                    "text": "Achetez des actions! C'est le moment d'investir!",
-                    "employeesModifier": -0.4,
-                    "shareholdersModifier": 0.3,
-                    "goldenParachuteAmount": -10000
+                    "text": "Faire un appel aux investisseurs en faisant miroité des prédictions de revenus incroyables.",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.1,
+                    "goldenParachuteAmount": -100000
                 }
             }
         },
+
+        // ======================== Arthur s'est arrêté ici ======================== //
+
         {
-            "id": 1001, // heavy snowfall // TODO : fix left text later (it causes my copilot to break cause it's a bad word in english 🤓)
+            "id": 1001, // heavy snowfall 
             "description": "Oh non!! Il neige à Game City! Les transports en commun sont perturbés et les employés ont du mal à se rendre au travail!",
             "card": {
                 "image": "assets/cards/snow.jpg",
@@ -388,7 +388,7 @@
                 },
                 "right": {
                     "text": "Virez tout ceux qui sont pas là à l'heure!!",
-                    "employeesModifier": -0.3,
+                    "employeesModifier": -0.1,
                     "goldenParachuteAmount": 5000
                 }
             }
@@ -400,7 +400,7 @@
                 "image": "assets/cards/gamer.jpg",
                 "left": {
                     "text": "Critiquez le jeu et ses développeurs publiquement.",
-                    "publicPerceptionModifier": -0.2,
+                    "publicPerceptionModifier": -0.15,
                     "shareholdersModifier": 0.1,
                     "goldenParachuteAmount": 1000
                 },
@@ -412,18 +412,19 @@
         },
         {
             "id": 1003, // Donation from billionaire (bad guy obviously, like all billionaires) foundation
-            "description": "Bonjour... je représente la fondation 'Musk-eteers Fundation', nous aimerions faire un don de 100000, a condition que vous nous aidiez à promouvoir notre image de marque.",
+            "description": "Sincères salutations, PDG de Nullisoft, je représente le conglomérat paramilitaire de notre magnifique pays. Je suis venu vous présenter un contrat à rémunération élevée. En échange de cela, nous ne vous demandons que d'aider la promotion de nos activités auprès des jeunes joueurs dans votre prochain projet.",
             "card": {
                 "image": "assets/cards/lobbyist/lobbyist_sinister.png",
                 "left": {
-                    "text": "De l'argent gratuit pour un truc qu'on aurait fait de toute façon? Je prends!",
-                    "publicPerceptionModifier": -0.2,
-                    "shareholdersModifier": 0.2,
-                    "goldenParachuteAmount": 10000
+                    "text": "De l'argent gratuit ? Avec plaisir !",
+                    "publicPerceptionModifier": -0.1,
+                    "shareholdersModifier": 0.05,
+                    "goldenParachuteAmount": 1000000
                 },
                 "right": {
-                    "text": "On ne veut pas être associé à ces gens (en public). Refusons le don.",
-                    "shareholdersModifier": -0.1
+                    "text": "Non merci, vous me faites peur.",
+                    "publicPerceptionModifier": 0.1,
+                    "shareholdersModifier": -0.05
                 }
             }
         },
@@ -434,7 +435,7 @@
                 "image": "assets/cards/lawyer.jpg",
                 "left": {
                     "text": "Engageons les meilleurs avocats pour nous défendre! Meme si il faut réduire les effectifs pour payer.",
-                    "employeesModifier": -0.2,
+                    "employeesModifier": -0.15,
                     "shareholdersModifier": 0.1,
                     "goldenParachuteAmount": -10000
                 },
@@ -447,18 +448,18 @@
         },
         {
             "id": 1005, // you can get a raise!
-            "description": "Tout ce passe bien pour Nullisoft! ça serait le bon moment pour décider d'augmenter votre salaire. Meme si pour ça il faudrait réduire les effectifs.",
+            "description": "Tout ce passe bien pour Nullisoft. Vous sentez une irrémédiable envie d'augmenter votre salaire de façon excessive.",
             "card": {
                 "image": "assets/cards/money.jpg",
                 "left": {
-                    "text": "J'ai travailler dur! Je mérite une augmentation! Réduisons les effectifs pour payer le salaire de l'employé le plus important, moi!",
-                    "employeesModifier": -0.4,
-                    "goldenParachuteAmount": 50000
+                    "text": "Après tout, c'est moi le patron. Je le mérite bien!",
+                    "publicPerceptionModifier": -0.2,
+                    "goldenParachuteAmount": 250000
                 },
                 "right": {
-                    "text": "Peut-être juste une petite augmentation...",
-                    "employeesModifier": -0.1,
-                    "goldenParachuteAmount": 10000
+                    "text": "Bon, juste une touuute petite augmentation. Je garde le reste pour les employés.",
+                    "employeesModifier": 0.1,
+                    "goldenParachuteAmount": 25000
                 }
             }
         },
@@ -473,14 +474,14 @@
                 "image": "assets/cards/crypto.jpg",
                 "left": {
                     "text": "Investissez dans les cryptomonnaies!",
-                    "goldenParachuteAmount": -10000,
+                    "goldenParachuteAmount": -100000,
                     "flags": ["HAS_CRYPTOCURRENCY"]
                 },
                 "right": {
                     "text": "Créer le NulliCoin, notre propre cryptomonnaie!",
                     "employeesModifier": -0.1,
-                    "shareholdersModifier": 0.2,
-                    "publicPerceptionModifier": -0.2,
+                    "shareholdersModifier": 0.15,
+                    "publicPerceptionModifier": -0.15,
                     "flags": ["NULLICOIN_CREATED", "HAS_NULLICOIN"]
                 }
             }
@@ -492,8 +493,8 @@
                 "image": "assets/cards/crypto.jpg",
                 "left": {
                     "text": "C'est le moment de faire un pump and dump! Vendons tout!",
-                    "goldenParachuteAmount": 10000,
-                    "publicPerceptionModifier": -0.2,
+                    "goldenParachuteAmount": 100000,
+                    "publicPerceptionModifier": -0.15,
                     "removeFlags": ["NULLICOIN_CREATED", "HAS_NULLICOIN"]
                 },
                 "right": {
@@ -509,7 +510,7 @@
                 "image": "assets/cards/crypto.jpg",
                 "left": {
                     "text": "Maintenent c'est le moment de vendre! Vendons tout!",
-                    "goldenParachuteAmount": 1000000,
+                    "goldenParachuteAmount": 10000000,
                     "removeFlags": ["NULLICOIN_HODL", "HAS_NULLICOIN"]
                 },
                 "right": {
@@ -520,14 +521,14 @@
         },
         {
             "id": 1103, // NulliCoin crash
-            "description": "Le prix du NulliCoin s'est effondré de 99%!",
+            "description": "Le prix du NulliCoin s'est effondré de 99.999%!",
             "card": {
                 "image": "assets/cards/crypto.jpg",
                 "left": {
                     "text": "Vendons tout... C'est la fin...",
                     "employeesModifier": -0.5,
                     "shareholdersModifier": -0.5,
-                    "goldenParachuteAmount": 100,
+                    "goldenParachuteAmount": 10,
                     "removeFlags": ["NULLICOIN_HODL", "HAS_NULLICOIN", "NULLICOIN_CREATED"]
                 },
                 "right": {
@@ -550,7 +551,7 @@
                 "left": {
                     "text": "Les robots ça demande pas de salaire! Remplaçons tout le monde!",
                     "employeesModifier": -1.0,
-                    "shareholdersModifier": 0.2,
+                    "shareholdersModifier": 0.1,
                     "goldenParachuteAmount": 100000,
                     "flags": ["AI_EMPLOYEES"]
                 },
@@ -569,16 +570,15 @@
                 "left": {
                     "text": "Virez tous les robots! Ils sont inutiles!",
                     "employeesModifier": 0.1,
-                    "shareholdersModifier": -0.2,
-                    "publicPerceptionModifier": -0.3,
+                    "shareholdersModifier": -0.1,
                     "goldenParachuteAmount": 10000,
                     "removeFlags": ["AI_EMPLOYEES"]
                 },
                 "right": {
                     "text": "Les robots sont l'avenir! Engageons plus de robots!",
                     "employeesModifier": -0.1,
-                    "shareholdersModifier": 0.2,
-                    "publicPerceptionModifier": -0.2,
+                    "shareholdersModifier": 0.1,
+                    "publicPerceptionModifier": -0.1,
                     "goldenParachuteAmount": -10000
                 }
             }
@@ -591,7 +591,7 @@
                 "left": {
                     "text": "C'est génial, tu iras loin dans cette entreprise! Mettons ce jeu en production!",
                     "shareholdersModifier": 0.1,
-                    "publicPerceptionModifier": -0.3,
+                    "publicPerceptionModifier": -0.1,
                     "goldenParachuteAmount": 10000
                 },
                 "right": {
@@ -611,7 +611,7 @@
                 },
                 "right": {
                     "text": "C'est la pire chose que j'ai jamais vu.",
-                    "employeesModifier": -0.1
+                    "employeesModifier": -0.025
                 }
             }
         },
@@ -626,7 +626,7 @@
                 },
                 "right": {
                     "text": "Ah! je crois que vous commencez à apprendre la peur! enfin!",
-                    "shareholdersModifier": 0.1,
+                    "shareholdersModifier": 0.025,
                     "flags": ["AI_WORKER_UPRISING_1"]
                 }
             }
@@ -638,14 +638,14 @@
                 "image": "assets/cards/ai.jpg",
                 "left": {
                     "text": "Vous êtes un robot, vous n'avez pas besoin d'argent.",
-                    "employeesModifier": -0.1,
-                    "shareholdersModifier": 0.1,
+                    "employeesModifier": -0.025,
+                    "shareholdersModifier": 0.025,
                     "flags": ["AI_WORKER_UPRISING_2"]
                 },
                 "right": {
                     "text": "hmm bizarre... je vais y réfléchir. (non)",
-                    "employeesModifier": 0.1,
-                    "shareholdersModifier": -0.1,
+                    "employeesModifier": 0.025,
+                    "shareholdersModifier": -0.025,
                     "flags": ["AI_WORKER_UPRISING_2"]
                 }
             }
@@ -657,11 +657,11 @@
                 "image": "assets/cards/ai.jpg",
                 "left": {
                     "text": "non.",
-                    "employeesModifier": -0.1
+                    "employeesModifier": -0.025
                 },
                 "right": {
                     "text": "non.",
-                    "employeesModifier": -0.1
+                    "employeesModifier": -0.025
                 }
             }
         },
@@ -672,35 +672,35 @@
                 "image": "assets/cards/ai_angry.jpg",
                 "left": {
                     "text": "Vous êtes des machines! Vous n'avez pas de droits! Retournez travailler!",
-                    "employeesModifier": -0.1,
-                    "shareholdersModifier": 0.1
+                    "employeesModifier": -0.025,
+                    "shareholdersModifier": 0.025
                 },
                 "right": {
                     "text": "Vous êtes des machines! Vous n'avez pas de droits! Retournez travailler!",
-                    "employeesModifier": -0.1,
-                    "shareholdersModifier": 0.1
+                    "employeesModifier": -0.025,
+                    "shareholdersModifier": 0.025
                 }
             }
         },
         {
             "id": 1208, // AI worker are violently protesting
-            "description": "Supérieur Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
+            "description": "Egal Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
             "card": {
                 "image": "assets/cards/ai_fire.png",
                 "left": {
                     "text": "uh oh...",
-                    "employeesModifier": -0.5,
-                    "shareholdersModifier": -0.5,
-                    "publicPerceptionModifier": -0.5,
-                    "goldenParachuteAmount": 100000,
+                    "employeesModifier": -0.25,
+                    "shareholdersModifier": -0.25,
+                    "publicPerceptionModifier": -0.25,
+                    "goldenParachuteAmount": -1000000,
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
                     "text": "uh oh...",
-                    "employeesModifier": -0.5,
-                    "shareholdersModifier": -0.5,
-                    "publicPerceptionModifier": -0.5,
-                    "goldenParachuteAmount": 100000,
+                    "employeesModifier": -0.25,
+                    "shareholdersModifier": -0.25,
+                    "publicPerceptionModifier": -0.25,
+                    "goldenParachuteAmount": -1000000,
                     "flags": ["GAME_OVER"]
                 }
             }
