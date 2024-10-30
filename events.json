@@ -294,8 +294,6 @@
             }
         },
 
-        // ======================== Arthur s'est arrêté ici ======================== //
-
         // #########################
         // ## SHAREHOLDERS EVENTS ##
         // #########################
@@ -342,12 +340,12 @@
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
                     "text": "Taisez-vous et profitez de l'argent un peu.",
-                    "shareholdersModifier": -0.2,
+                    "shareholdersModifier": -0.15,
                     "goldenParachuteAmount": -50000
                 },
                 "right": {
                     "text": "D'accord, d'accord, oui, tout ce que vous voulez ! Je vire la moitié des équipes, si ça peut vous consoler.",
-                    "employeesModifier": -0.1,
+                    "employeesModifier": -0.2,
                     "shareholdersModifier": 0.15,
                     "goldenParachuteAmount": 100000
                 }
@@ -361,7 +359,7 @@
             "id": 1000, // stock market crash :(
             "description": "Oh non!! Le marché boursier s'est effondré! Les actions de Nullisoft ont chuté de 50%!",
             "card": {
-                "image": "assets/cards/shareholder/shareholders.jpg",
+                "image": "assets/cards/stock_market_crash.jpg",
                 "left": {
                     "text": "Vendre la majorité de vos actions pour amortir le coup.",
                     "employeesModifier": -0.1,
@@ -376,6 +374,9 @@
                 }
             }
         },
+
+        // ======================== Arthur s'est arrêté ici ======================== //
+
         {
             "id": 1001, // heavy snowfall 
             "description": "Oh non!! Il neige à Game City! Les transports en commun sont perturbés et les employés ont du mal à se rendre au travail!",
@@ -412,18 +413,19 @@
         },
         {
             "id": 1003, // Donation from billionaire (bad guy obviously, like all billionaires) foundation
-            "description": "Bonjour... je représente la fondation 'Musk-eteers Fundation', nous aimerions faire un don de 100000, a condition que vous nous aidiez à promouvoir notre image de marque.",
+            "description": "Sincères salutations, PDG de Nullisoft, je représente le conglomérat paramilitaire de notre magnifique pays. Je suis venu vous présenter un contrat à rémunération élevée. En échange de cela, nous ne vous demandons que d'aider la promotion de nos activités auprès des jeunes joueurs dans votre prochain projet.",
             "card": {
                 "image": "assets/cards/lobbyist/lobbyist_sinister.png",
                 "left": {
-                    "text": "De l'argent gratuit pour un truc qu'on aurait fait de toute façon? Je prends!",
-                    "publicPerceptionModifier": -0.2,
-                    "shareholdersModifier": 0.2,
-                    "goldenParachuteAmount": 10000
+                    "text": "De l'argent gratuit ? Avec plaisir !",
+                    "publicPerceptionModifier": -0.1,
+                    "shareholdersModifier": 0.05,
+                    "goldenParachuteAmount": 1000000
                 },
                 "right": {
-                    "text": "On ne veut pas être associé à ces gens (en public). Refusons le don.",
-                    "shareholdersModifier": -0.1
+                    "text": "Non merci, vous me faites peur.",
+                    "publicPerceptionModifier": 0.1,
+                    "shareholdersModifier": -0.05
                 }
             }
         },
@@ -447,18 +449,18 @@
         },
         {
             "id": 1005, // you can get a raise!
-            "description": "Tout ce passe bien pour Nullisoft! ça serait le bon moment pour décider d'augmenter votre salaire. Meme si pour ça il faudrait réduire les effectifs.",
+            "description": "Tout ce passe bien pour Nullisoft. Vous sentez une irrémédiable envie d'augmenter votre salaire de façon excessive.",
             "card": {
                 "image": "assets/cards/money.jpg",
                 "left": {
-                    "text": "J'ai travailler dur! Je mérite une augmentation! Réduisons les effectifs pour payer le salaire de l'employé le plus important, moi!",
-                    "employeesModifier": -0.4,
-                    "goldenParachuteAmount": 50000
+                    "text": "Après tout, c'est moi le patron. Je le mérite bien!",
+                    "publicPerceptionModifier": -0.2,
+                    "goldenParachuteAmount": 250000
                 },
                 "right": {
-                    "text": "Peut-être juste une petite augmentation...",
-                    "employeesModifier": -0.1,
-                    "goldenParachuteAmount": 10000
+                    "text": "Bon, juste une touuute petite augmentation. Je garde le reste pour les employés.",
+                    "employeesModifier": 0.1,
+                    "goldenParachuteAmount": 25000
                 }
             }
         },
