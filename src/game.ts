@@ -89,6 +89,9 @@ export class Game {
 
     private wooshPrimed = false;
 
+    private eventHistory: Event[] = [];
+    private eventHistoryMaxLen = 15;
+
     private barFlags: string[] = [
         "LOW_EMPLOYEES",
         "LOW_SHAREHOLDERS",
@@ -722,7 +725,8 @@ export class Game {
                 if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
                     this.currentEvent = event;
                     this.currentEvent.current = this.currentEvent.root;
-                    // this.updateCard();
+                    this.eventHistory.push(event);
+                    this.eventHistory = this.eventHistory.slice(-this.eventHistoryMaxLen);
                     return;
                 }
             }
@@ -730,14 +734,31 @@ export class Game {
 
         const matchingEvents = this.getAllEventsWithMatchingFlags(this.flags);
 
-        const randomIndex = Math.floor(Math.random() * matchingEvents.length);
-        const event = matchingEvents[randomIndex];
+        const lastFiveEvents = this.eventHistory.slice(-5);
 
-        if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
+        const matchingEventsFiltered = matchingEvents.filter(
+            (event) => !lastFiveEvents.includes(event)
+        );
+
+        const randomIndex = Math.floor(Math.random() * matchingEventsFiltered.length);
+        const event = matchingEventsFiltered[randomIndex];
+
+        if (this.eventHistory.includes(event)) {
+            console.log("rerolling event", event);
+            const randomIndex = Math.floor(Math.random() * matchingEventsFiltered.length);
+            const newEvent = matchingEventsFiltered[randomIndex];
+
+            console.log("new event", newEvent);
+
+            this.currentEvent = newEvent;
+            this.currentEvent.current = this.currentEvent.root;
+            this.eventHistory.push(newEvent);
+            this.eventHistory = this.eventHistory.slice(-this.eventHistoryMaxLen);
+        } else {
             this.currentEvent = event;
             this.currentEvent.current = this.currentEvent.root;
-            // this.updateCard();
-            return;
+            this.eventHistory.push(event);
+            this.eventHistory = this.eventHistory.slice(-this.eventHistoryMaxLen);
         }
 
         // console.log(this.currentEvent, randomIndex);
