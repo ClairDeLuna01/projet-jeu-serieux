@@ -78,6 +78,17 @@ export class Game {
     private highThreshold = 0.7;
     private veryHighThreshold = 0.9;
 
+    private gameVolume = localStorage.getItem("volume")
+        ? parseFloat(localStorage.getItem("volume")!)
+        : 0.5;
+
+    private musics: HTMLAudioElement[] = [];
+    private currentMusic: number = 0;
+
+    private sfx: { [key: string]: HTMLAudioElement } = {};
+
+    private wooshPrimed = false;
+
     private barFlags: string[] = [
         "LOW_EMPLOYEES",
         "LOW_SHAREHOLDERS",
@@ -164,10 +175,55 @@ export class Game {
             this.resetPips();
         });
 
-        // this.cardElement.addEventListener("mouseleave", (event) => {
-        //     this.cardElement.removeEventListener("mousemove", dragEvent);
-        //     this.cardClickXpos = -1;
-        // });
+        window.onload = () => {
+            if (window.innerWidth < 600) {
+                alert(
+                    "Nous avons détecté que vous utilisez un appareil mobile. Pour une meilleure expérience, veuillez activer le mode plein écran dans le menu des options."
+                );
+            }
+        };
+
+        this.loadMusics();
+        this.loadSFX();
+    }
+
+    async loadMusics() {
+        const path = "assets/music/";
+
+        // the different music files, shuffled
+        const files = [
+            "soundcloud_1249036261_audio.mp3",
+            "soundcloud_638492481_audio.mp3",
+            "soundcloud_1746732276_audio.mp3",
+            "soundcloud_771890329_audio.mp3",
+        ].sort(() => Math.random() - 0.5);
+
+        for (const file of files) {
+            const audio = new Audio(path + file);
+            audio.loop = false;
+            audio.volume = this.gameVolume;
+            audio.onended = () => this.playNextMusic();
+            this.musics.push(audio);
+        }
+
+        // this.musics[0].play();
+    }
+
+    async loadSFX() {
+        this.sfx = {
+            whoosh1: new Audio("assets/sfx/whoosh1.mp3"),
+            whoosh2: new Audio("assets/sfx/whoosh2.mp3"),
+            type: new Audio("assets/sfx/type.mp3"),
+            carriage_return: new Audio("assets/sfx/carriage_return.mp3"),
+        };
+    }
+
+    playNextMusic() {
+        this.musics[this.currentMusic].pause();
+        this.musics[this.currentMusic].currentTime = 0;
+        this.currentMusic = (this.currentMusic + 1) % this.musics.length;
+        this.musics[this.currentMusic].play();
+        console.log("Playing music", this.currentMusic);
     }
 
     card_animation(factor: number): void {
@@ -341,6 +397,10 @@ export class Game {
             card.style.transition = "transform 0.5s";
             card.style.transform = `translateX(${signFactor * window.innerWidth}px)`;
 
+            this.sfx.whoosh2.currentTime = 0;
+            this.sfx.whoosh2.volume = this.gameVolume;
+            this.sfx.whoosh2.play();
+
             if (signFactor > 0) {
                 this.applyCardEffect(
                     this.currentEvent?.current.card.right ?? {
@@ -398,11 +458,23 @@ export class Game {
         // compute the the factor for the animation based on the mouse x position
         const clickX = event.clientX;
 
-        const dragFactor = 0.001;
+        const dragFactor = 1 / Math.min(window.innerWidth, 700);
 
         let factor = (clickX - this.cardClickXpos) * dragFactor;
 
         // factor = clamp(factor, -1, 1);
+
+        // we only want to play the sfx if the card has been "reset" to the center
+        if (abs(factor) < 0.1) {
+            this.wooshPrimed = true;
+        }
+
+        if (this.wooshPrimed && abs(factor) > 0.1) {
+            this.sfx.whoosh1.currentTime = 0;
+            this.sfx.whoosh1.volume = this.gameVolume;
+            this.sfx.whoosh1.play();
+            this.wooshPrimed = false;
+        }
 
         this.card_animation(factor);
     }
@@ -549,15 +621,24 @@ export class Game {
         }
         this.isUpdatingName = true;
         const name = this.extractNameFromEventImagePath();
-        if (this.nameElement.innerText !== name) {
+        if (this.nameElement.innerText !== name && name !== "") {
             for (let i = 0; i < name.length; i++) {
+                this.sfx.type.currentTime = 0;
+                this.sfx.type.volume = this.gameVolume;
+                this.sfx.type.play();
                 this.nameElement.innerText = name.slice(0, i + 1);
                 await new Promise((resolve) => setTimeout(resolve, 100));
             }
             this.nameElement.innerText = name;
+            this.sfx.carriage_return.currentTime = 0;
+            this.sfx.carriage_return.volume = this.gameVolume;
+            this.sfx.carriage_return.play();
+        } else if (name === "") {
+            this.nameElement.innerText = "";
         } else {
             this.nameElement.innerText = name;
         }
+
         this.isUpdatingName = false;
     }
 
@@ -724,13 +805,26 @@ export class Game {
         this.pick_random_event();
     }
 
+    getVolume(): number {
+        return this.gameVolume;
+    }
+
+    setVolume(volume: number): void {
+        this.gameVolume = volume;
+        localStorage.setItem("volume", volume.toString());
+    }
+
     play() {
+        this.gameElement.classList.remove("hide");
+        this.gameFieldElement.classList.remove("hide");
         this.update_bars();
         this.currentEvent = events[0];
         this.currentEvent.current = this.currentEvent.root;
         this.updateCard();
 
         this.resetPips();
+
+        this.musics[0].play();
 
         // this.startLetterMinigame(letterMinigames[1]);
         // this.startTypingMinigame(typingMinigames[0]);

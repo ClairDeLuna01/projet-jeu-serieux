@@ -5,12 +5,173 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Vidoe gaem :)</title>
+    <link rel="manifest" href="manifest.json">
+    <title>SUPER VIDEO GAME COMPANY CEO SIMULATOR DELUXE: ADVANCED EDITION</title>
 
 </head>
 
+<script>
+    // Prevent scrolling on reload
+    window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+    }
+
+    window.scrollTo(0, 0);
+</script>
+
 <body>
-    <div id="game">
+    <!-- MAIN MENU -->
+    <div id="main-menu" class="">
+        <div id="main-menu-bg"></div>
+        <div id="main-menu-content">
+            <div id="main-menu-title">SUPER VIDEO GAME COMPANY CEO SIMULATOR DELUXE: ADVANCED EDITION</div>
+            <div id="main-menu-buttons">
+                <div id="main-menu-start" class="main-menu-button">Start</div>
+                <div id="main-menu-options" class="main-menu-button">Options</div>
+                <div id="main-menu-credits" class="main-menu-button">Crédits</div>
+            </div>
+        </div>
+        <!-- <div id="UM-logo">
+            <img src="assets/UM_logo.png" alt="UM logo" draggable="false" />
+        </div> -->
+    </div>
+
+    <script>
+        document.getElementById("main-menu").scrollIntoView();
+    </script>
+
+    <!-- CREDITS -->
+    <div id="credits" class="hide">
+        <div id="credits-bg"></div>
+        <div id="credits-title">
+            Crédits
+        </div>
+        <div id="credits-content">
+            <div class="credits-element">
+                <div class="credits-element-title">Programmation</div>
+                <div class="credits-element-title-line"></div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/luna.png" alt="Luna" draggable="false" />
+                    <div class="credits-element-name">Luna Bossu</div>
+                </div>
+            </div>
+            <div class="credits-element">
+                <div class="credits-element-title">Story / Event Design</div>
+                <div class="credits-element-title-line"></div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/blue.webp" alt="Blue" draggable="false" />
+                    <div class="credits-element-name">Arthur Chateauneuf</div>
+                </div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/luna.png" alt="Luna" draggable="false" />
+                    <div class="credits-element-name">Luna Bossu</div>
+                </div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/val.webp" alt="val" draggable="false" />
+                    <div class="credits-element-name">Valentin Noyé</div>
+                </div>
+            </div>
+            <div class="credits-element">
+                <div class="credits-element-title">Game Design</div>
+                <div class="credits-element-title-line"></div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/blue.webp" alt="Blue" draggable="false" />
+                    <div class="credits-element-name">Arthur Chateauneuf</div>
+                </div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/luna.png" alt="Luna" draggable="false" />
+                    <div class="credits-element-name">Luna Bossu</div>
+                </div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/val.webp" alt="val" draggable="false" />
+                    <div class="credits-element-name">Valentin Noyé</div>
+                </div>
+            </div>
+            <div class="credits-element">
+                <div class="credits-element-title">GDD</div>
+                <div class="credits-element-title-line"></div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/val.webp" alt="val" draggable="false" />
+                    <div class="credits-element-name">Valentin Noyé</div>
+                </div>
+            </div>
+            <div class="credits-element">
+                <div class="credits-element-title">Musiques</div>
+                <div class="credits-element-title-line"></div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic"
+                        src="assets/credits/music/avatars-ivibfoaEDXOHDejY-qyUxaw-t120x120.jpg" alt="val"
+                        draggable="false" />
+                    <div class="credits-element-name"><a class="credits-element-link"
+                            href="https://soundcloud.com/krist-f-horthy/midnightlo-fi-hip-hop-beatfree-creative-commons-license-free-download">
+                            Horthy Kristóf - Midnight
+                        </a></div>
+                </div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic"
+                        src="assets/credits/music/avatars-EL7YwcbT4n9HpgFe-KoF2hw-t120x120.jpg" alt="val"
+                        draggable="false" />
+                    <div class="credits-element-name"><a class="credits-element-link"
+                            href="https://soundcloud.com/musicformedia-1/antarcticbreeze-after-sunset-lofi-creative-commons-music">
+                            ANtarcticbreeze- After Sunset
+                        </a></div>
+                </div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic"
+                        src="assets/credits/music/avatars-SgZZlx0YQsYc9LNz-5YK7NQ-t120x120.jpg" alt="val"
+                        draggable="false" />
+                    <div class="credits-element-name">
+                        <a class="credits-element-link"
+                            href="https://soundcloud.com/creativecommonshub/hipeg-waiting-the-sun">
+                            HIPEG - Waiting The Sun
+                        </a>
+                    </div>
+                </div>
+                <div class="credits-element-content">
+                    <img class="credits-element-pic" src="assets/credits/music/avatars-000571643970-s0i6w7-t120x120.jpg"
+                        alt="val" draggable="false" />
+                    <div class="credits-element-name">
+                        <a class="credits-element-link" href="https://soundcloud.com/romansenykmusic/dreamy-lofi">
+                            RomanSenykMusic - Dreamy LoFi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="credits-back"> Retour </div>
+    </div>
+
+    <!-- OPTIONS -->
+    <div id="options" class="hide">
+        <div id="options-bg"></div>
+        <div id="options-title">
+            Options
+        </div>
+        <div id="options-content">
+            <div class="options-element">
+                <div class="options-element-title">Volume</div>
+                <div class="options-element-content">
+                    <input type="range" id="volume-slider" min="0" max="100" value="100" class="slider">
+                    <label for="volume-slider" id="volume-label">100%</label>
+                </div>
+            </div>
+            <div class="options-element">
+                <div class="options-element-title">Plein écran</div>
+                <div class="options-element-content">
+                    <input type="checkbox" id="fullscreen-checkbox">
+                </div>
+            </div>
+        </div>
+        <div id="options-back"> Retour </div>
+    </div>
+
+
+    <!-- GAME OVER -->
+    <!-- TODO -->
+
+    <!-- GAME -->
+    <div id="game" class="hide">
+        <!-- STATUS BAR -->
         <div id="status-bar">
             <div id="score">
                 <div style="position: relative; width: 0; height: 0">
@@ -42,22 +203,23 @@
             </div>
         </div>
 
-        <div id="game-field">
-            <img id="background" src="assets/background.png" alt="background" draggable="false" />
+        <!-- MAIN GAME -->
+        <div id="game-field" class="hide">
+            <img id="background" src="assets/background blur.png" alt="background" draggable="false" />
             <div id="trinkets">
                 <img id="trinket-water-cooler" src="assets/trinkets/water_cooler.png">
             </div>
             <div id="name"></div>
             <div id="dialogue">
-                Hey! You're the new CEO of a big video game company! You have to make decisions to keep your company
-                afloat. Good luck!
+                Hey! This is a placeholder!!
             </div>
             <div id="card">
                 <img id="card-image" src="assets/cards/card_placeholder.png" alt="card" draggable="false" />
-                <div id="card-action">OK!!</div>
+                <div id="card-action">Placeholder?? I hardly know her</div>
             </div>
         </div>
 
+        <!-- LETTER MINIGAME -->
         <div id="letter-minigame" class="hide">
             <div id="letter-minigame-bg"></div>
             <div id="letter-minigame-content">
@@ -83,6 +245,7 @@
             </div>
         </div>
 
+        <!-- TYPING MINIGAME -->
         <div id="typing-minigame" class="hide">
             <div id="typing-minigame-bg"></div>
             <div id="typing-minigame-content">

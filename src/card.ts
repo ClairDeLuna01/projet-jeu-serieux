@@ -1,4 +1,5 @@
 import eventsJSON from "../events.json";
+import { preloadCardImage } from "./utils";
 
 export interface CardEffect {
     text: string;
@@ -75,6 +76,9 @@ function buildTree(tree: JSONEventTreeNode, nodes: JSONEventNode[]): EventNode {
 
     const left = tree.left ? buildTree(tree.left, nodes) : undefined;
     const right = tree.right ? buildTree(tree.right, nodes) : undefined;
+
+    // Preload the card images to avoid popping when the card is shown
+    preloadCardImage(node.card.image);
 
     return {
         card: node.card,

@@ -1,4 +1,3 @@
-import { Game } from "./game";
+import { MainMenu } from "./menu";
 
-const game = new Game();
-game.play();
+const mainMenu = new MainMenu();
