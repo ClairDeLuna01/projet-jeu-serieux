@@ -783,9 +783,9 @@ html {
 }
 
 #game-over-score-label {
-    width: 60%;
+    width: 40%;
     display: inline-block;
-    text-align: right;
+    text-align: center;
 }
 
 #game-over-score-value {
@@ -990,7 +990,7 @@ html {
 }
 
 #typing-minigame-header {
-    font-size: 44px;
+    font-size: 30px;
     font-weight: bold;
     margin-bottom: 20px;
     background-color: #8cf5bd;
@@ -1003,7 +1003,7 @@ html {
 
 @media (max-width: 600px) {
     #typing-minigame-header {
-        font-size: 38px;
+        font-size: 30px;
         height: 100px;
     }
 }
@@ -1064,7 +1064,7 @@ html {
 
 .typing-minigame-word {
     display: inline-block;
-    font-size: 44px;
+    font-size: 30px;
     padding: 0px;
     border-radius: 0px;
     background-color: #fff;
@@ -1073,7 +1073,7 @@ html {
 
 .typing-minigame-letter {
     display: inline-block;
-    font-size: 44px;
+    font-size: 30px;
     padding: 0px;
     /* border-radius: 5px; */
     background-color: #fff;

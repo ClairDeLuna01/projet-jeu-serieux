@@ -119,6 +119,7 @@ export class Game {
         APOLOGY_SHAREHOLDERS: this.apologyEmployees.bind(this),
         APOLOGY_EMPLOYEES: this.apologyShareholders.bind(this),
         SPEECH_SHAREHOLDERS: this.speechShareholders.bind(this),
+        SPEECH_CUSTOMERS: this.speechCustomers.bind(this),
     };
 
     constructor() {
@@ -220,6 +221,8 @@ export class Game {
             whoosh2: new Audio("assets/sfx/whoosh2.mp3"),
             type: new Audio("assets/sfx/type.mp3"),
             carriage_return: new Audio("assets/sfx/carriage_return.mp3"),
+            beep: new Audio("assets/sfx/beep2.mp3"),
+            rumble: new Audio("assets/sfx/rumble.mp3"),
         };
     }
 
@@ -909,27 +912,55 @@ export class Game {
         RestartButton.classList.add("disabled");
         MainMenuButton.classList.add("disabled");
 
+        this.sfx.beep.currentTime = 0;
+        this.sfx.beep.volume = this.gameVolume * 0.45;
+
+        this.sfx.rumble.currentTime = 0;
+        this.sfx.rumble.volume = 0.0;
+        this.sfx.rumble.loop = true;
+        this.sfx.rumble.play();
+
         // score counting animation
         const score = this.score;
         let step = 1;
         let currentScore = 0;
+        let count = 0;
         const interval = setInterval(() => {
+            // if (count % 2 === 0) {
+            //     this.sfx.beep.volume = this.gameVolume * 0.5 * (1 + Math.log10(step) * 0.1);
+            //
+            // }
+            const volumeFactor = Math.log10(step) * 0.15;
+            this.sfx.rumble.volume = this.gameVolume * volumeFactor;
+
+            this.sfx.beep.currentTime = 0;
+            this.sfx.beep.play();
             currentScore += step;
             console.log("step", step);
-            step = Math.max(10 ** (Math.log10(currentScore + 0.0001) / 1.8), 1) + 1;
+            step = Math.max(10 ** Math.floor(Math.log10(currentScore + 0.0001) - 1), 1) + 1;
             if (currentScore >= score) {
                 currentScore = score;
                 ScoreValueElement.style.transform = `scale(${1 + 0.001 * Math.sqrt(currentScore)})`;
+                ScoreValueElement.style.color = `hsl(${Math.log10(step) * 45 + 90}, 100%, 50%)`;
+                ScoreValueElement.style.textShadow = `0 0 10px hsl(${
+                    Math.log10(step) * 45 - 90
+                }, 100%, 50%)`;
                 clearInterval(interval);
                 RestartButton.classList.remove("disabled");
                 MainMenuButton.classList.remove("disabled");
+                this.sfx.rumble.pause();
             } else {
                 const angleFactor = 0.001 * Math.sqrt(currentScore);
                 const angle = Math.random() * angleFactor - angleFactor / 2;
                 ScoreValueElement.style.transform = `scale(${1 + 0.001 * Math.sqrt(currentScore)})
                 rotate(${angle}rad)`;
+                ScoreValueElement.style.color = `hsl(${Math.log10(step) * 45 + 90}, 100%, 50%)`;
+                ScoreValueElement.style.textShadow = `0 0 10px hsl(${
+                    Math.log10(step) * 45 - 90
+                }, 100%, 50%)`;
             }
             ScoreValueElement.innerText = formatMoney(currentScore);
+            count++;
         }, Math.max(5 / Math.log10(step + 1)));
     }
 
@@ -957,6 +988,12 @@ export class Game {
         this.updateCard();
     }
 
+    async speechCustomers() {
+        await this.startTypingMinigame(typingMinigames["consumers"]);
+        this.pick_random_event();
+        this.updateCard();
+    }
+
     play() {
         this.flags = [];
         this.updateTrinkets();
@@ -972,6 +1009,10 @@ export class Game {
 
         this.musics[0].play();
 
+        this.score = 2_534_123;
+        this.gameOver();
+
         // this.employees = 0.05;
+        // this.set_shareholders(1);
     }
 }

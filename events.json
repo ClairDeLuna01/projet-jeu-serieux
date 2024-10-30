@@ -377,7 +377,7 @@
         // ======================== Arthur s'est arrêté ici ======================== //
 
         {
-            "id": 1001, // heavy snowfall 
+            "id": 1001, // heavy snowfall
             "description": "Oh non!! Il neige à Game City! Les transports en commun sont perturbés et les employés ont du mal à se rendre au travail!",
             "card": {
                 "image": "assets/cards/snow.jpg",
@@ -743,30 +743,30 @@
 
         {
             "id": 1302, // Game Over no more shareholders but still lifeline
-            "description": "PDG de Nullisoft! Vos dernières actions ont laissé les actionnaires mécontents",
+            "description": "PDG de Nullisoft! Vos dernières actions 'philanthropiques' nous ont déplu. Nous avons décidé de retirer tout notre investissement de votre entreprise. Bonne chance pour la suite.",
             "card": {
-                "image": "assets/cards/manager/manager_focus.jpg",
+                "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
-                    "text": "",
-                    "flags": []
+                    "text": "NON! Attendez! Je suis prèt à me mettre à genoux pour vous! donnez-moi une autre chance!",
+                    "flags": ["APOLOGY_SHAREHOLDERS"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "Pas grave, j'ai mon parachute doré! (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
         },
         {
             "id": 1303, // Game Over no more shareholders but no lifeline
-            "description": "",
+            "description": "PDG de Nullisoft! Nous vous avons donné une chance et vous avez échoué. Nous avons décidé de retirer tout notre investissement de votre entreprise. Bonne chance pour la suite.",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "",
+                    "text": "Pas grave, ma prochaine startup sera mieux! (game over)", // Not sure about this text
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "Pas grave, ma prochaine startup sera mieux! (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
@@ -774,92 +774,93 @@
 
         {
             "id": 1304, // Game Over no more public perception but still lifeline
-            "description": "",
+            "description": "PDG! Votre dernier jeu a été un désastre! Le mot en ligne est que vous êtes un escroc et un menteur! Avez vous quelque chose à dire pour vous défendre?",
             "card": {
-                "image": "assets/cards/manager/manager_focus.jpg",
+                "image": "assets/cards/journalist/journalist_computer.jpg",
                 "left": {
-                    "text": "",
-                    "flags": []
+                    "text": "Je suis en train d'écrire un communiqué de presse pour m'excuser de mes erreurs.",
+                    "flags": ["APOLOGY_CUSTOMERS"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "Pas de commentaire. (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
         },
         {
             "id": 1305, // Game Over no more public perception but no lifeline
-            "description": "",
+            "description": "Boss! Plus personne achète nos jeux! Nous sommes finis!",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "",
+                    "text": "Je ne comprendrait jamais les prolots... (game over)",
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "Je ne comprendrait jamais les prolots... (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
         },
 
         {
-            "id": 1306, // Game Over max employees but still lifeline
-            "description": "",
+            "id": 1306, // Game Over max employees
+            "description": "Vous traitez trop bien vos employés. A ce rythme la vous allez vous faire remplacer quand ils réaliseront que votre travail ne consiste qu'à faire de simples choix binaires.",
             "card": {
-                "image": "assets/cards/manager/manager_focus.jpg",
+                "image": "assets/cards/hr/HR.png",
                 "left": {
-                    "text": "",
-                    "flags": []
+                    "text": "Pas grave, je vais en virer la moitié pour compenser.",
+                    "employeesModifier": -0.5,
+                    "publicPerceptionModifier": -0.05
                 },
                 "right": {
-                    "text": "",
+                    "text": "Tant mieux, je les ai bien élevés, ils n'ont pas besoin de moi.",
                     "flags": ["GAME_OVER"]
                 }
             }
         },
-        {
-            "id": 1307, // Game Over max employees but no lifeline
-            "description": "",
-            "card": {
-                "image": "assets/cards/manager/manager_focus.jpg",
-                "left": {
-                    "text": "",
-                    "flags": ["GAME_OVER"]
-                },
-                "right": {
-                    "text": "",
-                    "flags": ["GAME_OVER"]
-                }
-            }
-        },
+        // {
+        //     "id": 1307, // Game Over max employees but no lifeline
+        //     "description": "",
+        //     "card": {
+        //         "image": "assets/cards/manager/manager_focus.jpg",
+        //         "left": {
+        //             "text": "",
+        //             "flags": ["GAME_OVER"]
+        //         },
+        //         "right": {
+        //             "text": "",
+        //             "flags": ["GAME_OVER"]
+        //         }
+        //     }
+        // },
 
         {
             "id": 1308, // Game Over max shareholders but still lifeline
-            "description": "",
+            "description": "PDG de Nullisoft. Vous n'avez aucune autonomie, vous êtes un pantin. Nous avons décidé de vous retirer et de prendre le contrôle direct de l'entreprise.",
             "card": {
-                "image": "assets/cards/manager/manager_focus.jpg",
+                "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
-                    "text": "",
-                    "flags": []
+                    "text": "Non! Je vous jure je suis utile, je ferait mieux!",
+                    "flags": ["SPEECH_SHAREHOLDERS"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "J'ai bien servi mon role en tant qu'engrenage dans la machine du capitalisme. Je peux mourrir en paix. (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
         },
         {
             "id": 1309, // Game Over max shareholders but no lifeline
-            "description": "",
+            "description": "PDG de Nullisoft. Vous n'avez point changer et maintenant nous avons décidé de vous retirer et de prendre le contrôle direct de l'entreprise.",
             "card": {
-                "image": "assets/cards/manager/manager_focus.jpg",
+                "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
-                    "text": "",
+                    "text": "Je suis un pantin, je n'ai pas besoin de contrôle sur ma vie. (game over)",
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "Je suis un pantin, je n'ai pas besoin de contrôle sur ma vie. (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
@@ -867,30 +868,30 @@
 
         {
             "id": 13010, // Game Over max public perception but still lifeline
-            "description": "",
+            "description": "Boss! Les gens nous adorent! Normalement ça serait une bonne chose mais ils en attendent trop de nous! Nous sommes finis!",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "",
-                    "flags": []
+                    "text": "Quoi? on peut être trop aimer? Je vais faire un communiqué de presse pour les calmer.",
+                    "flags": ["SPEECH_CUSTOMERS"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "Mais non, on est les meilleurs! (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
         },
         {
             "id": 13011, // Game Over max public perception but no lifeline
-            "description": "",
+            "description": "Boss! Les attentes du public ont continué à monter et maintenant il est impossible de les satisfaire! Nous sommes finis!",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "",
+                    "text": "Je ne comprendrait jamais les prolots... (game over)",
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
-                    "text": "",
+                    "text": "Je ne comprendrait jamais les prolots... (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
@@ -1054,12 +1055,66 @@
             "name": "Game Over 0 employees first time",
             "tree": { "id": 1300 },
             "requiredFlags": ["ZERO_EMPLOYEES"],
-            "notFlags": ["APOLOGY_EMPLOYEES"]
+            "notFlags": ["APOLOGY_EMPLOYEES", "AI_EMPLOYEES"]
         },
         {
             "name": "Game Over 0 employees second time",
             "tree": { "id": 1301 },
-            "requiredFlags": ["ZERO_EMPLOYEES", "APOLOGY_EMPLOYEES"]
+            "requiredFlags": ["ZERO_EMPLOYEES", "APOLOGY_EMPLOYEES"],
+            "notFlags": ["AI_EMPLOYEES"]
+        },
+
+        {
+            "name": "Game Over 0 shareholders first time",
+            "tree": { "id": 1302 },
+            "requiredFlags": ["ZERO_SHAREHOLDERS"],
+            "notFlags": ["APOLOGY_SHAREHOLDERS"]
+        },
+        {
+            "name": "Game Over 0 shareholders second time",
+            "tree": { "id": 1303 },
+            "requiredFlags": ["ZERO_SHAREHOLDERS", "APOLOGY_SHAREHOLDERS"]
+        },
+
+        {
+            "name": "Game Over 0 public perception first time",
+            "tree": { "id": 1304 },
+            "requiredFlags": ["ZERO_PUBLIC_PERCEPTION"],
+            "notFlags": ["APOLOGY_CUSTOMERS"]
+        },
+        {
+            "name": "Game Over 0 public perception second time",
+            "tree": { "id": 1305 },
+            "requiredFlags": ["ZERO_PUBLIC_PERCEPTION", "APOLOGY_CUSTOMERS"]
+        },
+
+        {
+            "name": "Game Over max employees",
+            "tree": { "id": 1306 },
+            "requiredFlags": ["MAX_EMPLOYEES"],
+            "notFlags": ["AI_EMPLOYEES"]
+        },
+        {
+            "name": "Game Over max shareholders fist time",
+            "tree": { "id": 1308 },
+            "requiredFlags": ["MAX_SHAREHOLDERS"],
+            "notFlags": ["SPEECH_SHAREHOLDERS"]
+        },
+        {
+            "name": "Game Over max shareholders second time",
+            "tree": { "id": 1309 },
+            "requiredFlags": ["MAX_SHAREHOLDERS", "SPEECH_SHAREHOLDERS"]
+        },
+        {
+            "name": "Game Over max public perception first time",
+            "tree": { "id": 13010 },
+            "requiredFlags": ["MAX_PUBLIC_PERCEPTION"],
+            "notFlags": ["SPEECH_CUSTOMERS"]
+        },
+        {
+            "name": "Game Over max public perception second time",
+            "tree": { "id": 13011 },
+            "requiredFlags": ["MAX_PUBLIC_PERCEPTION", "SPEECH_CUSTOMERS"]
         }
     ]
 }

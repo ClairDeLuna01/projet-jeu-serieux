@@ -1,4 +1,5 @@
 import speech1 from "../letters/speech1.txt";
+import speech2 from "../letters/speech2.txt";
 import { CardEffect } from "./card";
 import { Game } from "./game";
 import { isAsciiPrintable } from "./utils";
@@ -27,14 +28,14 @@ export class TypingMinigame {
         this.WPMElem = document.getElementById("typing-minigame-wpm-value")!;
         this.letterElements = [];
 
-        console.log("text", text);
-
-        this.eventCallback = this.typing.bind(this);
-        document.addEventListener("keydown", this.eventCallback);
+        // console.log("text", text);
     }
 
     typing(event: KeyboardEvent) {
         const letter = this.textClean[this.textIndex];
+
+        // console.log(this.textIndex);
+        // console.log(this);
 
         const secret_cheat_key = "`";
 
@@ -142,10 +143,15 @@ export class TypingMinigame {
             });
             this.textElement.appendChild(paragraphElement);
         });
+
+        // console.log("letterElements", this.letterElements);
     }
 
     start() {
         this.setText();
+
+        this.eventCallback = this.typing.bind(this);
+        document.addEventListener("keydown", this.eventCallback);
     }
 
     isDone() {
@@ -154,6 +160,10 @@ export class TypingMinigame {
 
     isWin() {
         return this.getWPM() > 40;
+    }
+
+    getErrorCount() {
+        return this.letterElements.filter((e) => e.classList.contains("wrong")).length;
     }
 
     async waitTilDone() {
@@ -166,6 +176,21 @@ export class TypingMinigame {
         }
         document.removeEventListener("keydown", this.eventCallback);
 
+        const errors = this.getErrorCount();
+
+        this.winEffect.employeesModifier = (this.winEffect.employeesModifier ?? 0) + errors * 0.01;
+        this.winEffect.publicPerceptionModifier =
+            (this.winEffect.publicPerceptionModifier ?? 0) + errors * 0.01;
+        this.winEffect.shareholdersModifier =
+            (this.winEffect.shareholdersModifier ?? 0) + errors * 0.01;
+
+        this.loseEffect.employeesModifier =
+            (this.loseEffect.employeesModifier ?? 0) - errors * 0.01;
+        this.loseEffect.publicPerceptionModifier =
+            (this.loseEffect.publicPerceptionModifier ?? 0) - errors * 0.01;
+        this.loseEffect.shareholdersModifier =
+            (this.loseEffect.shareholdersModifier ?? 0) - errors * 0.01;
+
         this.game.applyCardEffect(this.isWin() ? this.winEffect : this.loseEffect);
     }
 }
@@ -175,11 +200,22 @@ export const typingMinigames: { [key: string]: TypingMinigame } = {
         speech1,
         {
             text: "",
-            shareholdersModifier: 0.5,
+            shareholdersModifier: -0.5,
         },
         {
             text: "",
-            shareholdersModifier: -0.5,
+            shareholdersModifier: 0.5,
+        }
+    ),
+    consumers: new TypingMinigame(
+        speech2,
+        {
+            text: "",
+            publicPerceptionModifier: -0.5,
+        },
+        {
+            text: "",
+            publicPerceptionModifier: 0.5,
         }
     ),
 };
