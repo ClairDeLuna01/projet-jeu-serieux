@@ -111,9 +111,10 @@ export class Game {
     ];
 
     private specialFlags: SpecialFlagType = {
-        MANAGER_FIRED: function () {
-            console.log("flag1");
-        },
+        GAME_OVER: this.gameOver.bind(this),
+        APOLOGY_CONSUMERS: this.apologyConsumers.bind(this),
+        APOLOGY_SHAREHOLDERS: this.apologyEmployees.bind(this),
+        SPEECH_SHAREHOLDERS: this.speechShareholders.bind(this),
     };
 
     constructor() {
@@ -249,8 +250,8 @@ export class Game {
         factor = clamp(factor, -1, 1);
 
         card.style.transform = `rotate(${angle * factor}rad) translateX(${translation * factor}%)`;
-        // apply the fade to white animation to the card with percentage based on the factor
-        const fadeFactor = 0.3;
+        // apply the fade to black animation to the card with percentage based on the factor
+        const fadeFactor = 0.5;
         this.cardImageElement.style.filter = `contrast(${
             1 - abs(factor * fadeFactor)
         }) brightness(${1 - abs(factor * fadeFactor)})`;
@@ -605,6 +606,7 @@ export class Game {
         const path = this.currentEvent?.current.card.image ?? "";
         const parts = path.split("/");
         const folder = parts[parts.length - 2];
+        const file = parts[parts.length - 1];
 
         const names: any = {
             nerd: "Le Nerd",
@@ -614,6 +616,13 @@ export class Game {
             manager: "Le Manager",
             shareholder: "Les Actionnaires",
         };
+
+        if (file.slice(0, 2) == "ai" && this.flags.includes("AI_EMPLOYEES")) {
+            if (file == "ai_fire.png") {
+                return "COMMUNIST AI [ASCENDED]";
+            }
+            return "La Machine";
+        }
 
         return names[folder] ?? "";
     }
@@ -796,6 +805,8 @@ export class Game {
 
         await minigame.waitTilDone();
 
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+
         this.gameFieldElement.classList.remove("hide");
         this.letterMinigameElement.classList.add("hide");
         this.pick_random_event();
@@ -809,6 +820,8 @@ export class Game {
         minigame.start();
 
         await minigame.waitTilDone();
+
+        await new Promise((resolve) => setTimeout(resolve, 2000));
 
         this.gameFieldElement.classList.remove("hide");
         this.typingMinigameElement.classList.add("hide");
@@ -828,7 +841,66 @@ export class Game {
         });
     }
 
+    async gameOver() {
+        this.gameElement.classList.add("hide");
+        this.gameFieldElement.classList.add("hide");
+
+        const gameOverMenu = document.getElementById("game-over")!;
+        const RestartButton = document.getElementById("game-over-restart")!;
+        const MainMenuButton = document.getElementById("game-over-main-menu")!;
+        const ScoreValueElement = document.getElementById("game-over-score-value")!;
+        const ScoreLabelElement = document.getElementById("game-over-score-label")!;
+
+        gameOverMenu.classList.remove("hide");
+        RestartButton.classList.add("disabled");
+        MainMenuButton.classList.add("disabled");
+
+        // score counting animation
+        const score = this.score;
+        let step = 1;
+        let currentScore = 0;
+        const interval = setInterval(() => {
+            currentScore += step;
+            console.log("step", step);
+            step = Math.max(10 ** (Math.log10(currentScore + 0.0001) / 1.8), 1) + 1;
+            if (currentScore >= score) {
+                currentScore = score;
+                ScoreValueElement.style.transform = `scale(${1 + 0.001 * Math.sqrt(currentScore)})`;
+                clearInterval(interval);
+                RestartButton.classList.remove("disabled");
+                MainMenuButton.classList.remove("disabled");
+            } else {
+                const angleFactor = 0.001 * Math.sqrt(currentScore);
+                const angle = Math.random() * angleFactor - angleFactor / 2;
+                ScoreValueElement.style.transform = `scale(${1 + 0.001 * Math.sqrt(currentScore)})
+                rotate(${angle}rad)`;
+            }
+            ScoreValueElement.innerText = formatMoney(currentScore);
+        }, Math.max(5 / Math.log10(step + 1)));
+    }
+
+    async apologyConsumers() {
+        await this.startLetterMinigame(letterMinigames["consumers"]);
+        this.pick_random_event();
+        this.updateCard();
+    }
+
+    async apologyEmployees() {
+        await this.startLetterMinigame(letterMinigames["shareholders"]);
+        this.pick_random_event();
+        this.updateCard();
+    }
+
+    async speechShareholders() {
+        await this.startTypingMinigame(typingMinigames["shareholders"]);
+        this.pick_random_event();
+        this.updateCard();
+    }
+
     play() {
+        this.flags = [];
+        this.updateTrinkets();
+
         this.gameElement.classList.remove("hide");
         this.gameFieldElement.classList.remove("hide");
         this.update_bars();
@@ -840,7 +912,6 @@ export class Game {
 
         this.musics[0].play();
 
-        // this.startLetterMinigame(letterMinigames[1]);
-        // this.startTypingMinigame(typingMinigames[0]);
+        console.log(letterMinigames);
     }
 }

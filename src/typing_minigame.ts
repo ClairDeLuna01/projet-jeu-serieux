@@ -1,4 +1,5 @@
 import speech1 from "../letters/speech1.txt";
+import { CardEffect } from "./card";
 import { Game } from "./game";
 import { isAsciiPrintable } from "./utils";
 
@@ -13,8 +14,13 @@ export class TypingMinigame {
     private eventCallback: (event: KeyboardEvent) => void;
     private typingStartTimestamp = -1;
 
-    constructor(text: string) {
+    private winEffect: CardEffect;
+    private loseEffect: CardEffect;
+
+    constructor(text: string, winEffect: CardEffect, loseEffect: CardEffect) {
         this.text = text;
+        this.winEffect = winEffect;
+        this.loseEffect = loseEffect;
         this.textClean = text.replace(/\n/g, "");
         this.textIndex = 0;
         this.textElement = document.getElementById("typing-minigame-text")!;
@@ -146,6 +152,10 @@ export class TypingMinigame {
         return this.textIndex === this.textClean.length;
     }
 
+    isWin() {
+        return this.getWPM() > 40;
+    }
+
     async waitTilDone() {
         while (!this.isDone()) {
             if (this.typingStartTimestamp !== -1) {
@@ -155,7 +165,21 @@ export class TypingMinigame {
             await new Promise((resolve) => setTimeout(resolve, 50));
         }
         document.removeEventListener("keydown", this.eventCallback);
+
+        this.game.applyCardEffect(this.isWin() ? this.winEffect : this.loseEffect);
     }
 }
 
-export const typingMinigames = [new TypingMinigame(speech1)];
+export const typingMinigames: { [key: string]: TypingMinigame } = {
+    shareholders: new TypingMinigame(
+        speech1,
+        {
+            text: "",
+            shareholdersModifier: 0.5,
+        },
+        {
+            text: "",
+            shareholdersModifier: -0.5,
+        }
+    ),
+};

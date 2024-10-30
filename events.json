@@ -33,7 +33,6 @@
         // ######################
         // ## MISC NERD EVENTS ##
         // ######################
-        // TODO: there can't be a nerd if we have robot employees
         {
             "id": 102, // Le nerd demande de faire un jeu profond
             "description": "Patron!! J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques !",
@@ -572,20 +571,57 @@
                     "employeesModifier": -0.5,
                     "shareholdersModifier": -0.5,
                     "publicPerceptionModifier": -0.5,
-                    "goldenParachuteAmount": 100000
-                    // TODO: game over
+                    "goldenParachuteAmount": 100000,
+                    "flags": ["GAME_OVER"]
                 },
                 "right": {
                     "text": "uh oh...",
                     "employeesModifier": -0.5,
                     "shareholdersModifier": -0.5,
                     "publicPerceptionModifier": -0.5,
-                    "goldenParachuteAmount": 100000
-                    // TODO: game over
+                    "goldenParachuteAmount": 100000,
+                    "flags": ["GAME_OVER"]
                 }
             }
         },
 
+        // ####################
+        // ## FAILURE EVENTS ##
+        // ####################
+
+        {
+            "id": 1300, // Game Over no more employees but still lifeline
+            "description": "Boss! Urgent! Tous les employés ont quitté l'entreprise! Nous sommes seuls!",
+            "card": {
+                "image": "assets/cards/manager/manager_focus.jpg",
+                "left": {
+                    "text": "Je vais faire une lettre d'excuse et les supplier de revenir......",
+                    "flags": ["APOLOGY_WORKERS"]
+                },
+                "right": {
+                    "text": "Bon... C'est le moment de liquider tout mes actifs et de partir en vacances. yipee!!! (game over)",
+                    "flags": ["GAME_OVER"]
+                }
+            }
+        },
+
+        {
+            "id": 1301, // Game Over no more employees but no lifeline
+            "description": "Boss! Urgent! Tous les employés ont encore quitté l'entreprise! Et cette fois-ci je pense pas qu'un simple 'désolé' suffira...",
+            "card": {
+                "image": "assets/cards/manager/manager_focus.jpg",
+                "left": {
+                    "text": "C'est la vie... merci d'être resté avec moi jusqu'a la fin, manager (game over)",
+                    "flags": ["GAME_OVER"]
+                },
+                "right": {
+                    "text": "C'est la vie... merci d'être resté avec moi jusqu'a la fin, manager (game over)",
+                    "flags": ["GAME_OVER"]
+                }
+            }
+        },
+
+        // placeholder event
         {
             "id": 9999999,
             "description": "This is yet another event",
@@ -615,17 +651,17 @@
         },
 
         // nerd events
-        { "name": "game idea", "tree": { "id": 102 } },
+        { "name": "game idea", "tree": { "id": 102 }, "notFlags": ["AI_EMPLOYEES"] },
         {
             "name": "strike",
-            "notFlags": ["STRIKE_AVOIDED"],
+            "notFlags": ["STRIKE_AVOIDED", "AI_EMPLOYEES"],
             "requiredFlags": ["LOW_EMPLOYEES"],
             "tree": { "id": 103 }
         },
-        { "name": "late", "tree": { "id": 104 } },
-        { "name": "burnout", "tree": { "id": 105 } },
-        { "name": "done early", "tree": { "id": 106 } },
-        { "name": "ping pong tables", "tree": { "id": 107 } },
+        { "name": "late", "tree": { "id": 104 }, "notFlags": ["AI_EMPLOYEES"] },
+        { "name": "burnout", "tree": { "id": 105 }, "notFlags": ["AI_EMPLOYEES"] },
+        { "name": "done early", "tree": { "id": 106 }, "notFlags": ["AI_EMPLOYEES"] },
+        { "name": "ping pong tables", "tree": { "id": 107 }, "notFlags": ["AI_EMPLOYEES"] },
 
         // manager events
         { "name": "deadlines", "tree": { "id": 200 } },

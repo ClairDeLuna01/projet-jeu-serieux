@@ -7,6 +7,7 @@ export class MainMenu {
     private optionsButton: HTMLElement;
     private creditsButton: HTMLElement;
     private howToPlayButton: HTMLElement;
+
     private mainMenu: HTMLElement;
 
     private creditsMenu: HTMLElement;
@@ -20,6 +21,10 @@ export class MainMenu {
 
     private howToPlayMenu: HTMLElement;
     private howToPlayBackButton: HTMLElement;
+
+    private gameOverMenu: HTMLElement;
+    private gameOverRestartButton: HTMLElement;
+    private gameOverMainMenuButton: HTMLElement;
 
     constructor() {
         this.startButton = document.getElementById("main-menu-start")!;
@@ -42,6 +47,10 @@ export class MainMenu {
         this.howToPlayMenu = document.getElementById("how-to-play")!;
         this.howToPlayBackButton = document.getElementById("how-to-play-back")!;
 
+        this.gameOverMenu = document.getElementById("game-over")!;
+        this.gameOverRestartButton = document.getElementById("game-over-restart")!;
+        this.gameOverMainMenuButton = document.getElementById("game-over-main-menu")!;
+
         this.optionsVolumeSlider.value = `${game.getVolume() * 100}`;
         this.updateVolume();
 
@@ -57,6 +66,16 @@ export class MainMenu {
 
         this.howToPlayButton.addEventListener("click", () => this.openHowToPlay());
         this.howToPlayBackButton.addEventListener("click", () => this.closeHowToPlay());
+
+        this.gameOverRestartButton.addEventListener("click", () => {
+            this.gameOverMenu.classList.add("hide");
+            game.play();
+        });
+
+        this.gameOverMainMenuButton.addEventListener("click", () => {
+            this.gameOverMenu.classList.add("hide");
+            this.mainMenu.classList.remove("hide");
+        });
     }
 
     private startGame() {

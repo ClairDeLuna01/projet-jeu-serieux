@@ -13,6 +13,9 @@ export class LetterMinigame {
     private blankElements: HTMLElement[];
     private guessElements: HTMLElement[];
 
+    private effectGood: CardEffect;
+    private effectBad: CardEffect;
+
     private currentBlankIndex = 0;
 
     private game: Game;
@@ -36,8 +39,10 @@ export class LetterMinigame {
         ":D",
     ];
 
-    constructor(letterRaw: string) {
+    constructor(letterRaw: string, effectGood: CardEffect, effectBad: CardEffect) {
         this.letterRaw = letterRaw;
+        this.effectGood = effectGood;
+        this.effectBad = effectBad;
         this.blanks = [];
         this.blankElements = [];
         this.guessElements = [];
@@ -87,28 +92,14 @@ export class LetterMinigame {
         this.blankElements[this.currentBlankIndex].style.backgroundColor = "#ddd";
         this.blankElements[this.currentBlankIndex].style.animation = "";
 
-        const effectGood: CardEffect = {
-            text: "",
-            employeesModifier: 0.05,
-            shareholdersModifier: 0.05,
-            publicPerceptionModifier: 0.05,
-        };
-
-        const effectBad: CardEffect = {
-            text: "",
-            employeesModifier: -0.05,
-            shareholdersModifier: -0.05,
-            publicPerceptionModifier: -0.05,
-        };
-
         console.log(this.blanks[this.currentBlankIndex]);
         console.log(guess);
         if (guess === this.blanks[this.currentBlankIndex]) {
-            this.game.applyCardEffect(effectGood);
+            this.game.applyCardEffect(this.effectGood);
             this.blankElements[this.currentBlankIndex].style.backgroundColor = "#ded";
             this.blankElements[this.currentBlankIndex].style.color = "#050";
         } else {
-            this.game.applyCardEffect(effectBad);
+            this.game.applyCardEffect(this.effectBad);
             this.blankElements[this.currentBlankIndex].style.backgroundColor = "#edd";
             this.blankElements[this.currentBlankIndex].style.color = "#500";
         }
@@ -199,6 +190,30 @@ export class LetterMinigame {
     }
 }
 
-const letterMinigame1 = new LetterMinigame(letter1);
-const letterMinigame2 = new LetterMinigame(letter2);
-export const letterMinigames = [letterMinigame1, letterMinigame2];
+const letterMinigame1 = new LetterMinigame(
+    letter1,
+    {
+        text: "",
+        publicPerceptionModifier: 0.05,
+    },
+    {
+        text: "",
+        publicPerceptionModifier: -0.1,
+    }
+);
+const letterMinigame2 = new LetterMinigame(
+    letter2,
+    {
+        text: "",
+        shareholdersModifier: 0.05,
+    },
+    {
+        text: "",
+        shareholdersModifier: -0.1,
+    }
+);
+
+export const letterMinigames: { [key: string]: LetterMinigame } = {
+    consumers: letterMinigame1,
+    shareholders: letterMinigame2,
+};
