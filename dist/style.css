@@ -1,12 +1,12 @@
 @font-face {
     font-family: "Monogram";
-    src: url("assets/monogram.ttf");
+    src: url("assets/monogram-extended.ttf");
 }
 
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: "Monogram";
     font-size: 16px;
     background-color: #f0f0f0;
     width: 100%;
