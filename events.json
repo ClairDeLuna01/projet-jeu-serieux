@@ -743,7 +743,7 @@
 
         {
             "id": 1302, // Game Over no more shareholders but still lifeline
-            "description": "",
+            "description": "PDG de Nullisoft! Vos dernières actions ont laissé les actionnaires mécontents",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
@@ -1038,7 +1038,7 @@
         { "name": "séminaire", "tree": { "id": 403 } },
         { "name": "baisse des salaires", "tree": { "id": 404 } },
         { "name": "doggo", "tree": { "id": 405 } },
-        { "name": "fire manager", "notFlags": ["MANAGER_FIRED"], "tree": { "id": 406 } }
+        { "name": "fire manager", "notFlags": ["MANAGER_FIRED"], "tree": { "id": 406 } },
 
         // {"name": "event","tree": {"id": 4}},
         // {
@@ -1050,5 +1050,16 @@
         // }
 
         // Game Over events
+        {
+            "name": "Game Over 0 employees first time",
+            "tree": { "id": 1300 },
+            "requiredFlags": ["ZERO_EMPLOYEES"],
+            "notFlags": ["APOLOGY_EMPLOYEES"]
+        },
+        {
+            "name": "Game Over 0 employees second time",
+            "tree": { "id": 1301 },
+            "requiredFlags": ["ZERO_EMPLOYEES", "APOLOGY_EMPLOYEES"]
+        }
     ]
 }

@@ -1,5 +1,6 @@
 import letter1 from "../letters/letter1.txt";
 import letter2 from "../letters/letter2.txt";
+import letter3 from "../letters/letter3.txt";
 import { CardEffect } from "./card";
 import { Game } from "./game";
 
@@ -213,7 +214,20 @@ const letterMinigame2 = new LetterMinigame(
     }
 );
 
+const letterMinigame3 = new LetterMinigame(
+    letter3,
+    {
+        text: "",
+        employeesModifier: 0.05,
+    },
+    {
+        text: "",
+        employeesModifier: -0.1,
+    }
+);
+
 export const letterMinigames: { [key: string]: LetterMinigame } = {
     consumers: letterMinigame1,
     shareholders: letterMinigame2,
+    employees: letterMinigame3,
 };

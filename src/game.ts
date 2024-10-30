@@ -117,6 +117,7 @@ export class Game {
         GAME_OVER: this.gameOver.bind(this),
         APOLOGY_CONSUMERS: this.apologyConsumers.bind(this),
         APOLOGY_SHAREHOLDERS: this.apologyEmployees.bind(this),
+        APOLOGY_EMPLOYEES: this.apologyShareholders.bind(this),
         SPEECH_SHAREHOLDERS: this.speechShareholders.bind(this),
     };
 
@@ -540,6 +541,8 @@ export class Game {
         this.public_perception_element.style.height = `${this.public_perception * 100}%`;
 
         this.score_element.innerText = formatMoney(this.score);
+
+        this.updateBarFlags();
     }
 
     async set_dialogue(value: string): Promise<void> {
@@ -680,12 +683,16 @@ export class Game {
         }
     }
 
+    canEventBeTriggered(event: Event): boolean {
+        return (
+            event.requiredFlags.every((flag) => this.flags.includes(flag)) &&
+            !event.notFlags.some((flag) => this.flags.includes(flag))
+        );
+    }
+
     getAllEventsWithMatchingFlags(flags: string[]): Event[] {
         return events.filter((event) => {
-            return (
-                event.requiredFlags.every((flag) => flags.includes(flag)) &&
-                !event.notFlags.some((flag) => flags.includes(flag))
-            );
+            return this.canEventBeTriggered(event);
         });
     }
 
@@ -697,6 +704,17 @@ export class Game {
             this.shareholders === 1 ||
             this.public_perception === 0 ||
             this.public_perception === 1
+        );
+    }
+
+    isZeroOrMaxFlag(flag: string): boolean {
+        return (
+            flag === "ZERO_EMPLOYEES" ||
+            flag === "ZERO_SHAREHOLDERS" ||
+            flag === "ZERO_PUBLIC_PERCEPTION" ||
+            flag === "MAX_EMPLOYEES" ||
+            flag === "MAX_SHAREHOLDERS" ||
+            flag === "MAX_PUBLIC_PERCEPTION"
         );
     }
 
@@ -718,17 +736,25 @@ export class Game {
     pick_random_event(): void {
         if (this.isAnyBarMaxOrZero()) {
             const matchingEvents = this.getAllEventsWithAppropriateMaxOrZeroFlag();
-            if (matchingEvents.length > 0) {
-                const randomIndex = Math.floor(Math.random() * matchingEvents.length);
-                const event = matchingEvents[randomIndex];
-
-                if (event.requiredFlags.every((flag) => this.flags.includes(flag))) {
-                    this.currentEvent = event;
-                    this.currentEvent.current = this.currentEvent.root;
-                    this.eventHistory.push(event);
-                    this.eventHistory = this.eventHistory.slice(-this.eventHistoryMaxLen);
-                    return;
+            for (const event of matchingEvents) {
+                if (
+                    !(
+                        event.requiredFlags.every(
+                            (flag) => this.flags.includes(flag) || this.barFlags.includes(flag)
+                        ) &&
+                        !event.notFlags.some(
+                            (flag) => this.flags.includes(flag) && !this.barFlags.includes(flag)
+                        )
+                    )
+                ) {
+                    continue;
                 }
+
+                this.currentEvent = event;
+                this.currentEvent.current = this.currentEvent.root;
+                this.eventHistory.push(event);
+                this.eventHistory = this.eventHistory.slice(-this.eventHistoryMaxLen);
+                return;
             }
         }
 
@@ -738,6 +764,13 @@ export class Game {
 
         const matchingEventsFiltered = matchingEvents.filter(
             (event) => !lastFiveEvents.includes(event)
+        );
+
+        // duplicate events with a bar flag, to make it more likely to get them
+        matchingEventsFiltered.push(
+            ...matchingEvents.filter((event) => {
+                return event.requiredFlags.some((flag) => this.barFlags.includes(flag));
+            })
         );
 
         const randomIndex = Math.floor(Math.random() * matchingEventsFiltered.length);
@@ -912,6 +945,12 @@ export class Game {
         this.updateCard();
     }
 
+    async apologyShareholders() {
+        await this.startLetterMinigame(letterMinigames["employees"]);
+        this.pick_random_event();
+        this.updateCard();
+    }
+
     async speechShareholders() {
         await this.startTypingMinigame(typingMinigames["shareholders"]);
         this.pick_random_event();
@@ -933,6 +972,6 @@ export class Game {
 
         this.musics[0].play();
 
-        console.log(letterMinigames);
+        // this.employees = 0.05;
     }
 }
