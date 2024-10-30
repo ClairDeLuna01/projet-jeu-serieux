@@ -250,7 +250,7 @@ export class Game {
 
         card.style.transform = `rotate(${angle * factor}rad) translateX(${translation * factor}%)`;
         // apply the fade to white animation to the card with percentage based on the factor
-        const fadeFactor = 0.8;
+        const fadeFactor = 0.3;
         this.cardImageElement.style.filter = `contrast(${
             1 - abs(factor * fadeFactor)
         }) brightness(${1 - abs(factor * fadeFactor)})`;
