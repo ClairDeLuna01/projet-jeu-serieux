@@ -301,36 +301,55 @@
         // #########################
         {
             "id": 300, // max shareholders reached
-            "description": "Nous avons atteint le nombre maximum d'actionnaires autorisés par la loi. Que devons-nous faire?",
+            "description": "Après votre excellent bilan semestriel, nous souhaitons investir des quantités d'argent excessives dans votre entreprise, avec l'aide de nos collaborateurs nord-coréens. Nullisoft jusqu'à la lune !",
             "card": {
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
-                    "text": "Ce n'est pas grave, nous n'avont qu'à ignorer la loi.",
+                    "text": "JUSQUA LA LUUUUUUUNE !",
                     "shareholdersModifier": 0.2,
                     "publicPerceptionModifier": -0.1,
-                    "goldenParachuteAmount": 10000
+                    "goldenParachuteAmount": 250000
                 },
                 "right": {
-                    "text": "Dommage, rien à faire. On ne peut pas dépasser ce nombre.",
+                    "text": "Euuu, ne vous en faites pas. Je suis assez bien comme ça... ",
                     "shareholdersModifier": -0.2
                 }
             }
         },
         {
             "id": 301, // shareholders are unhappy with the current game
-            "description": "Les actionnaires sont mécontents de la qualité du jeu actuel. Ils menacent de retirer leur investissement si rien n'est fait.",
+            "description": "Nous avons eu l'occasion de voir votre dernier projet. Autant dire que nous sommes déçus. Vous n'avez même pas utilisé le modèle économique que vous aviez promis. Recommencez.",
             "card": {
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
                     "text": "D'accord, on va tout refaire. Encore.",
-                    "employeesModifier": -0.3,
-                    "shareholdersModifier": 0.1
+                    "publicPerceptionModifier": -0.15,
+                    "shareholdersModifier": 0.1,
+                    "goldenParachuteAmount": -50000
                 },
                 "right": {
-                    "text": "Dites-leur que c'est un jeu d'art et qu'ils ne comprennent rien.",
-                    "publicPerceptionModifier": -0.2,
-                    "shareholdersModifier": 0.2,
-                    "goldenParachuteAmount": 10000
+                    "text": "Nos projets sont des œuvres avant tout, faites-moi confiance sur ce coup.",
+                    "publicPerceptionModifier": 0.15,
+                    "shareholdersModifier": -0.1,
+                    "goldenParachuteAmount": 50000
+                }
+            }
+        },
+        {
+            "id": 302, // shareholders are unhappy with the results
+            "description": "Votre jeu a seulement produit trois fois plus d'argent que le précédent, alors que vous nous aviez promis le quadruple ! Nous demandons des mesures strictes, sans quoi nous retirerons nos investissements.",
+            "card": {
+                "image": "assets/cards/shareholder/shareholders.jpg",
+                "left": {
+                    "text": "Taisez-vous et profitez de l'argent un peu.",
+                    "shareholdersModifier": -0.2,
+                    "goldenParachuteAmount": -50000
+                },
+                "right": {
+                    "text": "D'accord, d'accord, oui, tout ce que vous voulez ! Je vire la moitié des équipes, si ça peut vous consoler.",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": 0.15,
+                    "goldenParachuteAmount": 100000
                 }
             }
         },
@@ -934,6 +953,7 @@
         // shareholders events
         { "name": "max shareholders", "tree": { "id": 300 } },
         { "name": "unhappy shareholders", "tree": { "id": 301 } },
+        { "name": "not enough money", "tree": { "id": 302 } },
 
         // misc events
         { "name": "stock market crash", "tree": { "id": 1000 } },
