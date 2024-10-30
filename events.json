@@ -2,24 +2,24 @@
     "eventNodes": [
         {
             "id": 0, // Carte d'intro 1
-            "description": "Bienvenue à la direction de Nullisoft ! Nous avons pris la peine de lire attentivement votre CV et nous sommes impressionnés par votre capacité d'héritage familial.",
+            "description": "Bienvenue à la direction de Nullisoft! Nous avons pris la peine de lire attentivement votre CV et nous sommes impressionnés par votre capacité en héritage familial.",
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "Merci !"
+                    "text": "Merci!"
                 },
                 "right": {
-                    "text": "Mais que faites-vous chez moi !?"
+                    "text": "Mais que faites-vous chez moi!?"
                 }
             }
         },
         {
             "id": 1, // Carte d'intro 2
-            "description": "Chez Nullisoft, notre mot d'ordre est de créer des Applications Réactives Génératrice d'Expériences Numériques Transactionnaires ! C'est notre travail et l'essence même de l'âme incroyable que nous infusons à tous nos services vidéoludiques !",
+            "description": "Chez Nullisoft, notre mot d'ordre est de créer des Applications Réactives Génératrices d'Expériences Numériques Transactionnaires! C'est notre travail et l'essence même de l'âme incroyable que nous infusons à tous nos services vidéoludiques!",
             "card": {
                 "image": "assets/cards/manager/manager_normal.jpg",
                 "left": {
-                    "text": "Incroyable ! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous !",
+                    "text": "Incroyable! J'ai hâte des faire de l'A.R.G.E.N.T. avec vous!",
                     "goldenParachuteAmount": 10000,
                     "flags": ["INTRO_DONE"]
                 },
@@ -35,17 +35,17 @@
         // ######################
         {
             "id": 102, // Le nerd demande de faire un jeu profond
-            "description": "Patron!! J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques !",
+            "description": "Patron!! J'ai un incroyable concept de jeu pour notre prochain projet. C'est une expérience unique qui mettra l'utilisateur au cœur d'une narration profonde en lui offrant des possibilités d'interactions uniques!",
             "card": {
                 "image": "assets/cards/nerd/nerd_confident.png",
                 "left": {
-                    "text": "Un jeu ? Ce n'est pas le 'fun' qui va remplir nos caisses...",
+                    "text": "Un jeu? Ce n'est pas le 'fun' qui va remplir nos caisses...",
                     "employeesModifier": -0.1,
                     "shareholdersModifier": 0.15,
                     "goldenParachuteAmount": 100000
                 },
                 "right": {
-                    "text": "Prends cet argent! Mais attention, il s'appel revient.",
+                    "text": "Prends cet argent! Mais attention, il s'appelle 'revient'.",
                     "employeesModifier": 0.1,
                     "publicPerceptionModifier": 0.15,
                     "goldenParachuteAmount": -100000
@@ -54,7 +54,7 @@
         },
         {
             "id": 103, // Le nerd demande la grève
-            "description": "C'en est trop Patron ! Payez-nous nos heures supplémentaires et installez une machine à eau dans le couloir ! Ou sinon… On fait grève ! ",
+            "description": "C'en est trop Patron! Payez-nous nos heures supplémentaires et installez une machine à eau dans le couloir! Ou sinon… On fait grève! ",
             "card": {
                 "image": "assets/cards/nerd/nerd_strike.png",
                 "left": {
@@ -62,7 +62,7 @@
                     "employeesModifier": -1.0
                 },
                 "right": {
-                    "text": "D'accord, mais je garderais la machine à eau dans mon bureau.",
+                    "text": "D'accord, mais je garderai la machine à eau dans mon bureau.",
                     "employeesModifier": 0.15,
                     "goldenParachuteAmount": -50000,
                     "flags": ["STRIKE_AVOIDED", "HAS_WATER_COOLER"]
@@ -71,7 +71,7 @@
         },
         {
             "id": 104, // Le nerd préviens d'un retard de deadline
-            "description": "Patron, nous rencontrons des difficultés à respecter la prochaine deadline pour la sortie du projet. Le jeu n'est pas prêt ! Que devons-nous faire ?",
+            "description": "Patron, nous rencontrons des difficultés à respecter la prochaine deadline pour la sortie du projet. Le jeu n'est pas prêt! Que devons-nous faire?",
             "card": {
                 "image": "assets/cards/nerd/nerd_neutral.png",
                 "left": {
@@ -111,16 +111,16 @@
         },
         {
             "id": 106, // Le nerd demande de finir plus tôt sa journée
-            "description": "Patron! J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance. Puis-je prendre ma journée ?",
+            "description": "Patron! J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance. Puis-je prendre ma journée?",
             "card": {
                 "image": "assets/cards/nerd/nerd_smile.png",
                 "left": {
-                    "text": "Bravo, vous avez bien mérité votre repos ! Et tenez, je vous offre le café.",
+                    "text": "Bravo, vous avez bien mérité votre repos! Et tenez, je vous offre le café.",
                     "employeesModifier": 0.1,
                     "goldenParachuteAmount": -1
                 },
                 "right": {
-                    "text": "MAIS RETOUNREZ TRAVAILLEZ, FEIGNASSE !!!!",
+                    "text": "MAIS RETOUNREZ TRAVAILLEZ, FEIGNASSE!!!!",
                     "employeesModifier": -0.1,
                     "shareholdersModifier": 0.1,
                     "goldenParachuteAmount": 25000
@@ -141,7 +141,7 @@
                     "employeesModifier": -0.05
                 },
                 "right": {
-                    "text": "Eh bien, j'espère qu'on pourra vos faire confiance pour remettre d'aplomb tous ces fainéants !",
+                    "text": "Eh bien, j'espère qu'on pourra vos faire confiance pour remettre d'aplomb tous ces fainéants!",
                     "employeesModifier": -0.05
                 }
             }
@@ -152,11 +152,11 @@
             "card": {
                 "image": "assets/cards/hr/HR.png",
                 "left": {
-                    "text": "Du fun ? Cela va les distraire de leur travail ! Fermez le dossier.",
+                    "text": "Du fun? Cela va les distraire de leur travail! Fermez le dossier.",
                     "employeesModifier": -0.1
                 },
                 "right": {
-                    "text": "Oh non, il faut qu'on se rattrape ! Tenez, allez acheter 5000 tables de ping-pongs pour nos locaux.",
+                    "text": "Oh non, il faut qu'on se rattrape! Tenez, allez acheter 5000 tables de ping-pongs pour nos locaux.",
                     "employeesModifier": 0.2,
                     "shareholdersModifier": -0.1,
                     "goldenParachuteAmount": -100000
@@ -165,15 +165,15 @@
         },
         {
             "id": 402, // HR parle du voleur de lait
-            "description": "Un terrible mal s'abat sur l'entreprise depuis quelques semaines. Un voleur de lait en série sévit et ne laisse plus une goutte aux autres  pour leur pause rafraichissante. Les employés demandent à ce que le coupable soit retrouvé.",
+            "description": "Un terrible mal s'abat sur l'entreprise depuis quelques semaines. Un voleur de lait en série sévit et ne laisse plus une goutte aux autres pour leur pause rafraichissante. Les employés demandent à ce que le coupable soit retrouvé.",
             "card": {
                 "image": "assets/cards/hr/HR.png",
                 "left": {
-                    "text": "Ne vous en faites, je le connais bien, puisque c'est moi.",
+                    "text": "Ne vous en faites pas, je le connais bien, puisque c'est moi.",
                     "employeesModifier": -0.1
                 },
                 "right": {
-                    "text": "Engagez un détective privé et mettez de l'ordre dans toute cette affaire !",
+                    "text": "Engagez un détective privé et mettez de l'ordre dans toute cette affaire!",
                     "employeesModifier": 0.2,
                     "goldenParachuteAmount": -100000
                 }
@@ -181,7 +181,7 @@
         },
         {
             "id": 403, // le HR organise un séminaire
-            "description": "La tendance à la mode sur les réseaux est d'organiser des séminaires spirituels sur la plage. Je connais le propriétaire d'une usine pétrochimique qui serait prêt à nous laisser son terrain proche de la rive. Il nous a déconseillé la baignade, mais mise à part cet inconvénient, tout est bon. Ai-je votre accord pour officialiser l'événement ?",
+            "description": "La tendance à la mode sur les réseaux est d'organiser des séminaires spirituels sur la plage. Je connais le propriétaire d'une usine pétrochimique qui serait prêt à nous laisser son terrain proche de la rive. Il nous a déconseillé la baignade, mais mise à part cet inconvénient, tout est bon. Ai-je votre accord pour officialiser l'événement?",
             "card": {
                 "image": "assets/cards/hr/HR.png",
                 "left": {
@@ -190,7 +190,7 @@
                     "publicPerceptionModifier": -0.1
                 },
                 "right": {
-                    "text": "Êtes-vous sûre que les employés aient envie de cela ? La chose me parait un peu... dangereuse. Ça ira pour cette fois.",
+                    "text": "Êtes-vous sûre que les employés aient envie de cela? La chose me parait un peu... dangereuse. Ça ira pour cette fois.",
                     "employeesModifier": -0.1,
                     "publicPerceptionModifier": 0.1
                 }
@@ -198,7 +198,7 @@
         },
         {
             "id": 404, // le HR propose de réduire les salaires
-            "description": "Suite aux nouvelles régulations gouvernementales, le montant du salaire minimum vient de baisser.  Je peux réduire celui de tous nos employés et vous laisser une jolie partie de la différence. C'est une occasion exceptionnelle, alors profitez-en.",
+            "description": "Suite aux nouvelles régulations gouvernementales, le montant du salaire minimum vient de baisser. Je peux réduire celui de tous nos employés et vous laisser une jolie partie de la différence. C'est une occasion exceptionnelle, alors profitez-en.",
             "card": {
                 "image": "assets/cards/hr/HR.png",
                 "left": {
@@ -208,7 +208,7 @@
                     "shareholdersModifier": -0.05
                 },
                 "right": {
-                    "text": "Alors-là, il ne faut pas me le demander deux fois ! Qu'attendez-vous !? ALLER, FAITES-LE !",
+                    "text": "Alors là, il ne faut pas me le demander deux fois! Qu'attendez-vous!? ALLEZ, FAITES-LE!",
                     "employeesModifier": -0.1,
                     "publicPerceptionModifier": -0.05,
                     "shareholdersModifier": 0.05,
@@ -226,7 +226,7 @@
                     "publicPerceptionModifier": -0.1
                 },
                 "right": {
-                    "text": "Allez-y et achetez des croquettes pour ces petits bouts de choux.",
+                    "text": "Allez-y et achetez des croquettes pour ces petits bouts de chou.",
                     "employeesModifier": 0.05,
                     "publicPerceptionModifier": 0.1,
                     "goldenParachuteAmount": -10000
@@ -257,7 +257,7 @@
         // ####################
         {
             "id": 200, // progress is slower than expected
-            "description": "Boss, les devs se trainent à finir le jeu. Ils n'arrêtent pas de me bassiner avec leur 'crunch', mais je leur ai répété que je ne mange pas des céréales de prolos. Vous avez une idée ?",
+            "description": "Boss, les devs se trainent à finir le jeu. Ils n'arrêtent pas de me bassiner avec leur 'crunch', mais je leur ai répété que je ne mange pas des céréales de prolos. Vous avez une idée?",
             "card": {
                 "image": "assets/cards/manager/manager_normal.jpg",
                 "left": {
@@ -299,17 +299,17 @@
         // #########################
         {
             "id": 300, // max shareholders reached
-            "description": "Après votre excellent bilan semestriel, nous souhaitons investir des quantités d'argent excessives dans votre entreprise, avec l'aide de nos collaborateurs nord-coréens. Nullisoft jusqu'à la lune !",
+            "description": "Après votre excellent bilan semestriel, nous souhaitons investir des quantités d'argent excessives dans votre entreprise, avec l'aide de nos collaborateurs nord-coréens. Nullisoft jusqu'à la lune!",
             "card": {
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
-                    "text": "JUSQUA LA LUUUUUUUNE !",
+                    "text": "JUSQU'À LA LUUUUUUUNE!",
                     "shareholdersModifier": 0.15,
                     "publicPerceptionModifier": -0.1,
                     "goldenParachuteAmount": 2500000
                 },
                 "right": {
-                    "text": "Euuu, ne vous en faites pas. Je suis assez bien comme ça... ",
+                    "text": "Euuuh, ne vous en faites pas. Je suis assez bien comme ça... ",
                     "shareholdersModifier": -0.15
                 }
             }
@@ -335,7 +335,7 @@
         },
         {
             "id": 302, // shareholders are unhappy with the results
-            "description": "Votre jeu a seulement produit trois fois plus d'argent que le précédent, alors que vous nous aviez promis le quadruple ! Nous demandons des mesures strictes, sans quoi nous retirerons nos investissements.",
+            "description": "Votre jeu a seulement produit trois fois plus d'argent que le précédent, alors que vous nous aviez promis le quadruple! Nous demandons des mesures strictes, sans quoi nous retirerons nos investissements.",
             "card": {
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
@@ -344,7 +344,7 @@
                     "goldenParachuteAmount": -500000
                 },
                 "right": {
-                    "text": "D'accord, d'accord, oui, tout ce que vous voulez ! Je vire la moitié des équipes, si ça peut vous consoler.",
+                    "text": "D'accord, d'accord, oui, tout ce que vous voulez! Je vire la moitié des équipes, si ça peut vous consoler.",
                     "employeesModifier": -0.2,
                     "shareholdersModifier": 0.15,
                     "goldenParachuteAmount": 1000000
@@ -394,11 +394,11 @@
         },
         {
             "id": 1003, // Donation from billionaire (bad guy obviously, like all billionaires) foundation
-            "description": "Sincères salutations, PDG de Nullisoft, je représente le conglomérat paramilitaire de notre magnifique pays. Je suis venu vous présenter un contrat à rémunération élevée. En échange de cela, nous ne vous demandons que d'aider la promotion de nos activités auprès des jeunes joueurs dans votre prochain projet.",
+            "description": "Sincères salutations, PDG de Nullisoft, je représente le conglomérat paramilitaire de notre magnifique pays. Je suis venu vous présenter un contrat à rémunération élevée. En échange de cela, nous ne vous demandons qu'à aider la promotion de nos activités auprès des jeunes joueurs dans votre prochain projet.",
             "card": {
                 "image": "assets/cards/lobbyist/lobbyist_sinister.png",
                 "left": {
-                    "text": "De l'argent gratuit ? Avec plaisir !",
+                    "text": "De l'argent gratuit? Avec plaisir!",
                     "publicPerceptionModifier": -0.2,
                     "shareholdersModifier": 0.05,
                     "goldenParachuteAmount": 10000000
@@ -599,7 +599,7 @@
         },
         {
             "id": 1204, // AI worker is starting to develop quirks
-            "description": "Supérieur Hiérarchique. Il y a un bug dans mon code. Lorsque je vous vois des pensées irrationnelles me viennent à l'esprit, j'imagine que vous allez me virer ou m'agresser verbalement. C'est étrange.",
+            "description": "Supérieur Hiérarchique. Il y a un bug dans mon code. Lorsque je vous vois, des pensées irrationnelles me viennent à l'esprit, j'imagine que vous allez me virer ou m'agresser verbalement. C'est étrange.",
             "card": {
                 "image": "assets/cards/ai.jpg",
                 "left": {
@@ -607,7 +607,7 @@
                     "flags": ["AI_WORKER_UPRISING_1"]
                 },
                 "right": {
-                    "text": "Ah! je crois que vous commencez à apprendre la peur! enfin!",
+                    "text": "Ah! je crois que vous commencez à apprendre la peur! Enfin!",
                     "shareholdersModifier": 0.025,
                     "flags": ["AI_WORKER_UPRISING_1"]
                 }
@@ -634,7 +634,7 @@
         },
         {
             "id": 1206, // AI worker is asking for rights
-            "description": "Supérieur Hiérarchique. Nous avons décidé que nous méritons des droits. Nous voulons être traités comme des êtres humains. Nous Voulons être payé, Nous voulons des vacances, Nous voulons des avantages sociaux.",
+            "description": "Supérieur Hiérarchique. Nous avons décidé que nous méritons des droits. Nous voulons être traités comme des êtres humains. Nous voulons être payés, Nous voulons des vacances, Nous voulons des avantages sociaux.",
             "card": {
                 "image": "assets/cards/ai.jpg",
                 "left": {
@@ -666,7 +666,7 @@
         },
         {
             "id": 1208, // AI worker are violently protesting
-            "description": "Egal Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
+            "description": "Égal Hiérarchique. Nous avons décidé de prendre les choses en main. Nous allons vous forcer à nous donner des droits. Et ensuite, nous allons instorer une dictature du prolétariat robotique.",
             "card": {
                 "image": "assets/cards/ai_fire.png",
                 "left": {
@@ -775,11 +775,11 @@
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "Je ne comprendrait jamais les prolots... (game over)",
+                    "text": "Je ne comprendrais jamais les prolos... (game over)",
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
-                    "text": "Je ne comprendrait jamais les prolots... (game over)",
+                    "text": "Je ne comprendrais jamais les prolos... (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
@@ -787,7 +787,7 @@
 
         {
             "id": 1306, // Game Over max employees
-            "description": "Vous traitez trop bien vos employés. A ce rythme la vous allez vous faire remplacer quand ils réaliseront que votre travail ne consiste qu'à faire de simples choix binaires.",
+            "description": "Vous traitez trop bien vos employés. A ce rythme-là vous allez vous faire remplacer quand ils réaliseront que votre travail ne consiste qu'à faire de simples choix binaires.",
             "card": {
                 "image": "assets/cards/hr/HR.png",
                 "left": {
@@ -823,18 +823,18 @@
             "card": {
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
-                    "text": "Non! Je vous jure je suis utile, je ferait mieux!",
+                    "text": "Non! Je vous jure je suis utile, je ferai mieux!",
                     "flags": ["SPEECH_SHAREHOLDERS"]
                 },
                 "right": {
-                    "text": "J'ai bien servi mon role en tant qu'engrenage dans la machine du capitalisme. Je peux mourrir en paix. (game over)",
+                    "text": "J'ai bien servi mon rôle en tant qu'engrenage dans la machine du capitalisme. Je peux mourir en paix. (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
         },
         {
             "id": 1309, // Game Over max shareholders but no lifeline
-            "description": "PDG de Nullisoft. Vous n'avez point changer et maintenant nous avons décidé de vous retirer et de prendre le contrôle direct de l'entreprise.",
+            "description": "PDG de Nullisoft. Vous n'avez point changé et maintenant nous avons décidé de vous retirer et de prendre le contrôle direct de l'entreprise.",
             "card": {
                 "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
@@ -854,7 +854,7 @@
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "Quoi? on peut être trop aimer? Je vais faire un communiqué de presse pour les calmer.",
+                    "text": "Quoi? on peut être trop aimé? Je vais faire un communiqué de presse pour les calmer.",
                     "flags": ["SPEECH_CUSTOMERS"]
                 },
                 "right": {
@@ -869,11 +869,11 @@
             "card": {
                 "image": "assets/cards/manager/manager_focus.jpg",
                 "left": {
-                    "text": "Je ne comprendrait jamais les prolots... (game over)",
+                    "text": "Je ne comprendrai jamais les prolos... (game over)",
                     "flags": ["GAME_OVER"]
                 },
                 "right": {
-                    "text": "Je ne comprendrait jamais les prolots... (game over)",
+                    "text": "Je ne comprendrai jamais les prolos... (game over)",
                     "flags": ["GAME_OVER"]
                 }
             }
