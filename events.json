@@ -361,23 +361,23 @@
             "id": 1000, // stock market crash :(
             "description": "Oh non!! Le marché boursier s'est effondré! Les actions de Nullisoft ont chuté de 50%!",
             "card": {
-                "image": "assets/cards/stock_market_crash.jpg",
+                "image": "assets/cards/shareholder/shareholders.jpg",
                 "left": {
-                    "text": "C'est la fin! Vendons tout!",
-                    "employeesModifier": -0.2,
-                    "shareholdersModifier": -0.5,
-                    "goldenParachuteAmount": 10000
+                    "text": "Vendre la majorité de vos actions pour amortir le coup.",
+                    "employeesModifier": -0.1,
+                    "shareholdersModifier": -0.15,
+                    "goldenParachuteAmount": 100000
                 },
                 "right": {
-                    "text": "Achetez des actions! C'est le moment d'investir!",
-                    "employeesModifier": -0.4,
+                    "text": "Faire un appel aux investisseurs en faisant miroité des prédictions de revenus incroyables.",
+                    "employeesModifier": -0.1,
                     "shareholdersModifier": 0.3,
-                    "goldenParachuteAmount": -10000
+                    "goldenParachuteAmount": -100000
                 }
             }
         },
         {
-            "id": 1001, // heavy snowfall // TODO : fix left text later (it causes my copilot to break cause it's a bad word in english 🤓)
+            "id": 1001, // heavy snowfall 
             "description": "Oh non!! Il neige à Game City! Les transports en commun sont perturbés et les employés ont du mal à se rendre au travail!",
             "card": {
                 "image": "assets/cards/snow.jpg",
