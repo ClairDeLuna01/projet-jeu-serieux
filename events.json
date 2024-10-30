@@ -1028,5 +1028,7 @@
         //         "flags": ["MAX_SHAREHOLDERS"]
         //     }
         // }
+
+        // Game Over events
     ]
 }
