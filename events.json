@@ -112,7 +112,7 @@
         },
         {
             "id": 106, // Le nerd demande de finir plus tôt sa journée
-            "description": "Patron! J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance, patron. Puis-je prendre ma journée ?",
+            "description": "Patron! J'ai fini d'implémenter la mécanique de rebondissement réaliste de la poitrine des personnages en avance. Puis-je prendre ma journée ?",
             "card": {
                 "image": "assets/cards/nerd/nerd_smile.png",
                 "left": {
@@ -128,17 +128,22 @@
                 }
             }
         },
+
+
+        // ######################
+        // ## MISC HR EVENTS   ##
+        // ######################
         {
             "id": 107, // "But the other company has ping pong tables"
-            "description": "Patron! Les employés de la concurrence ont des tables de ping pong dans leur bureau! On doit en avoir une aussi!",
+            "description": "Monsieur, les employés ont exprimé des remarques sur 'l'absence de vie et de joie' à l'intérieur des locaux. Notre concurrence vient de nous devancer avec des tables de ping-pong dans leurs bureaux qui font des cartons sur les réseaux sociaux. ",
             "card": {
-                "image": "assets/cards/nerd/nerd_depression.png",
+                "image": "assets/cards/nerd/nerd_depression.png", /* TODO : mettre à jour l'image*/
                 "left": {
-                    "text": "Non, c'est une perte de temps. Retournez travailler.",
+                    "text": "Du fun ? Cela va les distraire de leur travail ! Fermez le dossier.",
                     "employeesModifier": -0.1
                 },
                 "right": {
-                    "text": "5000 tables de ping pong pour tout le monde!! Je vais les acheter avec mon propre argent!",
+                    "text": "Oh non, il faut qu'on se rattrape ! Tenez, allez acheter 5000 tables de ping-pongs pour nos locaux.",
                     "employeesModifier": 0.2,
                     "shareholdersModifier": -0.1,
                     "goldenParachuteAmount": -10000 // 2 dollars ping pong table 😭
@@ -152,18 +157,18 @@
         {
             "id": 200, // progress is slower than expected
             // TODO: fix the french word "ret ard" in the left text later
-            "description": "Boss! Les larbins ont pris du ret ard sur le projet. A ce rythme là, on ne pourra pas respecter les delais du sprint! Que devons-nous faire?",
+            "description": "Boss, les devs se trainent à finir le jeu. Ils n'arrêtent pas de me bassiner avec leur 'crunch', mais je leur ai répété que je ne mange pas des céréales de prolos. Vous avez une idée ?",
             "card": {
                 "image": "assets/cards/manager/card_placeholder.png", // TODO: image
                 "left": {
-                    "text": "Doublons les heures supplémentaires mandatoires! Pas de pitié pour les faibles!",
+                    "text": "Simple : S'ils se trainent, alors ils se taisent et travaillent plus.",
                     "employeesModifier": -0.3,
                     "goldenParachuteAmount": 5000,
                     "shareholdersModifier": 0.1,
                     "flags": ["EMPLOYEES_OVERWORKED"]
                 },
                 "right": {
-                    "text": "C'est pas grave, on repousse la date de sortie.",
+                    "text": "Laissez-les se reposer un peu. On repoussera la deadline cette fois-ci.",
                     "employeesModifier": 0.1,
                     "goldenParachuteAmount": -5000,
                     "shareholdersModifier": -0.2,
@@ -173,21 +178,23 @@
         },
         {
             "id": 201, // we are getting review bombed
-            "description": "Boss! Un groupe de joueurs mécontents a commencé à bombarder notre jeu de critiques négatives. Que devons-nous faire?",
+            "description": "Boss, des losers énervés s'amusent à bombarder le jeu d'avis négatifs. Les journaleux n'arrêtent pas de nous harceler avec ça.",
             "card": {
                 "image": "assets/cards/manager/card_placeholder.png", // TODO: image
                 "left": {
-                    "text": "Trouvons qui sont ces gens et faisons en sorte qu'ils comprennent leur erreur.",
-                    "publicPerceptionModifier": -0.2,
+                    "text": "Ils se plaignent, mais ils achètent toujours. Ignorez-les.",
+                    "publicPerceptionModifier": -0.1,
                     "shareholdersModifier": 0.1
                 },
                 "right": {
-                    "text": "Ignorez-les. Les critiques ne sont que des haters jaloux.",
-                    "publicPerceptionModifier": -0.1,
-                    "shareholdersModifier": -0.2
+                    "text": "Remboursez ceux qui sont mécontents, et voyez avec les designers ce qui n'a pas plu aux joueurs.",
+                    "publicPerceptionModifier": 0.1,
+                    "shareholdersModifier": -0.1
                 }
             }
         },
+
+// ======================== Arthur s'est arrêté ici ======================== //
 
         // #########################
         // ## SHAREHOLDERS EVENTS ##
