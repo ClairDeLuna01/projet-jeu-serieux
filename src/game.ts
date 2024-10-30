@@ -1009,10 +1009,12 @@ export class Game {
 
         this.musics[0].play();
 
-        this.score = 2_534_123;
-        this.gameOver();
+        // this.score = 2_534_123;
+        // this.gameOver();
 
         // this.employees = 0.05;
         // this.set_shareholders(1);
+
+        // this.startLetterMinigame(letterMinigames["consumers"]);
     }
 }
